@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/nextcloud/2.0.23",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
+            "normalize/acl",
             "definitions/nodeIP",
             "normalize/ixVolume",
-            "normalize/acl",
             "definitions/certificate"
         ],
         "human_version": "31.0.0_2.0.23",
@@ -2289,9 +2289,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/nextcloud/2.0.15",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
+            "normalize/acl",
             "definitions/nodeIP",
             "normalize/ixVolume",
-            "normalize/acl",
             "definitions/certificate"
         ],
         "human_version": "29.0.6_2.0.15",

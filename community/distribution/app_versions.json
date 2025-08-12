@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/distribution/1.2.4",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "normalize/acl",
+            "normalize/ixVolume",
             "definitions/certificate"
         ],
         "human_version": "2.8.3_1.2.4",

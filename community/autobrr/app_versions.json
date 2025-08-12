@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/autobrr/1.2.32",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
+            "definitions/timezone",
             "normalize/acl",
-            "definitions/timezone"
+            "normalize/ixVolume"
         ],
         "human_version": "1.59.0_1.2.32",
         "version": "1.2.32",

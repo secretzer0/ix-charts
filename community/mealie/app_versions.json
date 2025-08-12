@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/mealie/1.0.34",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
+            "definitions/timezone",
             "normalize/acl",
-            "definitions/timezone"
+            "normalize/ixVolume"
         ],
         "human_version": "2.6.0_1.0.34",
         "version": "1.0.34",
