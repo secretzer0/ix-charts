@@ -3,11 +3,11 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/mumble/1.0.22",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/__w/ix-charts/ix-charts/community/mumble/1.0.22",
+        "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/certificate"
+            "definitions/certificate",
+            "normalize/ixVolume"
         ],
         "human_version": "v1.4.230_1.0.22",
         "version": "1.0.22",

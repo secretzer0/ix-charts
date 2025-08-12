@@ -3,12 +3,12 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/recyclarr/1.2.13",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/__w/ix-charts/ix-charts/community/recyclarr/1.2.13",
+        "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/timezone"
         ],
         "human_version": "7.4.1_1.2.13",
         "version": "1.2.13",

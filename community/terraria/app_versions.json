@@ -3,8 +3,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/terraria/1.0.23",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/__w/ix-charts/ix-charts/community/terraria/1.0.23",
+        "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume"
         ],

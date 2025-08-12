@@ -3,11 +3,11 @@
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/charts/charts/charts/storj/2.0.1",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/__w/ix-charts/ix-charts/charts/storj/2.0.1",
+        "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "v1.68.2_2.0.1",
         "version": "2.0.1",
@@ -1555,8 +1555,8 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/charts/storj/1.0.18",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/__w/ix-charts/ix-charts/charts/storj/1.0.18",
+        "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume"
         ],

@@ -3,11 +3,11 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/charts/charts/community/overseerr/1.0.26",
-        "last_update": "2025-03-06 08:26:26",
+        "location": "/__w/ix-charts/ix-charts/community/overseerr/1.0.26",
+        "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "1.33.2_1.0.26",
         "version": "1.0.26",
