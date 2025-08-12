@@ -13,9 +13,8 @@ jobs:
     # 1. Build and publish the Docker image (see docker/README.md)
     # 2. Rename this file to format_validation.yml (replacing the original)
     container:
-      image: secretzer0/truenas-dragonfish-validation:latest
-      # Alternative if using GitHub Container Registry:
-      # image: ghcr.io/secretzer0/truenas-dragonfish-validation:latest
+      # Using our forked validation tools from GitHub Container Registry
+      image: ghcr.io/secretzer0/ix_catalog_validation:latest
 
     steps:
       - uses: actions/checkout@v3

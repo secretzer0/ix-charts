@@ -244,22 +244,29 @@ The repository includes several GitHub Actions workflows that run automatically:
 - `charts/collabora/1.2.30/ci/*.yaml` - Test domains changed from ssh.sonicaj.com to example.com
 
 **External Dependencies**:
-- Docker image: `ixsystems/catalog_validation:latest` (publicly available on Docker Hub)
+- Docker image: `ghcr.io/secretzer0/ix_catalog_validation:latest` (our forked validation tools)
+- Forked repository: https://github.com/secretzer0/ix_catalog_validation
 - GitHub Actions from marketplace (all publicly available)
 - No custom secrets required (GITHUB_TOKEN is automatically provided)
 
 **Branch Configuration**:
 - Repository now uses 'main' as default branch (updated from 'master' for inclusivity)
 - All workflow files updated to reference 'main' branch
+- Validation tools fork also uses 'main' branch
 
 ### Running Validation Locally
 
 ```bash
+# Pull our forked validation image
+docker pull ghcr.io/secretzer0/ix_catalog_validation:latest
+
 # Validate catalog format
-docker run -v $(pwd):/data ixsystems/catalog_validation:latest validate --path /data
+docker run -v $(pwd):/data ghcr.io/secretzer0/ix_catalog_validation:latest \
+  catalog_validate validate --path /data
 
 # Validate development charts
-docker run -v $(pwd):/data ixsystems/catalog_validation:latest dev_charts_validate validate --path /data
+docker run -v $(pwd):/data ghcr.io/secretzer0/ix_catalog_validation:latest \
+  dev_charts_validate validate --path /data
 ```
 
 ## Maintenance Strategy
