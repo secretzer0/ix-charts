@@ -1,5 +1,5 @@
 image:
-  repository: ghcr.io/onedr0p/transmission
+  repository: ghcr.io/home-operations/transmission
   pullPolicy: IfNotPresent
   tag: 4.0.6
 

@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/onedr0p/sonarr
+  repository: ghcr.io/home-operations/sonarr
   pullPolicy: IfNotPresent
-  tag: 4.0.15.2941
+  tag: 4.0.15.2940
 
 resources:
   limits:
