@@ -7,9 +7,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/nodeIP",
-            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/certificate"
         ],
         "human_version": "31.0.0_2.0.23",
         "version": "2.0.23",
@@ -2290,9 +2290,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/nodeIP",
-            "definitions/certificate",
+            "normalize/acl",
             "normalize/ixVolume",
-            "normalize/acl"
+            "definitions/certificate"
         ],
         "human_version": "29.0.6_2.0.15",
         "version": "2.0.15",
@@ -4572,9 +4572,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/nextcloud/1.6.61",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/nodeIP",
             "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/nodeIP"
         ],
         "human_version": "29.0.0_1.6.61",
         "version": "1.6.61",
@@ -5396,9 +5396,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/nextcloud/1.6.59",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/nodeIP",
             "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/nodeIP"
         ],
         "human_version": "28.0.4_1.6.59",
         "version": "1.6.59",
@@ -6220,9 +6220,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/nextcloud/1.6.53",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/nodeIP",
             "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/nodeIP"
         ],
         "human_version": "27.1.4_1.6.53",
         "version": "1.6.53",
@@ -7044,9 +7044,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/nextcloud/1.6.29",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/nodeIP",
             "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/nodeIP"
         ],
         "human_version": "26.0.2_1.6.29",
         "version": "1.6.29",
