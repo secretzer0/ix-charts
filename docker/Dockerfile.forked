@@ -1,0 +1,101 @@
+# TrueNAS Charts Validation Tools Docker Image
+# For maintaining TrueNAS Dragonfish 24.04 charts repository
+# This version uses our forked repositories for complete independence
+
+FROM python:3.11-slim
+
+LABEL maintainer="secretzer0 <tmelhiser@gmail.com>"
+LABEL description="Custom validation tools for TrueNAS Dragonfish charts (forked version)"
+LABEL version="2.0.0"
+
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        git \
+        curl \
+        ca-certificates \
+        && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Clone our forked catalog_validation repository
+# Using our fork ensures stability and main branch compatibility
+RUN git clone https://github.com/secretzer0/catalog_validation.git /app/catalog_validation && \
+    cd /app/catalog_validation && \
+    git checkout main || git checkout master
+
+# Install Python dependencies
+RUN cd /app/catalog_validation && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -e .
+
+# Clone our forked catalog_update repository (for future use)
+RUN git clone https://github.com/secretzer0/catalog_update.git /app/catalog_update || echo "catalog_update fork not yet available" && \
+    if [ -d /app/catalog_update ]; then \
+        cd /app/catalog_update && \
+        pip install --no-cache-dir -r requirements.txt && \
+        pip install --no-cache-dir -e . ; \
+    fi
+
+# Create wrapper scripts that handle the main branch properly
+RUN echo '#!/bin/bash\n\
+set -e\n\
+# Set default branch to main\n\
+export DEFAULT_BRANCH="${DEFAULT_BRANCH:-main}"\n\
+export GIT_BRANCH="${GIT_BRANCH:-main}"\n\
+# Execute the validation script\n\
+cd /app/catalog_validation\n\
+python -m catalog_validation.scripts.catalog_validate "$@"' > /usr/local/bin/catalog_validate && \
+    chmod +x /usr/local/bin/catalog_validate
+
+RUN echo '#!/bin/bash\n\
+set -e\n\
+# Set default branch to main\n\
+export DEFAULT_BRANCH="${DEFAULT_BRANCH:-main}"\n\
+export GIT_BRANCH="${GIT_BRANCH:-main}"\n\
+# Execute the dev charts validation script\n\
+cd /app/catalog_validation\n\
+python -m catalog_validation.scripts.dev_charts_validate "$@"' > /usr/local/bin/dev_charts_validate && \
+    chmod +x /usr/local/bin/dev_charts_validate
+
+# Add catalog_update wrapper if available
+RUN echo '#!/bin/bash\n\
+set -e\n\
+if [ -d /app/catalog_update ]; then\n\
+    cd /app/catalog_update\n\
+    python -m catalog_update.main "$@"\n\
+else\n\
+    echo "catalog_update not available in this image"\n\
+    exit 1\n\
+fi' > /usr/local/bin/catalog_update && \
+    chmod +x /usr/local/bin/catalog_update
+
+# Add a comprehensive health check script
+RUN echo '#!/bin/bash\n\
+echo "=== TrueNAS Dragonfish Validation Tools ===" \n\
+echo "Version: 2.0.0 (Forked)" \n\
+echo "Maintainer: secretzer0" \n\
+echo "" \n\
+echo "Checking available tools:" \n\
+catalog_validate --help > /dev/null 2>&1 && echo "✓ catalog_validate: OK" || echo "✗ catalog_validate: FAILED" \n\
+dev_charts_validate --help > /dev/null 2>&1 && echo "✓ dev_charts_validate: OK" || echo "✗ dev_charts_validate: FAILED" \n\
+if [ -d /app/catalog_update ]; then \n\
+    catalog_update --help > /dev/null 2>&1 && echo "✓ catalog_update: OK" || echo "✗ catalog_update: NOT FUNCTIONAL" \n\
+else \n\
+    echo "○ catalog_update: NOT INSTALLED (fork pending)" \n\
+fi \n\
+echo "" \n\
+echo "Default branch: main" \n\
+echo "Repository: https://github.com/secretzer0/ix-charts"' > /usr/local/bin/health_check && \
+    chmod +x /usr/local/bin/health_check
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV DEFAULT_BRANCH=main
+ENV GIT_BRANCH=main
+
+# Default command
+CMD ["/usr/local/bin/health_check"]
