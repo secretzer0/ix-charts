@@ -13,7 +13,7 @@
             "latest_version": "2.0.23",
             "latest_app_version": "31.0.0",
             "latest_human_version": "31.0.0_2.0.23",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "nextcloud",
             "recommended": false,
             "title": "Nextcloud",
@@ -92,7 +92,7 @@
             "latest_version": "2403.0.0",
             "latest_app_version": "v1",
             "latest_human_version": "v1_2403.0.0",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "ix-chart",
             "recommended": false,
             "title": "ix-chart",
@@ -121,7 +121,7 @@
             "latest_version": "2.0.14",
             "latest_app_version": "2024.07.0",
             "latest_human_version": "2024.07.0_2.0.14",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "pihole",
             "recommended": false,
             "title": "Pi-hole",
@@ -158,7 +158,7 @@
             "latest_version": "2.0.3",
             "latest_app_version": "2.0.1",
             "latest_human_version": "2.0.1_2.0.3",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "diskoverdata",
             "recommended": false,
             "title": "Diskover Data",
@@ -236,7 +236,7 @@
             "latest_version": "2.0.33",
             "latest_app_version": "2025-02-28T09-55-16Z",
             "latest_human_version": "2025-02-28T09-55-16Z_2.0.33",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "minio",
             "recommended": false,
             "title": "MinIO",
@@ -271,7 +271,7 @@
             "latest_version": "2.0.67",
             "latest_app_version": "2025.3.0",
             "latest_human_version": "2025.3.0_2.0.67",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "home-assistant",
             "recommended": false,
             "title": "Home Assistant",
@@ -308,7 +308,7 @@
             "latest_version": "1.1.32",
             "latest_app_version": "8.17.3",
             "latest_human_version": "8.17.3_1.1.32",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "elastic-search",
             "recommended": false,
             "title": "Elastic Search",
@@ -345,7 +345,7 @@
             "latest_version": "2.0.19",
             "latest_app_version": "1.41.4.9463",
             "latest_human_version": "1.41.4.9463_2.0.19",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "plex",
             "recommended": false,
             "title": "Plex",
@@ -387,7 +387,7 @@
             "latest_version": "2.0.13",
             "latest_app_version": "4.8.10.0",
             "latest_human_version": "4.8.10.0_2.0.13",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "emby",
             "recommended": false,
             "title": "Emby Server",
@@ -429,7 +429,7 @@
             "latest_version": "2.0.37",
             "latest_app_version": "24.04.12.4.1",
             "latest_human_version": "24.04.12.4.1_2.0.37",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "collabora",
             "recommended": false,
             "title": "Collabora",
@@ -509,7 +509,7 @@
             "latest_version": "2.0.21",
             "latest_app_version": "14",
             "latest_human_version": "14_2.0.21",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "wg-easy",
             "recommended": false,
             "title": "WG Easy",
@@ -586,7 +586,7 @@
             "latest_version": "2.0.13",
             "latest_app_version": "250228",
             "latest_human_version": "250228_2.0.13",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "photoprism",
             "recommended": false,
             "title": "PhotoPrism",
@@ -626,7 +626,7 @@
             "latest_version": "1.0.16",
             "latest_app_version": "10.8.13",
             "latest_human_version": "10.8.13_1.0.16",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "jellyfin",
             "recommended": false,
             "title": "Jellyfin",
@@ -668,7 +668,7 @@
             "latest_version": "1.1.0",
             "latest_app_version": "2023-12-07",
             "latest_human_version": "2023-12-07_1.1.0",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "minio",
             "recommended": false,
             "title": "MinIO",
@@ -747,7 +747,7 @@
             "latest_version": "1.2.3",
             "latest_app_version": "1.27.6",
             "latest_human_version": "1.27.6_1.2.3",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "syncthing",
             "recommended": false,
             "title": "Syncthing",
@@ -791,7 +791,7 @@
             "latest_version": "1.1.5",
             "latest_app_version": "2024-12-13",
             "latest_human_version": "2024-12-13_1.1.5",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "minio",
             "recommended": false,
             "title": "MinIO",
@@ -831,7 +831,7 @@
             "latest_version": "1.2.4",
             "latest_app_version": "1.28.0",
             "latest_human_version": "1.28.0_1.2.4",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "syncthing",
             "recommended": false,
             "title": "Syncthing",
@@ -945,7 +945,7 @@
             "latest_version": "1.2.24",
             "latest_app_version": "25.3.1",
             "latest_human_version": "25.3.1_1.2.24",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "actual-budget",
             "recommended": false,
             "title": "Actual Budget",
@@ -985,7 +985,7 @@
             "latest_version": "1.2.6",
             "latest_app_version": "2.1.1",
             "latest_human_version": "2.1.1_1.2.6",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "deluge",
             "recommended": false,
             "title": "Deluge",
@@ -1059,7 +1059,7 @@
             "latest_version": "1.2.3",
             "latest_app_version": "latest",
             "latest_human_version": "latest_1.2.3",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "logseq",
             "recommended": false,
             "title": "Logseq",
@@ -1173,7 +1173,7 @@
             "latest_version": "1.2.11",
             "latest_app_version": "5.15.8.2",
             "latest_human_version": "5.15.8.2_1.2.11",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "omada-controller",
             "recommended": false,
             "title": "Omada Controller",
@@ -1248,7 +1248,7 @@
             "latest_version": "1.2.9",
             "latest_app_version": "0.15.0",
             "latest_human_version": "0.15.0_1.2.9",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "frigate",
             "recommended": false,
             "title": "Frigate",
@@ -1326,7 +1326,7 @@
             "latest_version": "1.2.26",
             "latest_app_version": "2025.2.1",
             "latest_human_version": "2025.2.1_1.2.26",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "minecraft",
             "recommended": false,
             "title": "Minecraft",
@@ -1352,17 +1352,19 @@
         "ipfs": {
             "app_readme": "<h1>IPFS</h1>\n<p><a href=\"https://ipfs.tech\">Interplanetary Filesystem</a> - the Web3 standard for content-addressing, interoperable with HTTP</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the ipfs directories.\nAfterward, the <code>ipfs</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).</p>\n</blockquote>",
             "categories": [
-                "storage"
+                "storage",
+                "ipfs",
+                "kubo"
             ],
             "description": "Interplanetary Filesystem - the Web3 standard for content-addressing, interoperable with HTTP",
             "healthy": true,
             "healthy_error": null,
             "home": "https://ipfs.tech/",
             "location": "/__w/ix-charts/ix-charts/community/ipfs",
-            "latest_version": "1.0.43",
-            "latest_app_version": "v0.33.2",
-            "latest_human_version": "v0.33.2_1.0.43",
-            "last_update": "2025-08-12 17:05:11",
+            "latest_version": "1.0.44",
+            "latest_app_version": "v0.34.1",
+            "latest_human_version": "v0.34.1_1.0.44",
+            "last_update": "2025-08-12 22:45:44",
             "name": "ipfs",
             "recommended": false,
             "title": "IPFS",
@@ -1373,14 +1375,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "file-sharing",
-                "kubo"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/ipfs/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/ipfs/screenshots/screenshot2.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/ipfs/kubo",
                 "https://github.com/truenas/charts/tree/master/community/ipfs",
@@ -1401,7 +1397,7 @@
             "latest_version": "1.1.31",
             "latest_app_version": "1.23.5",
             "latest_human_version": "1.23.5_1.1.31",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "gitea",
             "recommended": false,
             "title": "Gitea",
@@ -1441,7 +1437,7 @@
             "latest_version": "1.2.17",
             "latest_app_version": "9.1",
             "latest_human_version": "9.1_1.2.17",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "pgadmin",
             "recommended": false,
             "title": "pgAdmin",
@@ -1509,17 +1505,19 @@
         "sabnzbd": {
             "app_readme": "<h1>SABnzbd</h1>\n<p><a href=\"https://github.com/Sabnzbd/Sabnzbd\">SABnzbd</a> is an Open Source Binary Newsreader written in Python.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>SABnzbd</code> directories.\nAfterward, the <code>SABnzbd</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
             "categories": [
-                "media"
+                "media",
+                "usenet",
+                "newsreader"
             ],
             "description": "SABnzbd is an Open Source Binary Newsreader written in Python.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://sabnzbd.org/",
             "location": "/__w/ix-charts/ix-charts/community/sabnzbd",
-            "latest_version": "1.3.3",
-            "latest_app_version": "4.4.1",
-            "latest_human_version": "4.4.1_1.3.3",
-            "last_update": "2025-08-12 20:38:09",
+            "latest_version": "1.3.4",
+            "latest_app_version": "4.5.2",
+            "latest_human_version": "4.5.2_1.3.4",
+            "last_update": "2025-08-12 22:45:44",
             "name": "sabnzbd",
             "recommended": false,
             "title": "SABnzbd",
@@ -1530,15 +1528,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "usenet",
-                "newsreader"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/sabnzbd/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/sabnzbd/screenshots/screenshot2.png",
-                "https://media.sys.truenas.net/apps/sabnzbd/screenshots/screenshot3.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/onedr0p/containers/tree/main/apps/sabnzbd",
                 "https://github.com/truenas/charts/tree/master/library/ix-dev/community/sabnzbd",
@@ -1560,7 +1551,7 @@
             "latest_version": "1.3.13",
             "latest_app_version": "10.10.7",
             "latest_human_version": "10.10.7_1.3.13",
-            "last_update": "2025-08-12 21:20:06",
+            "last_update": "2025-08-12 21:21:55",
             "name": "jellyfin",
             "recommended": false,
             "title": "Jellyfin",
@@ -1618,17 +1609,18 @@
         "radarr": {
             "app_readme": "<h1>Radarr</h1>\n<p><a href=\"https://github.com/Radarr/Radarr\">Radarr</a> is a movie collection manager for Usenet and BitTorrent users.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>Radarr</code> directories.\nAfterward, the <code>Radarr</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
             "categories": [
-                "media"
+                "media",
+                "movies"
             ],
             "description": "Radarr is a movie collection manager for Usenet and BitTorrent users.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://github.com/Radarr/Radarr",
             "location": "/__w/ix-charts/ix-charts/community/radarr",
-            "latest_version": "1.2.26",
-            "latest_app_version": "5.19.3.9730",
-            "latest_human_version": "5.19.3.9730_1.2.26",
-            "last_update": "2025-08-12 20:26:26",
+            "latest_version": "1.2.27",
+            "latest_app_version": "5.27.3.10153",
+            "latest_human_version": "5.27.3.10153_1.2.27",
+            "last_update": "2025-08-12 22:45:44",
             "name": "radarr",
             "recommended": false,
             "title": "Radarr",
@@ -1639,15 +1631,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "movies"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/radarr/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/radarr/screenshots/screenshot2.png",
-                "https://media.sys.truenas.net/apps/radarr/screenshots/screenshot3.png",
-                "https://media.sys.truenas.net/apps/radarr/screenshots/screenshot4.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/onedr0p/containers/tree/main/apps/radarr",
                 "https://github.com/truenas/charts/tree/master/community/radarr",
@@ -1668,7 +1653,7 @@
             "latest_version": "1.0.14",
             "latest_app_version": "0.7.5.4",
             "latest_human_version": "0.7.5.4_1.0.14",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "netbootxyz",
             "recommended": false,
             "title": "netbootxyz",
@@ -1708,7 +1693,7 @@
             "latest_version": "1.0.34",
             "latest_app_version": "2.6.0",
             "latest_human_version": "2.6.0_1.0.34",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "mealie",
             "recommended": false,
             "title": "Mealie",
@@ -1814,10 +1799,10 @@
             "healthy_error": null,
             "home": "https://github.com/Fallenbagel/jellyseerr",
             "location": "/__w/ix-charts/ix-charts/community/jellyseerr",
-            "latest_version": "1.0.28",
-            "latest_app_version": "2.3.0",
-            "latest_human_version": "2.3.0_1.0.28",
-            "last_update": "2025-08-12 20:26:26",
+            "latest_version": "1.0.29",
+            "latest_app_version": "2.7.2",
+            "latest_human_version": "2.7.2_1.0.29",
+            "last_update": "2025-08-12 22:45:44",
             "name": "jellyseerr",
             "recommended": false,
             "title": "Jellyseerr",
@@ -1828,15 +1813,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "tv",
-                "movies",
-                "requests",
-                "series"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/jellyseerr/screenshots/screenshot1.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/Fallenbagel/jellyseerr",
                 "https://github.com/truenas/charts/tree/master/community/jellyseerr",
@@ -1903,7 +1881,7 @@
             "latest_version": "2.0.2",
             "latest_app_version": "3.1.0",
             "latest_human_version": "3.1.0_2.0.2",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "dashy",
             "recommended": false,
             "title": "Dashy",
@@ -1941,7 +1919,7 @@
             "latest_version": "1.1.15",
             "latest_app_version": "1.26.0",
             "latest_human_version": "1.26.0_1.1.15",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "freshrss",
             "recommended": false,
             "title": "FreshRSS",
@@ -1979,7 +1957,7 @@
             "latest_version": "1.2.26",
             "latest_app_version": "11.5.2",
             "latest_human_version": "11.5.2_1.2.26",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "grafana",
             "recommended": false,
             "title": "Grafana",
@@ -2010,17 +1988,19 @@
         "twofactor-auth": {
             "app_readme": "<h1>2FAuth</h1>\n<p><a href=\"https://docs.2fauth.app/\">2FAuth</a> is a web based self-hosted alternative to One Time Passcode (OTP) generators like Google Authenticator, designed for both mobile and desktop.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>2FAuth</code> directories.\nAfterward, the <code>2FAuth</code> container will run as a <strong>non</strong>-root user (<code>1000</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
             "categories": [
-                "security"
+                "security",
+                "2fa",
+                "otp"
             ],
             "description": "2FAuth is a web based self-hosted alternative to One Time Passcode (OTP) generators like Google Authenticator, designed for both mobile and desktop.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://docs.2fauth.app/",
             "location": "/__w/ix-charts/ix-charts/community/twofactor-auth",
-            "latest_version": "1.2.14",
-            "latest_app_version": "5.4.3",
-            "latest_human_version": "5.4.3_1.2.14",
-            "last_update": "2025-08-12 20:26:26",
+            "latest_version": "1.2.15",
+            "latest_app_version": "5.6.0",
+            "latest_human_version": "5.6.0_1.2.15",
+            "last_update": "2025-08-12 22:45:44",
             "name": "twofactor-auth",
             "recommended": false,
             "title": "2FAuth",
@@ -2031,13 +2011,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "2fa",
-                "otp"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/twofactor-auth/screenshots/screenshot1.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/Bubka/2FAuth",
                 "https://github.com/truenas/charts/tree/master/library/ix-dev/community/2fauth",
@@ -2166,7 +2141,7 @@
             "latest_version": "2.0.19",
             "latest_app_version": "0.15.10",
             "latest_human_version": "0.15.10_2.0.19",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "homarr",
             "recommended": false,
             "title": "Homarr",
@@ -2195,17 +2170,18 @@
         "distribution": {
             "app_readme": "<h1>Distribution</h1>\n<p><a href=\"https://github.com/distribution/distribution\">Distribution</a> is a toolkit to pack, ship, store, and deliver container content</p>",
             "categories": [
-                "productivity"
+                "container",
+                "registry"
             ],
             "description": "Distribution is a toolkit to pack, ship, store, and deliver container content",
             "healthy": true,
             "healthy_error": null,
             "home": "https://github.com/distribution/distribution",
             "location": "/__w/ix-charts/ix-charts/community/distribution",
-            "latest_version": "1.2.4",
-            "latest_app_version": "2.8.3",
-            "latest_human_version": "2.8.3_1.2.4",
-            "last_update": "2025-08-12 20:38:09",
+            "latest_version": "1.2.5",
+            "latest_app_version": "3.0.0",
+            "latest_human_version": "3.0.0_1.2.5",
+            "last_update": "2025-08-12 22:45:44",
             "name": "distribution",
             "recommended": false,
             "title": "Distribution",
@@ -2216,10 +2192,7 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "registry",
-                "container"
-            ],
+            "tags": [],
             "screenshots": [],
             "sources": [
                 "https://hub.docker.com/_/registry",
@@ -2242,7 +2215,7 @@
             "latest_version": "1.2.19",
             "latest_app_version": "3.1.15",
             "latest_human_version": "3.1.15_1.2.19",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "node-red",
             "recommended": false,
             "title": "Node-RED",
@@ -2319,7 +2292,7 @@
             "latest_version": "2.0.4",
             "latest_app_version": "0.24.6",
             "latest_human_version": "0.24.6_2.0.4",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "vikunja",
             "recommended": false,
             "title": "Vikunja",
@@ -2353,17 +2326,18 @@
         "n8n": {
             "app_readme": "<h1>n8n</h1>\n<p><a href=\"https://n8n.io/\">n8n</a> is an extendable workflow automation tool.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>postgres</code> directories.\nAfterward, the <code>postgres</code> container will run as a <strong>non</strong>-root user (<code>999</code>).\nOn each upgrade, a container will be launched with <strong>root</strong> privileges in order to apply the correct\npermissions to the <code>postgres</code> <strong>backups</strong> directory. Container that performs the backup will run as a <strong>non</strong>-root user (<code>999</code>) afterwards.\nKeep in mind the permissions on the backup directory will be changed to <code>999:999</code> on <strong>every</strong> update.\nBut will only be changed once for the <code>postgres</code> data directories.</p>\n</blockquote>",
             "categories": [
-                "productivity"
+                "workflows",
+                "automation"
             ],
             "description": "n8n is an extendable workflow automation tool.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://n8n.io/",
             "location": "/__w/ix-charts/ix-charts/community/n8n",
-            "latest_version": "1.2.115",
-            "latest_app_version": "1.82.1",
-            "latest_human_version": "1.82.1_1.2.115",
-            "last_update": "2025-08-12 20:38:09",
+            "latest_version": "1.2.116",
+            "latest_app_version": "1.84.3",
+            "latest_human_version": "1.84.3_1.2.116",
+            "last_update": "2025-08-12 22:45:44",
             "name": "n8n",
             "recommended": false,
             "title": "n8n",
@@ -2374,16 +2348,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "workflows",
-                "automation"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/n8n/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/n8n/screenshots/screenshot2.png",
-                "https://media.sys.truenas.net/apps/n8n/screenshots/screenshot3.png",
-                "https://media.sys.truenas.net/apps/n8n/screenshots/screenshot4.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/n8n-io/n8n",
                 "https://github.com/truenas/charts/tree/master/community/n8n",
@@ -2445,7 +2411,7 @@
             "latest_version": "1.2.26",
             "latest_app_version": "1.21.0",
             "latest_human_version": "1.21.0_1.2.26",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "komga",
             "recommended": false,
             "title": "Komga",
@@ -2483,7 +2449,7 @@
             "latest_version": "1.2.12",
             "latest_app_version": "0.8.4",
             "latest_human_version": "0.8.4_1.2.12",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "kavita",
             "recommended": false,
             "title": "Kavita",
@@ -2588,17 +2554,17 @@
         "redis": {
             "app_readme": "<h1>Redis</h1>\n<p><a href=\"https://redis.io/\">Redis</a>. The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>Redis</code> directories.\nAfterward, the <code>Redis</code> container will run as a <strong>non</strong>-root user (<code>1001</code>) and root group.\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match <code>1001</code> user.</p>\n</blockquote>",
             "categories": [
-                "database"
+                "cache"
             ],
             "description": "Redis. The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://redis.io/",
             "location": "/__w/ix-charts/ix-charts/community/redis",
-            "latest_version": "1.0.26",
-            "latest_app_version": "7.4.2",
-            "latest_human_version": "7.4.2_1.0.26",
-            "last_update": "2025-08-12 17:05:11",
+            "latest_version": "1.0.27",
+            "latest_app_version": "8.0.2",
+            "latest_human_version": "8.0.2_1.0.27",
+            "last_update": "2025-08-12 22:45:44",
             "name": "redis",
             "recommended": false,
             "title": "Redis",
@@ -2609,9 +2575,7 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "cache"
-            ],
+            "tags": [],
             "screenshots": [],
             "sources": [
                 "https://hub.docker.com/r/bitnami/redis",
@@ -2633,7 +2597,7 @@
             "latest_version": "4.0.23",
             "latest_app_version": "1.119.1",
             "latest_human_version": "1.119.1_4.0.23",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "immich",
             "recommended": false,
             "title": "Immich",
@@ -2697,17 +2661,18 @@
         "sonarr": {
             "app_readme": "<h1>Sonarr</h1>\n<p><a href=\"https://github.com/Sonarr/Sonarr\">Sonarr</a> is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>Sonarr</code> directories.\nAfterward, the <code>Sonarr</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
             "categories": [
-                "media"
+                "media",
+                "series"
             ],
             "description": "Sonarr is a PVR for Usenet and BitTorrent users.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://github.com/Sonarr/Sonarr",
             "location": "/__w/ix-charts/ix-charts/community/sonarr",
-            "latest_version": "1.2.23",
-            "latest_app_version": "4.0.13.2932",
-            "latest_human_version": "4.0.13.2932_1.2.23",
-            "last_update": "2025-08-12 20:26:26",
+            "latest_version": "1.2.24",
+            "latest_app_version": "4.0.15.2941",
+            "latest_human_version": "4.0.15.2941_1.2.24",
+            "last_update": "2025-08-12 22:45:44",
             "name": "sonarr",
             "recommended": false,
             "title": "Sonarr",
@@ -2718,14 +2683,8 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "series"
-            ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/sonarr/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/sonarr/screenshots/screenshot2.png",
-                "https://media.sys.truenas.net/apps/sonarr/screenshots/screenshot3.png"
-            ],
+            "tags": [],
+            "screenshots": [],
             "sources": [
                 "https://github.com/onedr0p/containers/tree/main/apps/sonarr",
                 "https://github.com/truenas/charts/tree/master/community/sonarr",
@@ -2783,7 +2742,7 @@
             "latest_version": "1.2.5",
             "latest_app_version": "2.9",
             "latest_human_version": "2.9_1.2.5",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "fscrawler",
             "recommended": false,
             "title": "FSCrawler",
@@ -2894,7 +2853,7 @@
             "latest_version": "1.2.24",
             "latest_app_version": "2.35.2",
             "latest_human_version": "2.35.2_1.2.24",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "tdarr",
             "recommended": false,
             "title": "Tdarr",
@@ -3122,7 +3081,7 @@
             "latest_version": "1.1.24",
             "latest_app_version": "1.33.2",
             "latest_human_version": "1.33.2_1.1.24",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "vaultwarden",
             "recommended": false,
             "title": "Vaultwarden",
@@ -3159,7 +3118,7 @@
             "latest_version": "1.2.12",
             "latest_app_version": "2.6.6",
             "latest_human_version": "2.6.6_1.2.12",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "sftpgo",
             "recommended": false,
             "title": "SFTPGo",
@@ -3194,7 +3153,7 @@
             "latest_version": "1.2.61",
             "latest_app_version": "2.14.7",
             "latest_human_version": "2.14.7_1.2.61",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "paperless-ngx",
             "recommended": false,
             "title": "Paperless-ngx",
@@ -3239,7 +3198,7 @@
             "latest_version": "1.2.15",
             "latest_app_version": "4.11.1.1",
             "latest_human_version": "4.11.1.1_1.2.15",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "passbolt",
             "recommended": false,
             "title": "Passbolt",
@@ -3317,7 +3276,7 @@
             "latest_version": "1.0.31",
             "latest_app_version": "2.19.5",
             "latest_human_version": "2.19.5_1.0.31",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "audiobookshelf",
             "recommended": false,
             "title": "Audiobookshelf",
@@ -3425,17 +3384,19 @@
         "transmission": {
             "app_readme": "<h1>Transmission</h1>\n<p><a href=\"https://transmissionbt.com/\">Transmission</a> is designed for easy, powerful use.</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the Transmission directories.\nAfterward, the <code>Transmission</code> container will run as a <strong>non</strong>-root user (Default: <code>568</code>).</p>\n</blockquote>\n<p>For additional configuration via environment variables, see <a href=\"https://github.com/onedr0p/containers/tree/main/apps/transmission\">Container's source env var list</a>.</p>",
             "categories": [
-                "media"
+                "media",
+                "torrent",
+                "download"
             ],
             "description": "Transmission is designed for easy, powerful use.",
             "healthy": true,
             "healthy_error": null,
             "home": "https://transmissionbt.com/",
             "location": "/__w/ix-charts/ix-charts/community/transmission",
-            "latest_version": "1.3.5",
-            "latest_app_version": "4.0.5",
-            "latest_human_version": "4.0.5_1.3.5",
-            "last_update": "2025-08-12 20:26:26",
+            "latest_version": "1.3.6",
+            "latest_app_version": "4.0.6",
+            "latest_human_version": "4.0.6_1.3.6",
+            "last_update": "2025-08-12 22:45:44",
             "name": "transmission",
             "recommended": false,
             "title": "Transmission",
@@ -3446,10 +3407,7 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "torrent",
-                "download"
-            ],
+            "tags": [],
             "screenshots": [],
             "sources": [
                 "https://github.com/onedr0p/containers/tree/main/apps/transmission",
@@ -3471,7 +3429,7 @@
             "latest_version": "1.2.10",
             "latest_app_version": "0.12.0",
             "latest_human_version": "0.12.0_1.2.10",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "unifi-protect-backup",
             "recommended": false,
             "title": "Unifi Protect Backup",
@@ -3507,7 +3465,7 @@
             "latest_version": "1.0.3",
             "latest_app_version": "23.12.2",
             "latest_human_version": "23.12.2_1.0.3",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "handbrake",
             "recommended": false,
             "title": "HandBrake",
@@ -3738,7 +3696,7 @@
             "latest_version": "1.2.13",
             "latest_app_version": "7.4.1",
             "latest_human_version": "7.4.1_1.2.13",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "recyclarr",
             "recommended": false,
             "title": "Recyclarr",
@@ -3775,7 +3733,7 @@
             "latest_version": "1.3.16",
             "latest_app_version": "9.0.114",
             "latest_human_version": "9.0.114_1.3.16",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "unifi-controller",
             "recommended": false,
             "title": "Unifi Controller",
@@ -3811,7 +3769,7 @@
             "latest_version": "1.2.5",
             "latest_app_version": "1.2.3",
             "latest_human_version": "1.2.3_1.2.5",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "plex-auto-languages",
             "recommended": false,
             "title": "Plex Auto Languages",
@@ -3847,7 +3805,7 @@
             "latest_version": "1.2.13",
             "latest_app_version": "2.32.0",
             "latest_human_version": "2.32.0_1.2.13",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "filebrowser",
             "recommended": false,
             "title": "File Browser",
@@ -3887,7 +3845,7 @@
             "latest_version": "1.2.20",
             "latest_app_version": "2.492.2",
             "latest_human_version": "2.492.2_1.2.20",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "jenkins",
             "recommended": false,
             "title": "Jenkins",
@@ -3995,17 +3953,18 @@
         "tailscale": {
             "app_readme": "<h1>Tailscale</h1>\n<p><a href=\"https://tailscale.com\">Tailscale</a> Secure remote access to shared resources</p>\n<ul>\n<li>When <code>Userspace</code> is <strong>disabled</strong>, <code>Tailscale</code> will run as root, with <code>/dev/net/tun</code> device mounted from the host.</li>\n<li>When <code>Userspace</code> is <strong>enabled</strong>, <code>Tailscale</code> will run as a non-root user.</li>\n</ul>",
             "categories": [
-                "networking"
+                "vpn",
+                "tailscale"
             ],
             "description": "Secure remote access to shared resources",
             "healthy": true,
             "healthy_error": null,
             "home": "https://tailscale.com/",
             "location": "/__w/ix-charts/ix-charts/community/tailscale",
-            "latest_version": "1.0.51",
-            "latest_app_version": "1.80.3",
-            "latest_human_version": "1.80.3_1.0.51",
-            "last_update": "2025-08-12 17:05:11",
+            "latest_version": "1.0.52",
+            "latest_app_version": "1.86.2",
+            "latest_human_version": "1.86.2_1.0.52",
+            "last_update": "2025-08-12 22:45:44",
             "name": "tailscale",
             "recommended": false,
             "title": "Tailscale",
@@ -4016,9 +3975,7 @@
                     "email": "dev@ixsystems.com"
                 }
             ],
-            "tags": [
-                "vpn"
-            ],
+            "tags": [],
             "screenshots": [],
             "sources": [
                 "https://tailscale.com/",
@@ -4082,7 +4039,7 @@
             "latest_version": "1.0.1",
             "latest_app_version": "latest",
             "latest_human_version": "latest_1.0.1",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "organizr",
             "recommended": false,
             "title": "Organizr",
@@ -4274,7 +4231,7 @@
             "latest_version": "1.2.32",
             "latest_app_version": "1.59.0",
             "latest_human_version": "1.59.0_1.2.32",
-            "last_update": "2025-08-12 20:38:09",
+            "last_update": "2025-08-12 21:21:55",
             "name": "autobrr",
             "recommended": false,
             "title": "Autobrr",

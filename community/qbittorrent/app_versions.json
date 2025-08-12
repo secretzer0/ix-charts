@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/qbittorrent/1.2.19",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "5.0.4_1.2.19",
         "version": "1.2.19",

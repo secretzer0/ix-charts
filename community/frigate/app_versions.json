@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/frigate/1.2.9",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
+            "definitions/gpuConfiguration",
             "normalize/ixVolume",
-            "definitions/gpuConfiguration"
+            "normalize/acl"
         ],
         "human_version": "0.15.0_1.2.9",
         "version": "1.2.9",

@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/unifi-protect-backup/1.2.10",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
+            "normalize/ixVolume",
             "normalize/acl",
-            "normalize/ixVolume"
+            "definitions/timezone"
         ],
         "human_version": "0.12.0_1.2.10",
         "version": "1.2.10",

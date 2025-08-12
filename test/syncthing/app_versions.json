@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/test/syncthing/1.2.3",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
-            "normalize/acl",
             "normalize/ixVolume",
-            "definitions/certificate"
+            "definitions/certificate",
+            "normalize/acl",
+            "definitions/timezone"
         ],
         "human_version": "1.27.6_1.2.3",
         "version": "1.2.3",
@@ -1074,9 +1074,9 @@
         "location": "/__w/ix-charts/ix-charts/test/syncthing/1.1.5",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
             "normalize/ixVolume",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/timezone"
         ],
         "human_version": "1.27.0_1.1.5",
         "version": "1.1.5",

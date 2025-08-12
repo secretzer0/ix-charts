@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/tautulli/1.2.10",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "2.15.1_1.2.10",
         "version": "1.2.10",

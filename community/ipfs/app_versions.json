@@ -1,15 +1,15 @@
 {
-    "1.0.43": {
+    "1.0.44": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/ipfs/1.0.43",
-        "last_update": "2025-08-12 16:55:15",
+        "location": "/__w/ix-charts/ix-charts/community/ipfs/1.0.44",
+        "last_update": "2025-08-12 22:45:44",
         "required_features": [
             "normalize/ixVolume"
         ],
-        "human_version": "v0.33.2_1.0.43",
-        "version": "1.0.43",
+        "human_version": "v0.34.1_1.0.44",
+        "version": "1.0.44",
         "chart_metadata": {
             "name": "ipfs",
             "description": "Interplanetary Filesystem - the Web3 standard for content-addressing, interoperable with HTTP",
@@ -17,9 +17,9 @@
                 "title": "IPFS"
             },
             "type": "application",
-            "version": "1.0.43",
+            "version": "1.0.44",
             "apiVersion": "v2",
-            "appVersion": "v0.33.2",
+            "appVersion": "v0.34.1",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
