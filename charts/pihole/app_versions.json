@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/pihole/2.0.14",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
             "normalize/ixVolume",
+            "normalize/acl",
             "definitions/timezone"
         ],
         "human_version": "2024.07.0_2.0.14",
