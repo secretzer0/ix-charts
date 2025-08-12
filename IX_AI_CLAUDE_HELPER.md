@@ -287,6 +287,40 @@ docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
   catalog_validate validate --path /data
 ```
 
+### Pre-Push Validation (IMPORTANT!)
+
+**Always run before pushing to prevent workflow failures:**
+
+```bash
+# Run the complete validation suite
+./test_before_push.sh
+```
+
+This script runs:
+1. **Catalog format validation** - Checks all chart structures
+2. **Dev charts validation** - Validates charts in library/ix-dev
+3. **Catalog update test** - Tests JSON serialization (catches metadata issues!)
+
+#### Manual Pre-Push Tests
+
+If you prefer to run tests individually:
+
+```bash
+# Test that would have caught our changelog date issue
+docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
+  catalog_update update --path /data
+
+# Full catalog validation
+docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
+  catalog_validate validate --path /data
+
+# Dev charts validation
+docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
+  dev_charts_validate validate --path /data --base_branch main
+```
+
+**Pro Tip**: The `catalog_update` test is crucial - it runs the same process as the GitHub workflow and will catch JSON serialization errors in metadata.yaml files!
+
 ## GitHub Workflows Configuration
 
 ### Workflow Files Overview
