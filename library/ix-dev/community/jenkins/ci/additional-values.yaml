@@ -1,0 +1,24 @@
+jenkinsStorage:
+  home:
+    type: pvc
+  additionalStorages:
+    - type: pvc
+      mountPath: /workspace1
+    - type: pvc
+      mountPath: /workspace2
+
+jenkinsConfig:
+  jenkinsOpts:
+    - useJmx
+    - sessionTimeout=100
+  jenkinsJavaOpts:
+    - property: hudson.footerURL
+      value: https://jenkins.example.com
+    - property: jenkins.CLI.disabled
+      value: "true"
+
+  additionalEnvs:
+    - name: PLUGINS_FORCE_UPGRADE
+      value: "true"
+    - name: TRY_UPGRADE_IF_NO_MARKER
+      value: "true"

@@ -1,0 +1,12 @@
+mcStorage:
+  data:
+    type: pvc
+
+mcConfig:
+  imageSelector: j8Image
+  eula: true
+  version: 1.16.5
+
+mcNetwork:
+  serverPort: 30000
+  rconPort: 30001

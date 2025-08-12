@@ -1,0 +1,26 @@
+frigateNetwork:
+  webPort: 31000
+  enableRtmp: true
+  rtmpPort: 31001
+  enableRtsp: true
+  rtspPort: 31002
+  enableWebRtc: true
+  webRtcPort: 31003
+
+frigateConfig:
+  mountUSBBus: true
+
+frigateStorage:
+  config:
+    type: pvc
+  media:
+    type: pvc
+  cache:
+    sizeGiB: 2
+  shm:
+    sizeMiB: 128
+  additionalStorages:
+  - type: pvc
+    mountPath: /clips
+  - type: pvc
+    mountPath: /snapshots

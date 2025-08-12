@@ -1,0 +1,7 @@
+bazarrNetwork:
+  webPort: 30000
+  hostNetwork: true
+
+bazarrStorage:
+  config:
+    type: pvc

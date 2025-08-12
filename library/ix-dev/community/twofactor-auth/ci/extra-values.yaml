@@ -1,0 +1,25 @@
+twofauthConfig:
+  authenticationGuard: reverse-proxy-guard
+  authProxyHeaderUser: X-Forwarded-User
+  authProxyHeaderEmail: X-Forwarded-Email
+  webauthnUserVerification: required
+  trustedProxies:
+    - "*"
+  additionalEnvs:
+    - name: LOG_LEVEL
+      value: notice
+    - name: IS_DEMO_APP
+      value: "true"
+
+
+twofauthNetwork:
+  webPort: 31000
+
+twofauthStorage:
+  config:
+    type: pvc
+  additionalStorages:
+  - type: pvc
+    mountPath: /data1
+  - type: pvc
+    mountPath: /data2

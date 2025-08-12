@@ -1,0 +1,7 @@
+grafanaStorage:
+  data:
+    type: pvc
+
+grafanaRunAs:
+  user: 1000
+  group: 1000

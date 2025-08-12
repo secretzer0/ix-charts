@@ -1,0 +1,9 @@
+{
+  "filename": "values.yaml",
+  "keys": [
+    "image",
+    "mlImage",
+    "mlCudaImage",
+    "mlOpenvinoImage"
+  ]
+}

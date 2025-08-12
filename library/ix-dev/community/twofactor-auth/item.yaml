@@ -1,0 +1,8 @@
+icon_url: https://media.sys.truenas.net/apps/twofactor-auth/icons/icon.png
+categories:
+  - security
+screenshots:
+  - https://media.sys.truenas.net/apps/twofactor-auth/screenshots/screenshot1.png
+tags:
+  - 2fa
+  - otp

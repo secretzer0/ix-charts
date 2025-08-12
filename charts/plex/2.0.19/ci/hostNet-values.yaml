@@ -1,0 +1,19 @@
+plexNetwork:
+  webPort: 31000
+  hostNetwork: true
+
+plexStorage:
+  data:
+    type: pvc
+  config:
+    type: pvc
+  logs:
+    type: emptyDir
+    emptyDirConfig:
+      medium: ""
+      size: ""
+  transcode:
+    type: emptyDir
+    emptyDirConfig:
+      medium: ""
+      size: ""

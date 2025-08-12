@@ -1,0 +1,7 @@
+jenkinsStorage:
+  home:
+    type: pvc
+
+jenkinsNetwork:
+  agent: true
+  agentPort: 31000

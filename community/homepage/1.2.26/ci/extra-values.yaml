@@ -1,0 +1,18 @@
+homepageConfig:
+  additionalEnvs:
+    - name: HOMEPAGE_VAR_SOMETHING
+      value: some-value
+    - name: HOMEPAGE_FILE_SOMETHING
+      value: /some/path
+
+homepageNetwork:
+  webPort: 31000
+
+homepageStorage:
+  config:
+    type: pvc
+  additionalStorages:
+  - type: pvc
+    mountPath: /data1
+  - type: pvc
+    mountPath: /data2

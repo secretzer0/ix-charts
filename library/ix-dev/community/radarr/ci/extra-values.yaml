@@ -1,0 +1,18 @@
+radarrConfig:
+  additionalEnvs:
+    - name: RADARR__AUTH__APIKEY
+      value: some-long-api-key
+    - name: RADARR__LOG__LEVEL
+      value: error
+
+radarrNetwork:
+  webPort: 31000
+
+radarrStorage:
+  config:
+    type: pvc
+  additionalStorages:
+  - type: pvc
+    mountPath: /action_movies
+  - type: pvc
+    mountPath: /adventure_movies

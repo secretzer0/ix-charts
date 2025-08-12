@@ -1,0 +1,154 @@
+suite: cronjob spec test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with workload enabled
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "* * * * *"
+          podSpec:
+            restartPolicy: Never
+    asserts:
+      - documentIndex: &cronJobDoc 0
+        isKind:
+          of: CronJob
+      - documentIndex: *cronJobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "* * * * *"
+            timeZone: UTC
+            concurrencyPolicy: Forbid
+            failedJobsHistoryLimit: 1
+            successfulJobsHistoryLimit: 3
+            suspend: false
+            startingDeadlineSeconds:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec.jobTemplate.spec
+          content:
+            backoffLimit: 5
+            completionMode: NonIndexed
+            completions:
+            parallelism: 1
+            ttlSecondsAfterFinished: 120
+
+  - it: should apply spec correctly
+    set:
+      cron: "*/5 * * * *"
+      someTimezone: America/New_York
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "{{ .Values.cron }}"
+          timezone: "{{ .Values.someTimezone }}"
+          concurrencyPolicy: Allow
+          failedJobsHistoryLimit: 2
+          successfulJobsHistoryLimit: 4
+          startingDeadlineSeconds: 100
+          backoffLimit: 5
+          completionMode: Indexed
+          completions: 5
+          parallelism: 5
+          ttlSecondsAfterFinished: 100
+          activeDeadlineSeconds: 100
+          podSpec:
+            restartPolicy: Never
+    asserts:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "*/5 * * * *"
+            concurrencyPolicy: Allow
+            failedJobsHistoryLimit: 2
+            successfulJobsHistoryLimit: 4
+            startingDeadlineSeconds: 100
+            timeZone: America/New_York
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec.jobTemplate.spec
+          content:
+            backoffLimit: 5
+            completionMode: Indexed
+            completions: 5
+            parallelism: 5
+            ttlSecondsAfterFinished: 100
+            activeDeadlineSeconds: 100
+
+  - it: should set suspend to true
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/5 * * * *"
+          suspend: true
+          podSpec:
+            restartPolicy: Never
+    asserts:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "*/5 * * * *"
+            timeZone: UTC
+            suspend: true
+
+  - it: should set suspend to true on ixChartContext - isStopped (true)
+    set:
+      global:
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/5 * * * *"
+          suspend: false
+          podSpec:
+            restartPolicy: Never
+    asserts:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "*/5 * * * *"
+            timeZone: UTC
+            suspend: true
+
+  - it: should not set suspend to true on ixChartContext - isStopped (false)
+    set:
+      global:
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: false
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/5 * * * *"
+          suspend: false
+          podSpec:
+            restartPolicy: Never
+    asserts:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "*/5 * * * *"
+            timeZone: UTC
+            suspend: false

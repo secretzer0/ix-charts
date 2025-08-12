@@ -1,0 +1,64 @@
+#!/usr/bin/python3
+import json
+import sys
+import re
+
+from catalog_update.upgrade_strategy import datetime_versioning
+
+
+RE_STABLE_VERSION = re.compile(r'^(\d+\.){4}\d+$')
+
+
+def newer_mapping(image_tags):
+    key = list(image_tags.keys())[0]
+    temp_tags = {t: t for t in image_tags[key] if RE_STABLE_VERSION.fullmatch(t)}
+    tags = {}
+
+    # Format tags so they can be parsed by datetime_versioning
+    for tag in temp_tags:
+        tag = tag.split('.')
+        for i in range(len(tag)):
+            # Ignore the first two parts as they are supposed to have leading zeros
+            if i in [0, 1]:
+                continue
+            # Add leading zero to single digit numbers
+            if len(tag[i]) == 1:
+                tag[i] = '0' + tag[i]
+        tag = '.'.join(tag)
+        tags[tag] = tag
+
+    # Get the latest version
+    version = datetime_versioning(list(tags), '%y.%m.%H.%M.%S')
+    if not version:
+        return {}
+
+    cleanVersion = ""
+    # Covert the tag back to the original format
+    for idx, part in enumerate(version.split('.')):
+        # Ignore the first two parts as they are supposed to have leading zeros
+        if idx in [0, 1]:
+            cleanVersion += part + '.'
+            continue
+        if idx == 2:
+            # Preserve the trailing zero on third part, but trim the leading zero
+            cleanVersion += part.lstrip('0') + '.'
+            continue
+        if len(part) == 2 and part[0] == '0':
+            cleanVersion += part[1] + '.'
+
+    # Remove trailing dot
+    cleanVersion = cleanVersion.rstrip('.')
+
+    return {
+        'tags': {key: cleanVersion},
+        'app_version': cleanVersion,
+    }
+
+
+if __name__ == '__main__':
+    try:
+        versions_json = json.loads(sys.stdin.read())
+    except ValueError:
+        raise ValueError('Invalid json specified')
+
+    print(json.dumps(newer_mapping(versions_json)))

@@ -1,0 +1,9 @@
+noderedConfig:
+  imageSelector: node18Image
+
+noderedNetwork:
+  webPort: 31000
+
+noderedStorage:
+  data:
+    type: pvc

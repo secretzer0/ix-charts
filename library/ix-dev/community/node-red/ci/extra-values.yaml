@@ -1,0 +1,18 @@
+noderedConfig:
+  safeMode: true
+  enableProjects: true
+  additionalEnvs:
+  - name: NODE_OPTIONS
+    value: --max-old-space-size=256
+
+noderedNetwork:
+  webPort: 31000
+
+noderedStorage:
+  data:
+    type: pvc
+  additionalStorages:
+  - type: pvc
+    mountPath: /customData
+  - type: pvc
+    mountPath: /customFiles

@@ -1,0 +1,10 @@
+readarrNetwork:
+  webPort: 31000
+
+readarrRunAs:
+  user: 1000
+  group: 1000
+
+readarrStorage:
+  config:
+    type: pvc

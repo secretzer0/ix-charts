@@ -1,0 +1,9 @@
+flameConfig:
+  password: password
+
+flameNetwork:
+  webPort: 31000
+
+flameStorage:
+  data:
+    type: pvc

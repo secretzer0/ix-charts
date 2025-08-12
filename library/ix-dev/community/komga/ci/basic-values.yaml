@@ -1,0 +1,10 @@
+komgaNetwork:
+  webPort: 31000
+
+komgaRunAs:
+  user: 1000
+  group: 1000
+
+komgaStorage:
+  config:
+    type: pvc

@@ -1,0 +1,27 @@
+image:
+  repository: remirigal/plex-auto-languages
+  pullPolicy: IfNotPresent
+  tag: v1.2.3
+
+ci: false
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+palConfig:
+  plexURL: ''
+  plexToken: ''
+  additionalEnvs: []
+
+palRunAs:
+  user: 568
+  group: 568
+
+palStorage:
+  config:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: config
+  additionalStorages: []

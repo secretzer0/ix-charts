@@ -1,0 +1,7 @@
+readarrNetwork:
+  webPort: 30000
+  hostNetwork: true
+
+readarrStorage:
+  config:
+    type: pvc

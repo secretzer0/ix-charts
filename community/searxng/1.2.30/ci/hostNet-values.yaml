@@ -1,0 +1,7 @@
+searxngNetwork:
+  webPort: 30000
+  hostNetwork: true
+
+searxngStorage:
+  config:
+    type: pvc

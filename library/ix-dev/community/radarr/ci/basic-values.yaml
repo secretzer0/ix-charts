@@ -1,0 +1,10 @@
+radarrNetwork:
+  webPort: 31000
+
+radarrRunAs:
+  user: 1000
+  group: 1000
+
+radarrStorage:
+  config:
+    type: pvc

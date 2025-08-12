@@ -1,0 +1,23 @@
+briefkastenNetwork:
+  webPort: 31000
+
+briefkastenConfig:
+  url: http://localhost:31000
+  smtp:
+    enabled: true
+    server: some.smtp.server:587
+    from: briefkasten@example.com
+
+briefkastenStorage:
+  pgData:
+    type: pvc
+  pgBackup:
+    type: emptyDir
+    emptyDirConfig:
+      medium: ""
+      size: ""
+  additionalStorages:
+  - type: pvc
+    mountPath: /data1
+  - type: pvc
+    mountPath: /data2

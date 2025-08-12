@@ -1,0 +1,7 @@
+autobrrNetwork:
+  webPort: 30000
+  hostNetwork: true
+
+autobrrStorage:
+  config:
+    type: pvc

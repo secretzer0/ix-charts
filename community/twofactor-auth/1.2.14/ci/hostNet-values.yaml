@@ -1,0 +1,7 @@
+twofauthNetwork:
+  webPort: 30000
+  hostNetwork: true
+
+twofauthStorage:
+  config:
+    type: pvc

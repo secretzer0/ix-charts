@@ -1,0 +1,14 @@
+grafanaStorage:
+  data:
+    type: pvc
+  additionalStorages:
+  - type: pvc
+    mountPath: /logs
+
+grafanaConfig:
+  plugins:
+    - grafana-piechart-panel
+    - grafana-clock-panel 1.0.0
+  additionalEnvs:
+    - name: GF_PATHS_LOGS
+      value: /logs
