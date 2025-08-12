@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/enterprise/syncthing/1.2.4",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
             "normalize/ixVolume",
+            "definitions/certificate",
             "definitions/timezone",
-            "definitions/certificate"
+            "normalize/acl"
         ],
         "human_version": "1.28.0_1.2.4",
         "version": "1.2.4",
