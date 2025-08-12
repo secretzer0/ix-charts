@@ -6,7 +6,3 @@ runAsContext:
     description: Jellyfin runs as any non-root user.
 capabilities: []
 hostMounts: []
-changelog:
-  - version: 1.3.13
-    date: 2025-08-12
-    description: Updated Jellyfin to version 10.10.7 for security fixes and bug fixes
