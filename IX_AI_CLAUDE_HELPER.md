@@ -218,6 +218,75 @@ docker run -v $(pwd):/data ixsystems/catalog_validation:latest validate --path /
 ./update_common.sh [version]
 ```
 
+## Local Testing Commands for Development
+
+### Testing Individual Components
+
+These commands allow you to test changes locally without triggering the full CI/CD pipeline:
+
+#### 1. Validate Entire Catalog
+```bash
+# Validates the complete catalog structure and format
+docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
+  catalog_validate validate --path /data
+```
+
+#### 2. Validate Development Charts
+```bash
+# Validates charts in library/ix-dev before building to production
+docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
+  dev_charts_validate validate --path /data --base_branch main
+```
+
+#### 3. Test Individual Chart
+```bash
+# Lint a specific chart version
+helm lint charts/[app-name]/[version]
+
+# Test chart installation (dry-run mode)
+helm install --dry-run --debug test-release charts/[app-name]/[version]
+
+# Template a chart to see generated manifests
+helm template test-release charts/[app-name]/[version]
+```
+
+#### 4. Test Common Library
+```bash
+# Test common library templates with default values
+./helm_template_common.sh template
+
+# Test with specific test values file
+./helm_template_common.sh -f test-values.yaml
+```
+
+#### 5. Build Chart from Development
+```bash
+# Build a chart from ix-dev source to production format
+# Usage: ./create_app.sh [train] [app-name]
+./create_app.sh charts plex
+./create_app.sh community jellyfin
+```
+
+### Quick Validation Workflow
+
+For typical development, use this sequence:
+
+```bash
+# 1. Make changes to chart in library/ix-dev/
+# 2. Build the chart to production format
+./create_app.sh charts myapp
+
+# 3. Validate the built chart
+helm lint charts/myapp/[version]
+
+# 4. Test the chart installation
+helm install --dry-run --debug test charts/myapp/[version]
+
+# 5. Validate entire catalog
+docker run -v $(pwd):/data ghcr.io/secretzer0/catalog_validation:latest \
+  catalog_validate validate --path /data
+```
+
 ## GitHub Workflows Configuration
 
 ### Workflow Files Overview
