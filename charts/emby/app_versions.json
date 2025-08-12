@@ -1063,8 +1063,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/emby/1.0.30",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/gpuConfiguration"
+            "definitions/gpuConfiguration",
+            "normalize/ixVolume"
         ],
         "human_version": "4.7.14.0_1.0.30",
         "version": "1.0.30",
