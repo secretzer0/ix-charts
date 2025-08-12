@@ -1,7 +1,0 @@
-radarrNetwork:
-  webPort: 30000
-  hostNetwork: true
-
-radarrStorage:
-  config:
-    type: pvc
