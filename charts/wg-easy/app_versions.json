@@ -1178,9 +1178,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/wg-easy/1.0.12",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
+            "validations/lockedHostPath",
             "definitions/nodeIP",
-            "normalize/ixVolume",
-            "validations/lockedHostPath"
+            "normalize/ixVolume"
         ],
         "human_version": "7_1.0.12",
         "version": "1.0.12",

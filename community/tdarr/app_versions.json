@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/community/tdarr/1.2.24",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
+            "definitions/gpuConfiguration",
             "definitions/timezone",
             "normalize/ixVolume",
-            "definitions/gpuConfiguration"
+            "normalize/acl"
         ],
         "human_version": "2.35.2_1.2.24",
         "version": "1.2.24",

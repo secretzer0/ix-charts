@@ -7,9 +7,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/nodeIP",
-            "normalize/acl",
+            "definitions/certificate",
             "normalize/ixVolume",
-            "definitions/certificate"
+            "normalize/acl"
         ],
         "human_version": "1.82.1_1.2.115",
         "version": "1.2.115",
