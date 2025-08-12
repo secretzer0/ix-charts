@@ -10,7 +10,7 @@ jobs:
 
     container:
       # Using our forked validation tools from GitHub Container Registry
-      image: ghcr.io/secretzer0/ix_catalog_validation:latest
+      image: ghcr.io/secretzer0/catalog_validation:latest
 
     steps:
       - uses: actions/checkout@v3

@@ -14,7 +14,7 @@ jobs:
     # 2. Rename this file to format_validation.yml (replacing the original)
     container:
       # Using our forked validation tools from GitHub Container Registry
-      image: ghcr.io/secretzer0/ix_catalog_validation:latest
+      image: ghcr.io/secretzer0/catalog_validation:latest
 
     steps:
       - uses: actions/checkout@v3
