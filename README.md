@@ -1,20 +1,57 @@
 <p align="center">
  <a href="https://discord.gg/Q3St5fPETd"><img alt="Join Discord" src="https://badgen.net/discord/members/Q3St5fPETd/?icon=discord&label=Join%20the%20TrueNAS%20Community" /></a>
  <a href="https://www.truenas.com/community/"><img alt="Join Forums" src="https://badgen.net/badge/Forums/Post%20Now//purple" /></a>
- <a href="https://jira.ixsystems.com"><img alt="File Issue" src="https://badgen.net/badge/Jira/File%20Issue//red?icon=jira" /></a>
 </p>
 
-# ⚠️ NOTE: This repository is DEPRECATED
+# 🔧 Community-Maintained TrueNAS Charts for Dragonfish
 
-If you are running TrueNAS Dragonfish (24.04 or prior), please consider upgrading to TrueNAS Electic Eel (24.10 or later).
+**This is a privately maintained fork** of the original iX Systems charts repository, actively maintained for TrueNAS SCALE Dragonfish (24.04) users who require stability and continuity.
 
-For reporting issues for apps under TrueNAS Electric Eel (24.10 or later)
-please use https://github.com/truenas/apps repository.
+## About This Repository
 
+This repository serves TrueNAS Dragonfish (24.04) users who:
+- Need to maintain stability with their existing TrueNAS SCALE installation
+- Require continued security updates and bug fixes for their applications
+- Cannot upgrade to Electric Eel (24.10+) due to compatibility or organizational requirements
 
-# iX Official Catalog
+**Note**: For users on TrueNAS Electric Eel (24.10 or later), please use the official repository at https://github.com/truenas/apps
 
-A curated collection of TrueNAS SCALE enhanced Helm charts.
+## Maintenance Focus
+
+This repository is actively maintained with:
+- 🔒 Security updates for all applications
+- 🐛 Bug fixes and stability improvements
+- 📦 Compatible dependency updates
+- ✨ Conservative feature additions that don't break existing setups
+
+## Using This Repository
+
+To use this catalog with your TrueNAS SCALE Dragonfish installation:
+
+1. **Add this catalog to TrueNAS SCALE**:
+   - Navigate to **Apps** → **Manage Catalogs** in the TrueNAS UI
+   - Click **Add Catalog**
+   - Enter the following details:
+     - Name: `dragonfish-community` (or your preferred name)
+     - Repository: `https://github.com/secretzer0/ix-charts`
+     - Branch: `main`
+   - Save and refresh the catalog
+
+2. **Install or Update Apps**:
+   - Apps from this catalog will appear in your available applications
+   - Updates will be provided as they're released
+
+## Contributing
+
+If you'd like to contribute to maintaining these charts:
+- Open issues for bugs or security concerns
+- Submit pull requests for fixes and updates
+- Help test new chart versions
+- Report compatibility issues
+
+# TrueNAS SCALE Charts Catalog
+
+A curated collection of TrueNAS SCALE enhanced Helm charts for Dragonfish 24.04.
 
 ## TrueNAS SCALE Chart Structure
 
