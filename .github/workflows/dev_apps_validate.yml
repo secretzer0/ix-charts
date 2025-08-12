@@ -20,4 +20,4 @@ jobs:
       - name: Fetch base branch history
         run: git fetch -u origin main:main
       - name: validate dev catalog
-        run: /bin/bash -c "/usr/local/bin/dev_charts_validate validate --path $(pwd) --base-branch main"
+        run: /bin/bash -c "/usr/local/bin/dev_charts_validate validate --path $(pwd)"

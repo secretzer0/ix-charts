@@ -1,0 +1,29 @@
+name: dev_catalog_validation_custom
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  ix-dev-validate:
+    runs-on: ubuntu-latest
+
+    # This workflow uses our custom Docker image
+    # To activate:
+    # 1. Build and publish the Docker image (see docker/README.md)
+    # 2. Rename this file to dev_apps_validate.yml (replacing the original)
+    container:
+      image: secretzer0/truenas-dragonfish-validation:latest
+      # Alternative if using GitHub Container Registry:
+      # image: ghcr.io/secretzer0/truenas-dragonfish-validation:latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Adding git directory to safe path
+        run: git config --global --add safe.directory "$(pwd)"
+      - name: Fetch base branch history
+        run: git fetch -u origin main:main
+      - name: validate dev catalog
+        run: /bin/bash -c "dev_charts_validate validate --path $(pwd)"
