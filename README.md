@@ -5,6 +5,9 @@
 
 # 🔧 Community-Maintained TrueNAS Charts for Dragonfish
 
+![Catalog Validation](https://github.com/secretzer0/ix-charts/actions/workflows/format_validation.yml/badge.svg)
+![Catalog Update](https://github.com/secretzer0/ix-charts/actions/workflows/update_catalog.yaml/badge.svg)
+
 **This is a privately maintained fork** of the original iX Systems charts repository, actively maintained for TrueNAS SCALE Dragonfish (24.04) users who require stability and continuity.
 
 ## About This Repository
