@@ -19,7 +19,7 @@ home: https://www.drawio.com
 icon: https://media.sys.truenas.net/apps/drawio/icons/icon.png
 sources:
   - https://hub.docker.com/r/jgraph/drawio
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/drawio
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/drawio
   - https://github.com/jgraph/drawio
 keywords:
   - diagram

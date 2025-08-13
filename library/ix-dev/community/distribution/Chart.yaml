@@ -20,7 +20,7 @@ icon: https://media.sys.truenas.net/apps/distribution/icons/icon.svg
 sources:
   - https://hub.docker.com/_/registry
   - https://distribution.github.io/distribution/
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/distribution
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/distribution
   - https://github.com/distribution/distribution
 keywords:
   - container

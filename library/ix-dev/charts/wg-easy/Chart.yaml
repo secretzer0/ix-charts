@@ -19,7 +19,7 @@ home: https://github.com/WeeJeWel/wg-easy
 icon: https://media.sys.truenas.net/apps/wg-easy/icons/icon.png
 sources:
   - https://github.com/WeeJeWel/wg-easy
-  - https://github.com/truenas/charts/tree/master/charts/wg-easy
+  - https://github.com/secretzer0/ix-charts/tree/master/charts/wg-easy
 keywords:
   - wireguard
   - network

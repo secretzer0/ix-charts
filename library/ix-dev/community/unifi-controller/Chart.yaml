@@ -19,7 +19,7 @@ home: https://github.com/goofball222/unifi
 icon: https://media.sys.truenas.net/apps/unifi-controller/icons/icon.png
 sources:
   - https://github.com/goofball222/unifi
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/unifi-controller
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/unifi-controller
   - https://hub.docker.com/r/goofball222/unifi
 keywords:
   - network

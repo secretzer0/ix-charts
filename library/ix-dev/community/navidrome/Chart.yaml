@@ -19,7 +19,7 @@ home: https://www.navidrome.org/
 icon: https://media.sys.truenas.net/apps/navidrome/icons/icon.png
 sources:
   - https://hub.docker.com/r/deluan/navidrome
-  - https://github.com/truenas/charts/tree/master/community/navidrome
+  - https://github.com/secretzer0/ix-charts/tree/master/community/navidrome
   - https://github.com/navidrome/navidrome/
 keywords:
   - media

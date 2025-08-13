@@ -19,7 +19,7 @@ home: https://fscrawler.readthedocs.io/
 icon: https://media.sys.truenas.net/apps/fscrawler/icons/icon.svg
 sources:
   - https://github.com/dadoonet/fscrawler
-  - https://github.com/truenas/charts/tree/master/community/fscrawler
+  - https://github.com/secretzer0/ix-charts/tree/master/community/fscrawler
   - https://hub.docker.com/r/dadoonet/fscrawler
   - https://fscrawler.readthedocs.io/
 keywords:

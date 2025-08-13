@@ -19,7 +19,7 @@ dependencies:
 home: https://github.com/alexta69/metube
 icon: https://media.sys.truenas.net/apps/metube/icons/icon.svg
 sources:
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/metube
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/metube
   - https://github.com/alexta69/metube
 keywords:
   - youtube-dl

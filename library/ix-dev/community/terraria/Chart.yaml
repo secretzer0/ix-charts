@@ -19,7 +19,7 @@ home: https://terraria.org/
 icon: https://media.sys.truenas.net/apps/terraria/icons/icon.png
 sources:
   - https://terraria.org/
-  - https://github.com/truenas/charts/tree/master/community/terraria
+  - https://github.com/secretzer0/ix-charts/tree/master/community/terraria
   - https://github.com/ryansheehan/terraria
 keywords:
   - game

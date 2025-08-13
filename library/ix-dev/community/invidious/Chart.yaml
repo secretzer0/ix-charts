@@ -19,7 +19,7 @@ home: https://invidious.io/
 icon: https://media.sys.truenas.net/apps/invidious/icons/icon.svg
 sources:
   - https://invidious.io/
-  - https://github.com/truenas/charts/tree/master/community/invidious
+  - https://github.com/secretzer0/ix-charts/tree/master/community/invidious
   - https://quay.io/repository/invidious
 keywords:
   - youtube

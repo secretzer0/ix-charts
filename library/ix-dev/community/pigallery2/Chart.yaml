@@ -19,7 +19,7 @@ home: https://bpatrik.github.io/pigallery2
 icon: https://media.sys.truenas.net/apps/pigallery2/icons/icon.png
 sources:
   - https://hub.docker.com/r/bpatrik/pigallery2
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/pigallery2
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/pigallery2
   - https://github.com/bpatrik/pigallery2
 keywords:
   - media

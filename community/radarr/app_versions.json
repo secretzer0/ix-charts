@@ -39,7 +39,7 @@
             "home": "https://github.com/Radarr/Radarr",
             "icon": "https://media.sys.truenas.net/apps/radarr/icons/icon.png",
             "sources": [
-                "https://github.com/onedr0p/containers/tree/main/apps/radarr",
+                "https://github.com/home-operations/containers/tree/main/apps/radarr",
                 "https://github.com/truenas/charts/tree/master/community/radarr",
                 "https://github.com/Radarr/Radarr"
             ],

@@ -19,7 +19,7 @@ home: https://www.minecraft.net/en-us
 icon: https://media.sys.truenas.net/apps/minecraft/icons/icon.svg
 sources:
   - https://www.minecraft.net/en-us
-  - https://github.com/truenas/charts/tree/master/community/minecraft
+  - https://github.com/secretzer0/ix-charts/tree/master/community/minecraft
   - https://github.com/itzg/docker-minecraft-server
 keywords:
   - minecraft

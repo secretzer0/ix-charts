@@ -20,7 +20,7 @@ home: https://castopod.org
 icon: https://media.sys.truenas.net/apps/castopod/icons/icon.svg
 sources:
   - https://hub.docker.com/r/castopod/castopod
-  - https://github.com/truenas/charts/tree/master/community/castopod
+  - https://github.com/secretzer0/ix-charts/tree/master/community/castopod
   - https://code.castopod.org/adaures/castopod
 keywords:
   - podcast

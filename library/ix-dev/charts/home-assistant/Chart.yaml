@@ -20,6 +20,6 @@ home: https://www.home-assistant.io/
 icon: https://media.sys.truenas.net/apps/home-assistant/icons/icon.png
 sources:
   - https://github.com/home-assistant/home-assistant
-  - https://github.com/truenas/charts/tree/master/charts/home-assistant
+  - https://github.com/secretzer0/ix-charts/tree/master/charts/home-assistant
 keywords:
   - home-automation

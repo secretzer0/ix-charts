@@ -20,7 +20,7 @@ home: https://github.com/cloudflare/cloudflared
 icon: https://media.sys.truenas.net/apps/cloudflared/icons/icon.png
 sources:
   - https://github.com/cloudflare/cloudflared
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/cloudflared
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/cloudflared
   - https://hub.docker.com/r/cloudflare/cloudflared
 keywords:
   - network

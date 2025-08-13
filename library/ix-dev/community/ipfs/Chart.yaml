@@ -20,7 +20,7 @@ home: https://ipfs.tech/
 icon: https://media.sys.truenas.net/apps/ipfs/icons/icon.png
 sources:
   - https://github.com/ipfs/kubo
-  - https://github.com/truenas/charts/tree/master/community/ipfs
+  - https://github.com/secretzer0/ix-charts/tree/master/community/ipfs
   - https://ipfs.tech/
 keywords:
   - storage

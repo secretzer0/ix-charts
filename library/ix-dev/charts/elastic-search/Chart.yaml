@@ -20,7 +20,7 @@ home: https://www.elastic.co
 icon: https://media.sys.truenas.net/apps/elastic-search/icons/icon.svg
 sources:
   - https://www.elastic.co/
-  - https://github.com/truenas/charts/tree/master/charts/elastic-search
+  - https://github.com/secretzer0/ix-charts/tree/master/charts/elastic-search
   - https://www.elastic.co/guide/en/elasticsearch/reference/master/docker.html#docker-configuration-methods
 keywords:
   - search

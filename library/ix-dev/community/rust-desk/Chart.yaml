@@ -19,7 +19,7 @@ home: https://rustdesk.com
 icon: https://media.sys.truenas.net/apps/rust-desk/icons/icon.png
 sources:
   - https://hub.docker.com/r/rustdesk/rustdesk-server
-  - https://github.com/truenas/charts/tree/master/community/rust-desk
+  - https://github.com/secretzer0/ix-charts/tree/master/community/rust-desk
   - https://github.com/rustdesk/rustdesk-server
 keywords:
   - remote

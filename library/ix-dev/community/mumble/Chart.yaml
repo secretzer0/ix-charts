@@ -19,7 +19,7 @@ home: https://www.mumble.info/
 icon: https://media.sys.truenas.net/apps/mumble/icons/icon.svg
 sources:
   - https://github.com/mumble-voip/mumble-docker
-  - https://github.com/truenas/charts/tree/master/community/mumble
+  - https://github.com/secretzer0/ix-charts/tree/master/community/mumble
   - https://www.mumble.info/
 keywords:
   - voice

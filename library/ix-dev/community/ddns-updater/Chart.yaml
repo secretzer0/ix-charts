@@ -19,7 +19,7 @@ home: https://github.com/qdm12/ddns-updater
 icon: https://media.sys.truenas.net/apps/ddns-updater/icons/icon.svg
 sources:
   - https://github.com/qdm12/ddns-updater
-  - https://github.com/truenas/charts/tree/master/community/ddns-updater
+  - https://github.com/secretzer0/ix-charts/tree/master/community/ddns-updater
   - https://hub.docker.com/r/qmcgaw/ddns-updater
 keywords:
   - ddns-updater

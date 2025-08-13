@@ -19,7 +19,7 @@ home: https://github.com/jlesage/docker-handbrake
 icon: https://media.sys.truenas.net/apps/handbrake/icons/icon.png
 sources:
   - https://github.com/jlesage/docker-handbrake
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/handbrake
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/handbrake
   - https://hub.docker.com/r/jlesage/handbrake
 keywords:
   - media

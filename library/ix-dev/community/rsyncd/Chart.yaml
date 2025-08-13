@@ -19,7 +19,7 @@ home: https://github.com/truenas/containers/tree/main/apps/rsyncd
 icon: https://media.sys.truenas.net/apps/rsyncd/icons/icon.png
 sources:
   - https://github.com/truenas/containers/tree/main/apps/rsyncd
-  - https://github.com/truenas/charts/tree/master/community/rsyncd
+  - https://github.com/secretzer0/ix-charts/tree/master/community/rsyncd
   - https://hub.docker.com/r/ixsystems/rsyncd
 keywords:
   - rsync

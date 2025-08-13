@@ -20,7 +20,7 @@ home: https://www.chia.net/
 icon: https://media.sys.truenas.net/apps/chia/icons/icon.svg
 sources:
   - https://github.com/Chia-Network/chia-docker
-  - https://github.com/truenas/charts/tree/master/community/chia
+  - https://github.com/secretzer0/ix-charts/tree/master/community/chia
   - https://www.chia.net/
 keywords:
   - blockchain

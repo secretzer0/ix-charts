@@ -20,7 +20,7 @@ home: https://jellyfin.org/
 icon: https://media.sys.truenas.net/apps/jellyfin/icons/icon.svg
 sources:
   - https://hub.docker.com/r/jellyfin/jellyfin
-  - https://github.com/truenas/charts/tree/master/community/jellyfin
+  - https://github.com/secretzer0/ix-charts/tree/master/community/jellyfin
   - https://jellyfin.org/
 keywords:
   - media

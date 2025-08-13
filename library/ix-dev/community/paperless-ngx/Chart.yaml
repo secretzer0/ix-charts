@@ -20,7 +20,7 @@ home: https://docs.paperless-ngx.com
 icon: https://media.sys.truenas.net/apps/paperless-ngx/icons/icon.svg
 sources:
   - https://hub.docker.com/r/paperlessngx/paperless-ngx
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/paperless-ngx
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/paperless-ngx
   - https://github.com/paperless-ngx/paperless-ngx
 keywords:
   - document

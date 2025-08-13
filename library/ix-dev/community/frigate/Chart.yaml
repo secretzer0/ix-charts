@@ -18,7 +18,7 @@ dependencies:
 home: https://github.com/blakeblackshear/frigate
 icon: https://media.sys.truenas.net/apps/frigate/icons/icon.svg
 sources:
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/frigate
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/frigate
   - https://github.com/blakeblackshear/frigate
 keywords:
   - camera

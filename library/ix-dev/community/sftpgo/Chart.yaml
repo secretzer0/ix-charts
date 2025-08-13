@@ -20,7 +20,7 @@ home: https://github.com/drakkan/sftpgo
 icon: https://media.sys.truenas.net/apps/sftpgo/icons/icon.png
 sources:
   - https://hub.docker.com/r/drakkan/sftpgo
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/sftpgo
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/sftpgo
   - https://github.com/drakkan/sftpgo
 keywords:
   - sftpgo

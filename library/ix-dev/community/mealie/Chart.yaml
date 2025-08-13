@@ -18,7 +18,7 @@ dependencies:
 home: https://mealie.io
 icon: https://media.sys.truenas.net/apps/mealie/icons/icon.png
 sources:
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/mealie
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/mealie
   - https://github.com/ndom91/briefkasten
   - https://nightly.mealie.io/
 keywords:

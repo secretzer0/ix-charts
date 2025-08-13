@@ -19,7 +19,7 @@ home: https://www.zerotier.com
 icon: https://media.sys.truenas.net/apps/zerotier/icons/icon.png
 sources:
   - https://www.zerotier.com
-  - https://github.com/truenas/charts/tree/master/community/zerotier
+  - https://github.com/secretzer0/ix-charts/tree/master/community/zerotier
   - https://hub.docker.com/r/zerotier/zerotier
 keywords:
   - vpn

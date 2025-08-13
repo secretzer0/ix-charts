@@ -19,7 +19,7 @@ home: https://freshrss.org/
 icon: https://media.sys.truenas.net/apps/freshrss/icons/icon.png
 sources:
   - https://github.com/FreshRSS/FreshRSS
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/freshrss
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/freshrss
   - https://hub.docker.com/r/freshrss/freshrss
 keywords:
   - rss

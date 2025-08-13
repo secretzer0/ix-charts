@@ -20,7 +20,7 @@ home: https://roundcube.net/
 icon: https://media.sys.truenas.net/apps/roundcube/icons/icon.png
 sources:
   - https://roundcube.net/
-  - https://github.com/truenas/charts/tree/master/community/roundcube
+  - https://github.com/secretzer0/ix-charts/tree/master/community/roundcube
   - https://hub.docker.com/r/roundcube/roundcubemail/
 keywords:
   - webmail

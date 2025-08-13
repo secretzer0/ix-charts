@@ -19,7 +19,7 @@ home: https://www.kavitareader.com/
 icon: https://media.sys.truenas.net/apps/kavita/icons/icon.png
 sources:
   - https://github.com/Kareadita/Kavita
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/kavita
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/kavita
   - https://www.kavitareader.com
 keywords:
   - manga

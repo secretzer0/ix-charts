@@ -20,7 +20,7 @@ home: https://docs.2fauth.app/
 icon: https://media.sys.truenas.net/apps/twofactor-auth/icons/icon.png
 sources:
   - https://github.com/Bubka/2FAuth
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/2fauth
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/2fauth
   - https://hub.docker.com/r/2fauth/2fauth/
 keywords:
   - security

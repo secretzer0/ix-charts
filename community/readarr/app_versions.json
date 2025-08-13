@@ -39,7 +39,7 @@
             "home": "https://github.com/Readarr/Readarr",
             "icon": "https://media.sys.truenas.net/apps/readarr/icons/icon.png",
             "sources": [
-                "https://github.com/onedr0p/containers/tree/main/apps/readarr",
+                "https://github.com/home-operations/containers/tree/main/apps/readarr",
                 "https://github.com/truenas/charts/tree/master/library/ix-dev/community/readarr",
                 "https://github.com/Readarr/Readarr"
             ],

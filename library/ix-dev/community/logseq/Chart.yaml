@@ -19,7 +19,7 @@ home: https://logseq.com/
 icon: https://media.sys.truenas.net/apps/logseq/icons/icon.png
 sources:
   - https://github.com/logseq/logseq
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/logseq
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/logseq
 keywords:
   - knowledge
   - management

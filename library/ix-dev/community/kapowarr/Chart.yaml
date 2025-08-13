@@ -19,7 +19,7 @@ home: https://casvt.github.io/Kapowarr/
 icon: https://media.sys.truenas.net/apps/kapowarr/icons/icon.svg
 sources:
   - https://hub.docker.com/r/mrcas/kapowarr
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/kapowarr
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/kapowarr
   - https://github.com/Casvt/Kapowarr
 keywords:
   - media

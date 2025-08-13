@@ -20,7 +20,7 @@ home: https://joplinapp.org/
 icon: https://media.sys.truenas.net/apps/joplin/icons/icon.png
 sources:
   - https://github.com/laurent22/joplin
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/joplin
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/joplin
   - https://hub.docker.com/r/joplin/server/
 keywords:
   - notes

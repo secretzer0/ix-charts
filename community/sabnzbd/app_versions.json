@@ -40,7 +40,7 @@
             "home": "https://sabnzbd.org/",
             "icon": "https://media.sys.truenas.net/apps/sabnzbd/icons/icon.svg",
             "sources": [
-                "https://github.com/onedr0p/containers/tree/main/apps/sabnzbd",
+                "https://github.com/home-operations/containers/tree/main/apps/sabnzbd",
                 "https://github.com/truenas/charts/tree/master/library/ix-dev/community/sabnzbd",
                 "https://github.com/Sabnzbd/Sabnzbd"
             ],

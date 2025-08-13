@@ -19,7 +19,7 @@ home: https://www.firefly-iii.org/
 icon: https://media.sys.truenas.net/apps/firefly-iii/icons/icon.png
 sources:
   - https://hub.docker.com/r/fireflyiii/core/
-  - https://github.com/truenas/charts/tree/master/community/firefly-iii
+  - https://github.com/secretzer0/ix-charts/tree/master/community/firefly-iii
   - https://github.com/firefly-iii/firefly-iii
 keywords:
   - finance

@@ -18,7 +18,7 @@ dependencies:
 home: https://github.com/sissbruecker/linkding
 icon: https://media.sys.truenas.net/apps/linkding/icons/icon.svg
 sources:
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/linkding
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/linkding
   - https://github.com/sissbruecker/linkding
   - https://hub.docker.com/r/sissbruecker/linkding/
 keywords:

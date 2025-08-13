@@ -19,7 +19,7 @@ home: https://pi-hole.net/
 icon: https://media.sys.truenas.net/apps/pihole/icons/icon.png
 sources:
   - https://pi-hole.net/
-  - https://github.com/truenas/charts/tree/master/charts/pihole
+  - https://github.com/secretzer0/ix-charts/tree/master/charts/pihole
 keywords:
   - networking
   - dns

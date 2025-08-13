@@ -20,7 +20,7 @@ home: https://github.com/ep1cman/unifi-protect-backup
 icon: https://media.sys.truenas.net/apps/unifi-protect-backup/icons/icon.svg
 sources:
   - https://github.com/ep1cman/unifi-protect-backup
-  - https://github.com/truenas/charts/tree/master/community/unifi-protect-backup
+  - https://github.com/secretzer0/ix-charts/tree/master/community/unifi-protect-backup
   - https://github.com/ep1cman/unifi-protect-backup/pkgs/container/unifi-protect-backup/
 keywords:
   - backup

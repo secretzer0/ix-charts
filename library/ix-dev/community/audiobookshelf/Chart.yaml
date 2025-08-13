@@ -19,7 +19,7 @@ home: https://www.audiobookshelf.org/
 icon: https://media.sys.truenas.net/apps/audiobookshelf/icons/icon.svg
 sources:
   - https://ghcr.io/advplyr/audiobookshelf
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/audiobookshelf
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/audiobookshelf
   - https://github.com/advplyr/audiobookshelf
 keywords:
   - media

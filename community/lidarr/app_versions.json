@@ -39,7 +39,7 @@
             "home": "https://github.com/Lidarr/Lidarr",
             "icon": "https://media.sys.truenas.net/apps/lidarr/icons/icon.png",
             "sources": [
-                "https://github.com/onedr0p/containers/tree/main/apps/lidarr",
+                "https://github.com/home-operations/containers/tree/main/apps/lidarr",
                 "https://github.com/truenas/charts/tree/master/community/lidarr",
                 "https://github.com/Lidarr/Lidarr"
             ],

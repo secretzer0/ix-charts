@@ -20,7 +20,7 @@ home: https://github.com/dani-garcia/vaultwarden
 icon: https://media.sys.truenas.net/apps/vaultwarden/icons/icon.png
 sources:
   - https://github.com/dani-garcia/vaultwarden
-  - https://github.com/truenas/charts/tree/master/community/vaultwarden
+  - https://github.com/secretzer0/ix-charts/tree/master/community/vaultwarden
 keywords:
   - password
   - manager

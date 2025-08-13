@@ -19,7 +19,7 @@ home: https://github.com/RemiRigal/Plex-Auto-Languages
 icon: https://media.sys.truenas.net/apps/plex-auto-languages/icons/icon.svg
 sources:
   - https://github.com/RemiRigal/Plex-Auto-Languages
-  - https://github.com/truenas/charts/tree/master/community/plex-auto-languages
+  - https://github.com/secretzer0/ix-charts/tree/master/community/plex-auto-languages
   - https://hub.docker.com/r/remirigal/plex-auto-languages
 keywords:
   - plex

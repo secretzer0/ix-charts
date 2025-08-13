@@ -19,7 +19,7 @@ home: https://dashy.to/
 icon: https://media.sys.truenas.net/apps/dashy/icons/icon.png
 sources:
   - https://dashy.to/
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/dashy
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/dashy
   - https://github.com/lissy93/dashy
 keywords:
   - dashboard

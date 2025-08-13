@@ -19,7 +19,7 @@ home: https://gethomepage.dev/
 icon: https://media.sys.truenas.net/apps/homepage/icons/icon.png
 sources:
   - https://gethomepage.dev/
-  - https://github.com/truenas/charts/tree/master/community/homepage
+  - https://github.com/secretzer0/ix-charts/tree/master/community/homepage
   - https://github.com/benphelps/homepage
 keywords:
   - dashboard

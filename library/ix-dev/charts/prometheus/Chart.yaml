@@ -19,7 +19,7 @@ home: https://prometheus.io
 icon: https://media.sys.truenas.net/apps/prometheus/icons/icon.png
 sources:
   - https://github.com/prometheus/prometheus
-  - https://github.com/truenas/charts/tree/master/charts/prometheus
+  - https://github.com/secretzer0/ix-charts/tree/master/charts/prometheus
   - https://prometheus.io
 keywords:
   - metrics

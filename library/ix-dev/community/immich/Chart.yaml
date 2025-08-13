@@ -20,7 +20,7 @@ home: https://immich.app
 icon: https://media.sys.truenas.net/apps/immich/icons/icon.svg
 sources:
   - https://immich.app
-  - https://github.com/truenas/charts/tree/master/community/immich
+  - https://github.com/secretzer0/ix-charts/tree/master/community/immich
   - https://github.com/immich-app/immich
 keywords:
   - photos

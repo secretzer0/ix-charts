@@ -19,7 +19,7 @@ home: https://gitea.io/en-us
 icon: https://media.sys.truenas.net/apps/gitea/icons/icon.svg
 sources:
   - https://gitea.io/en-us
-  - https://github.com/truenas/charts/tree/master/community/gitea
+  - https://github.com/secretzer0/ix-charts/tree/master/community/gitea
   - https://docs.gitea.io/en-us/install-with-docker-rootless
 keywords:
   - git

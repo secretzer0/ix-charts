@@ -20,7 +20,7 @@ home: http://www.webdav.org/
 icon: https://media.sys.truenas.net/apps/webdav/icons/icon.png
 sources:
   - http://www.webdav.org/
-  - https://github.com/truenas/charts/tree/master/community/webdav
+  - https://github.com/secretzer0/ix-charts/tree/master/community/webdav
 keywords:
   - webdav
   - file-sharing

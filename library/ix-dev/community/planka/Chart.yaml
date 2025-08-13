@@ -18,7 +18,7 @@ dependencies:
 home: https://github.com/plankanban/planka
 icon: https://media.sys.truenas.net/apps/planka/icons/icon.png
 sources:
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/planka
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/planka
   - https://github.com/plankanban/planka
 keywords:
   - project

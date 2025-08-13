@@ -19,7 +19,7 @@ home: https://komga.org
 icon: https://media.sys.truenas.net/apps/komga/icons/icon.svg
 sources:
   - https://github.com/gotson/komga
-  - https://github.com/truenas/charts/tree/master/library/ix-dev/community/komga
+  - https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/komga
   - https://hub.docker.com/r/gotson/komga
 keywords:
   - media

@@ -39,7 +39,7 @@
             "home": "https://tautulli.com/",
             "icon": "https://media.sys.truenas.net/apps/tautulli/icons/icon.png",
             "sources": [
-                "https://github.com/onedr0p/containers/tree/main/apps/tautulli",
+                "https://github.com/home-operations/containers/tree/main/apps/tautulli",
                 "https://github.com/truenas/charts/tree/master/library/ix-dev/community/tautulli",
                 "https://github.com/Tautulli/Tautulli"
             ],

@@ -16,10 +16,10 @@ dependencies:
   - name: common
     repository: file://../../../common
     version: 1.2.9
-home: https://github.com/truenas/charts/tree/master/community/netbootxyz
+home: https://github.com/secretzer0/ix-charts/tree/master/community/netbootxyz
 icon: https://media.sys.truenas.net/apps/netbootxyz/icons/icon.png
 sources:
-  - https://github.com/truenas/charts/tree/master/community/netbootxyz
+  - https://github.com/secretzer0/ix-charts/tree/master/community/netbootxyz
   - https://github.com/netbootxyz/docker-netbootxyz
   - https://netboot.xyz
 keywords:
