@@ -1,16 +1,16 @@
 {
-    "1.2.24": {
+    "1.2.25": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/sonarr/1.2.24",
-        "last_update": "2025-08-12 23:18:32",
+        "location": "/__w/ix-charts/ix-charts/community/sonarr/1.2.25",
+        "last_update": "2025-08-13 00:41:13",
         "required_features": [
             "normalize/ixVolume",
             "normalize/acl"
         ],
-        "human_version": "4.0.15.2940_1.2.24",
-        "version": "1.2.24",
+        "human_version": "4.0.15.2940_1.2.25",
+        "version": "1.2.25",
         "chart_metadata": {
             "name": "sonarr",
             "description": "Sonarr is a PVR for Usenet and BitTorrent users.",
@@ -18,7 +18,7 @@
                 "title": "Sonarr"
             },
             "type": "application",
-            "version": "1.2.24",
+            "version": "1.2.25",
             "apiVersion": "v2",
             "appVersion": "4.0.15.2940",
             "kubeVersion": ">=1.16.0-0",
@@ -40,7 +40,7 @@
             "icon": "https://media.sys.truenas.net/apps/sonarr/icons/icon.png",
             "sources": [
                 "https://github.com/home-operations/containers/tree/main/apps/sonarr",
-                "https://github.com/truenas/charts/tree/master/community/sonarr",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/sonarr",
                 "https://github.com/Sonarr/Sonarr"
             ],
             "keywords": [

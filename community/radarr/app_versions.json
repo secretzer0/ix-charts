@@ -1,16 +1,16 @@
 {
-    "1.2.27": {
+    "1.2.28": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/radarr/1.2.27",
-        "last_update": "2025-08-12 23:18:32",
+        "location": "/__w/ix-charts/ix-charts/community/radarr/1.2.28",
+        "last_update": "2025-08-13 00:41:13",
         "required_features": [
             "normalize/ixVolume",
             "normalize/acl"
         ],
-        "human_version": "5.27.3.10153_1.2.27",
-        "version": "1.2.27",
+        "human_version": "5.27.3.10153_1.2.28",
+        "version": "1.2.28",
         "chart_metadata": {
             "name": "radarr",
             "description": "Radarr is a movie collection manager for Usenet and BitTorrent users.",
@@ -18,7 +18,7 @@
                 "title": "Radarr"
             },
             "type": "application",
-            "version": "1.2.27",
+            "version": "1.2.28",
             "apiVersion": "v2",
             "appVersion": "5.27.3.10153",
             "kubeVersion": ">=1.16.0-0",
@@ -40,7 +40,7 @@
             "icon": "https://media.sys.truenas.net/apps/radarr/icons/icon.png",
             "sources": [
                 "https://github.com/home-operations/containers/tree/main/apps/radarr",
-                "https://github.com/truenas/charts/tree/master/community/radarr",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/radarr",
                 "https://github.com/Radarr/Radarr"
             ],
             "keywords": [

@@ -1,16 +1,16 @@
 {
-    "1.2.19": {
+    "1.2.20": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/qbittorrent/1.2.19",
-        "last_update": "2025-08-12 16:55:15",
+        "location": "/__w/ix-charts/ix-charts/community/qbittorrent/1.2.20",
+        "last_update": "2025-08-13 00:41:13",
         "required_features": [
             "normalize/ixVolume",
             "normalize/acl"
         ],
-        "human_version": "5.0.4_1.2.19",
-        "version": "1.2.19",
+        "human_version": "5.0.4_1.2.20",
+        "version": "1.2.20",
         "chart_metadata": {
             "name": "qbittorrent",
             "description": "The qBittorrent project aims to provide an open-source software alternative to \u00b5Torrent.",
@@ -18,7 +18,7 @@
                 "title": "qBittorrent"
             },
             "type": "application",
-            "version": "1.2.19",
+            "version": "1.2.20",
             "apiVersion": "v2",
             "appVersion": "5.0.4",
             "kubeVersion": ">=1.16.0-0",
@@ -40,7 +40,7 @@
             "icon": "https://media.sys.truenas.net/apps/qbittorrent/icons/icon.png",
             "sources": [
                 "https://github.com/home-operations/containers/tree/main/apps/qbittorrent",
-                "https://github.com/truenas/charts/tree/master/community/qbittorrent",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/qbittorrent",
                 "https://www.qbittorrent.org/"
             ],
             "keywords": [

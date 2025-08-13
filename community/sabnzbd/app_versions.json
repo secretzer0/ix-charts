@@ -1,17 +1,17 @@
 {
-    "1.3.4": {
+    "1.3.5": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/sabnzbd/1.3.4",
-        "last_update": "2025-08-12 23:18:32",
+        "location": "/__w/ix-charts/ix-charts/community/sabnzbd/1.3.5",
+        "last_update": "2025-08-13 00:41:13",
         "required_features": [
             "normalize/ixVolume",
             "definitions/timezone",
             "normalize/acl"
         ],
-        "human_version": "4.5.2_1.3.4",
-        "version": "1.3.4",
+        "human_version": "4.5.2_1.3.5",
+        "version": "1.3.5",
         "chart_metadata": {
             "name": "sabnzbd",
             "description": "SABnzbd is an Open Source Binary Newsreader written in Python.",
@@ -19,7 +19,7 @@
                 "title": "SABnzbd"
             },
             "type": "application",
-            "version": "1.3.4",
+            "version": "1.3.5",
             "apiVersion": "v2",
             "appVersion": "4.5.2",
             "kubeVersion": ">=1.16.0-0",
@@ -41,7 +41,7 @@
             "icon": "https://media.sys.truenas.net/apps/sabnzbd/icons/icon.svg",
             "sources": [
                 "https://github.com/home-operations/containers/tree/main/apps/sabnzbd",
-                "https://github.com/truenas/charts/tree/master/library/ix-dev/community/sabnzbd",
+                "https://github.com/secretzer0/ix-charts/tree/master/library/ix-dev/community/sabnzbd",
                 "https://github.com/Sabnzbd/Sabnzbd"
             ],
             "keywords": [

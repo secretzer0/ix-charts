@@ -1,16 +1,16 @@
 {
-    "1.2.31": {
+    "1.2.32": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/lidarr/1.2.31",
-        "last_update": "2025-08-12 16:55:15",
+        "location": "/__w/ix-charts/ix-charts/community/lidarr/1.2.32",
+        "last_update": "2025-08-13 00:41:13",
         "required_features": [
             "normalize/ixVolume",
             "normalize/acl"
         ],
-        "human_version": "2.5.2.4316_1.2.31",
-        "version": "1.2.31",
+        "human_version": "2.5.2.4316_1.2.32",
+        "version": "1.2.32",
         "chart_metadata": {
             "name": "lidarr",
             "description": "Lidarr is a music collection manager for Usenet and BitTorrent users.",
@@ -18,7 +18,7 @@
                 "title": "Lidarr"
             },
             "type": "application",
-            "version": "1.2.31",
+            "version": "1.2.32",
             "apiVersion": "v2",
             "appVersion": "2.5.2.4316",
             "kubeVersion": ">=1.16.0-0",
@@ -40,7 +40,7 @@
             "icon": "https://media.sys.truenas.net/apps/lidarr/icons/icon.png",
             "sources": [
                 "https://github.com/home-operations/containers/tree/main/apps/lidarr",
-                "https://github.com/truenas/charts/tree/master/community/lidarr",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/lidarr",
                 "https://github.com/Lidarr/Lidarr"
             ],
             "keywords": [

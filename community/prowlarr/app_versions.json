@@ -1,16 +1,16 @@
 {
-    "1.2.54": {
+    "1.2.55": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/prowlarr/1.2.54",
-        "last_update": "2025-08-12 16:55:15",
+        "location": "/__w/ix-charts/ix-charts/community/prowlarr/1.2.55",
+        "last_update": "2025-08-13 00:41:13",
         "required_features": [
             "normalize/ixVolume",
             "normalize/acl"
         ],
-        "human_version": "1.31.2.4975_1.2.54",
-        "version": "1.2.54",
+        "human_version": "1.31.2.4975_1.2.55",
+        "version": "1.2.55",
         "chart_metadata": {
             "name": "prowlarr",
             "description": "Prowlarr is an indexer manager/proxy to integrate with your various PVR apps.",
@@ -18,7 +18,7 @@
                 "title": "Prowlarr"
             },
             "type": "application",
-            "version": "1.2.54",
+            "version": "1.2.55",
             "apiVersion": "v2",
             "appVersion": "1.31.2.4975",
             "kubeVersion": ">=1.16.0-0",
@@ -40,7 +40,7 @@
             "icon": "https://media.sys.truenas.net/apps/prowlarr/icons/icon.png",
             "sources": [
                 "https://github.com/home-operations/containers/tree/main/apps/prowlarr",
-                "https://github.com/truenas/charts/tree/master/community/prowlarr",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/prowlarr",
                 "https://github.com/Prowlarr/Prowlarr"
             ],
             "keywords": [

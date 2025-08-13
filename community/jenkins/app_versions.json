@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/jenkins/1.2.20",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/certificate",
             "normalize/ixVolume",
+            "definitions/certificate",
             "definitions/timezone",
             "normalize/acl"
         ],
