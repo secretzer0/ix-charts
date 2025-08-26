@@ -1,16 +1,16 @@
 {
-    "1.0.29": {
+    "1.0.30": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/jellyseerr/1.0.29",
-        "last_update": "2025-08-12 22:45:44",
+        "location": "/__w/ix-charts/ix-charts/community/jellyseerr/1.0.30",
+        "last_update": "2025-08-26 16:28:38",
         "required_features": [
             "normalize/ixVolume",
             "definitions/timezone"
         ],
-        "human_version": "2.7.2_1.0.29",
-        "version": "1.0.29",
+        "human_version": "2.7.3_1.0.30",
+        "version": "1.0.30",
         "chart_metadata": {
             "name": "jellyseerr",
             "description": "Jellyseerr is a free and open source software application for managing requests for your media library.",
@@ -18,9 +18,9 @@
                 "title": "Jellyseerr"
             },
             "type": "application",
-            "version": "1.0.29",
+            "version": "1.0.30",
             "apiVersion": "v2",
-            "appVersion": "2.7.2",
+            "appVersion": "2.7.3",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
@@ -40,7 +40,7 @@
             "icon": "https://media.sys.truenas.net/apps/jellyseerr/icons/icon.svg",
             "sources": [
                 "https://github.com/Fallenbagel/jellyseerr",
-                "https://github.com/truenas/charts/tree/master/community/jellyseerr",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/jellyseerr",
                 "https://hub.docker.com/r/fallenbagel/jellyseerr"
             ],
             "keywords": [
