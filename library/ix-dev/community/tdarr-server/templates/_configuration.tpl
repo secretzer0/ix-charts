@@ -39,8 +39,8 @@ persistence:
     defaultMode: "0644"
     targetSelector:
       tdarr-server:
-        tdarr-server:
-          mountPath: /app/server/Tdarr/Plugins/Local/Tdarr_Plugin_Ultimate_All_In_One.js
+        02-plugin-setup:
+          mountPath: /tmp/plugin/Tdarr_Plugin_Ultimate_All_In_One.js
           subPath: Tdarr_Plugin_Ultimate_All_In_One.js
           readOnly: true
 
@@ -78,5 +78,31 @@ persistence:
       # Add api.tdarr.io to /etc/hosts for API server interception
       if ! grep -q "api.tdarr.io" /etc/hosts; then
         echo "127.0.0.1 api.tdarr.io" >> /etc/hosts
+      fi
+
+02-plugin-setup:
+  enabled: true
+  type: init
+  imageSelector: image
+  securityContext:
+    runAsUser: 0
+    runAsGroup: 0
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - CHOWN
+        - FOWNER
+  command:
+    - /bin/sh
+    - -c
+    - |
+      # Create plugin directory if it doesn't exist
+      mkdir -p /app/server/Tdarr/Plugins/Local
+
+      # Copy plugin file from ConfigMap to server volume
+      if [ -f /tmp/plugin/Tdarr_Plugin_Ultimate_All_In_One.js ]; then
+        cp /tmp/plugin/Tdarr_Plugin_Ultimate_All_In_One.js /app/server/Tdarr/Plugins/Local/
+        echo "Plugin copied successfully"
       fi
 {{- end -}}

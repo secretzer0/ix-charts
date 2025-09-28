@@ -3,7 +3,7 @@ description: Tdarr Server-Only Instance with API Server for Distributed Transcod
 annotations:
   title: Tdarr Server
 type: application
-version: 1.0.1
+version: 1.0.2
 apiVersion: v2
 appVersion: 2.45.01
 kubeVersion: '>=1.16.0-0'

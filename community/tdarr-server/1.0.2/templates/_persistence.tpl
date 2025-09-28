@@ -6,6 +6,8 @@ persistence:
     {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.server) | nindent 4 }}
     targetSelector:
       tdarr-server:
+        02-plugin-setup:
+          mountPath: /app/server
         tdarr-server:
           mountPath: /app/server
         api-server:
