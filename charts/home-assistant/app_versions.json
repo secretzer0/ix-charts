@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/home-assistant/2.0.67",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
+            "normalize/ixVolume",
             "normalize/acl",
-            "normalize/ixVolume"
+            "definitions/timezone"
         ],
         "human_version": "2025.3.0_2.0.67",
         "version": "2.0.67",
@@ -2103,8 +2103,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/home-assistant/1.0.130",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2024.1.3_1.0.130",
         "version": "1.0.130",
