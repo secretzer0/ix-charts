@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/passbolt/1.2.15",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
+            "definitions/certificate",
             "normalize/acl",
-            "definitions/certificate"
+            "normalize/ixVolume"
         ],
         "human_version": "4.11.1.1_1.2.15",
         "version": "1.2.15",

@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/sftpgo/1.2.12",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
+            "definitions/certificate",
             "normalize/acl",
-            "definitions/certificate"
+            "normalize/ixVolume"
         ],
         "human_version": "2.6.6_1.2.12",
         "version": "1.2.12",

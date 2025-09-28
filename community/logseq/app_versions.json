@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/logseq/1.2.3",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
+            "definitions/certificate",
             "normalize/acl",
-            "definitions/certificate"
+            "normalize/ixVolume"
         ],
         "human_version": "latest_1.2.3",
         "version": "1.2.3",

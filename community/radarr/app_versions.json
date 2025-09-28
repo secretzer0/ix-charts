@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/radarr/1.2.29",
         "last_update": "2025-08-26 16:28:38",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "5.27.5.10184_1.2.29",
         "version": "1.2.29",
