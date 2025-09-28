@@ -49,24 +49,14 @@ tdarrStorage:
     type: ixVolume
     ixVolumeConfig:
       datasetName: state
-  transcodeCache:
+  transcode:
     type: hostPath
     hostPathConfig:
-      hostPath: /transcode/cache
-  transcodeMovies:
+      hostPath: /mnt/transcode-pool
+    mountPath: /transcode
+  media:
     type: hostPath
     hostPathConfig:
-      hostPath: /transcode/Movies
-  transcodeTV:
-    type: hostPath
-    hostPathConfig:
-      hostPath: /transcode/TV
-  mediaMovies:
-    type: hostPath
-    hostPathConfig:
-      hostPath: /media/Movies
-  mediaTV:
-    type: hostPath
-    hostPathConfig:
-      hostPath: /media/TV
+      hostPath: /mnt/media-pool
+    mountPath: /media
   additionalStorages: []

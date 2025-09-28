@@ -448,9 +448,12 @@ questions:
                         show_if: [["aclEnable", "=", false]]
                         required: true
 
-        - variable: transcodeCache
-          label: Transcode Cache Storage
-          description: Shared storage where GPU workers write in-progress transcode files.
+        - variable: transcode
+          label: Transcode Storage
+          description: |
+            Top-level storage for transcoding workspace. Map a host directory
+            (e.g., /mnt/Pool0/Transcode) to a container path (e.g., /transcode).
+            Tdarr can then access subdirectories like /transcode/cache, /transcode/Movies, etc.
           schema:
             type: dict
             attrs:
@@ -469,6 +472,15 @@ questions:
                       description: Host Path (Path that already exists on the system)
                     - value: "ixVolume"
                       description: ixVolume (Dataset created automatically by the system)
+              - variable: mountPath
+                label: Mount Path in Container
+                description: |
+                  The path inside the container where this storage will be mounted.
+                  Default: /transcode
+                schema:
+                  type: path
+                  required: true
+                  default: "/transcode"
               - variable: ixVolumeConfig
                 label: ixVolume Configuration
                 description: The configuration for the ixVolume dataset.
@@ -492,7 +504,7 @@ questions:
                         required: true
                         immutable: true
                         hidden: true
-                        default: "transcode_cache"
+                        default: "transcode"
                     - variable: aclEntries
                       label: ACL Configuration
                       schema:
@@ -521,15 +533,20 @@ questions:
                           - "normalize/acl"
                     - variable: hostPath
                       label: Host Path
-                      description: The host path to use for storage.
+                      description: |
+                        The host path to use for storage.
+                        Default: /mnt/transcode-pool
                       schema:
                         type: hostpath
                         show_if: [["aclEnable", "=", false]]
                         required: true
 
-        - variable: transcodeMovies
-          label: Transcode Movies Storage
-          description: Shared storage for movies queued for transcoding.
+        - variable: media
+          label: Media Storage
+          description: |
+            Top-level storage for media archive. Map a host directory
+            (e.g., /mnt/Pool0/Media) to a container path (e.g., /media).
+            Tdarr can then access subdirectories like /media/Movies, /media/TV, etc.
           schema:
             type: dict
             attrs:
@@ -548,6 +565,15 @@ questions:
                       description: Host Path (Path that already exists on the system)
                     - value: "ixVolume"
                       description: ixVolume (Dataset created automatically by the system)
+              - variable: mountPath
+                label: Mount Path in Container
+                description: |
+                  The path inside the container where this storage will be mounted.
+                  Default: /media
+                schema:
+                  type: path
+                  required: true
+                  default: "/media"
               - variable: ixVolumeConfig
                 label: ixVolume Configuration
                 description: The configuration for the ixVolume dataset.
@@ -571,7 +597,7 @@ questions:
                         required: true
                         immutable: true
                         hidden: true
-                        default: "transcode_movies"
+                        default: "media"
                     - variable: aclEntries
                       label: ACL Configuration
                       schema:
@@ -600,244 +626,9 @@ questions:
                           - "normalize/acl"
                     - variable: hostPath
                       label: Host Path
-                      description: The host path to use for storage.
-                      schema:
-                        type: hostpath
-                        show_if: [["aclEnable", "=", false]]
-                        required: true
-
-        - variable: transcodeTV
-          label: Transcode TV Storage
-          description: Shared storage for TV shows queued for transcoding.
-          schema:
-            type: dict
-            attrs:
-              - variable: type
-                label: Type
-                description: |
-                  ixVolume: Is dataset created automatically by the system.</br>
-                  Host Path: Is a path that already exists on the system.
-                schema:
-                  type: string
-                  required: true
-                  immutable: true
-                  default: "hostPath"
-                  enum:
-                    - value: "hostPath"
-                      description: Host Path (Path that already exists on the system)
-                    - value: "ixVolume"
-                      description: ixVolume (Dataset created automatically by the system)
-              - variable: ixVolumeConfig
-                label: ixVolume Configuration
-                description: The configuration for the ixVolume dataset.
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "ixVolume"]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: aclEnable
-                      label: Enable ACL
-                      description: Enable ACL for the dataset.
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: datasetName
-                      label: Dataset Name
-                      description: The name of the dataset to use for storage.
-                      schema:
-                        type: string
-                        required: true
-                        immutable: true
-                        hidden: true
-                        default: "transcode_tv"
-                    - variable: aclEntries
-                      label: ACL Configuration
-                      schema:
-                        type: dict
-                        show_if: [["aclEnable", "=", true]]
-                        attrs: []
-              - variable: hostPathConfig
-                label: Host Path Configuration
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "hostPath"]]
-                  attrs:
-                    - variable: aclEnable
-                      label: Enable ACL
-                      description: Enable ACL for the dataset.
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: acl
-                      label: ACL Configuration
-                      schema:
-                        type: dict
-                        show_if: [["aclEnable", "=", true]]
-                        attrs: []
-                        $ref:
-                          - "normalize/acl"
-                    - variable: hostPath
-                      label: Host Path
-                      description: The host path to use for storage.
-                      schema:
-                        type: hostpath
-                        show_if: [["aclEnable", "=", false]]
-                        required: true
-
-        - variable: mediaMovies
-          label: Media Movies Storage
-          description: Shared storage for completed movie transcodes.
-          schema:
-            type: dict
-            attrs:
-              - variable: type
-                label: Type
-                description: |
-                  ixVolume: Is dataset created automatically by the system.</br>
-                  Host Path: Is a path that already exists on the system.
-                schema:
-                  type: string
-                  required: true
-                  immutable: true
-                  default: "hostPath"
-                  enum:
-                    - value: "hostPath"
-                      description: Host Path (Path that already exists on the system)
-                    - value: "ixVolume"
-                      description: ixVolume (Dataset created automatically by the system)
-              - variable: ixVolumeConfig
-                label: ixVolume Configuration
-                description: The configuration for the ixVolume dataset.
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "ixVolume"]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: aclEnable
-                      label: Enable ACL
-                      description: Enable ACL for the dataset.
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: datasetName
-                      label: Dataset Name
-                      description: The name of the dataset to use for storage.
-                      schema:
-                        type: string
-                        required: true
-                        immutable: true
-                        hidden: true
-                        default: "media_movies"
-                    - variable: aclEntries
-                      label: ACL Configuration
-                      schema:
-                        type: dict
-                        show_if: [["aclEnable", "=", true]]
-                        attrs: []
-              - variable: hostPathConfig
-                label: Host Path Configuration
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "hostPath"]]
-                  attrs:
-                    - variable: aclEnable
-                      label: Enable ACL
-                      description: Enable ACL for the dataset.
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: acl
-                      label: ACL Configuration
-                      schema:
-                        type: dict
-                        show_if: [["aclEnable", "=", true]]
-                        attrs: []
-                        $ref:
-                          - "normalize/acl"
-                    - variable: hostPath
-                      label: Host Path
-                      description: The host path to use for storage.
-                      schema:
-                        type: hostpath
-                        show_if: [["aclEnable", "=", false]]
-                        required: true
-
-        - variable: mediaTV
-          label: Media TV Storage
-          description: Shared storage for completed TV show transcodes.
-          schema:
-            type: dict
-            attrs:
-              - variable: type
-                label: Type
-                description: |
-                  ixVolume: Is dataset created automatically by the system.</br>
-                  Host Path: Is a path that already exists on the system.
-                schema:
-                  type: string
-                  required: true
-                  immutable: true
-                  default: "hostPath"
-                  enum:
-                    - value: "hostPath"
-                      description: Host Path (Path that already exists on the system)
-                    - value: "ixVolume"
-                      description: ixVolume (Dataset created automatically by the system)
-              - variable: ixVolumeConfig
-                label: ixVolume Configuration
-                description: The configuration for the ixVolume dataset.
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "ixVolume"]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: aclEnable
-                      label: Enable ACL
-                      description: Enable ACL for the dataset.
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: datasetName
-                      label: Dataset Name
-                      description: The name of the dataset to use for storage.
-                      schema:
-                        type: string
-                        required: true
-                        immutable: true
-                        hidden: true
-                        default: "media_tv"
-                    - variable: aclEntries
-                      label: ACL Configuration
-                      schema:
-                        type: dict
-                        show_if: [["aclEnable", "=", true]]
-                        attrs: []
-              - variable: hostPathConfig
-                label: Host Path Configuration
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "hostPath"]]
-                  attrs:
-                    - variable: aclEnable
-                      label: Enable ACL
-                      description: Enable ACL for the dataset.
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: acl
-                      label: ACL Configuration
-                      schema:
-                        type: dict
-                        show_if: [["aclEnable", "=", true]]
-                        attrs: []
-                        $ref:
-                          - "normalize/acl"
-                    - variable: hostPath
-                      label: Host Path
-                      description: The host path to use for storage.
+                      description: |
+                        The host path to use for storage.
+                        Default: /mnt/media-pool
                       schema:
                         type: hostpath
                         show_if: [["aclEnable", "=", false]]

@@ -38,50 +38,23 @@ persistence:
         tdarr-server:
           mountPath: /var/lib/tdarr_state
 
-  transcode-cache:
+  transcode:
     enabled: true
-    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.transcodeCache) }}
-    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.transcodeCache) | nindent 4 }}
+    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.transcode) }}
+    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.transcode) | nindent 4 }}
     targetSelector:
       tdarr-server:
         tdarr-server:
-          mountPath: /transcodes/cache
+          mountPath: {{ .Values.tdarrStorage.transcode.mountPath }}
 
-  transcode-movies:
+  media:
     enabled: true
-    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.transcodeMovies) }}
-    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.transcodeMovies) | nindent 4 }}
+    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.media) }}
+    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.media) | nindent 4 }}
     targetSelector:
       tdarr-server:
         tdarr-server:
-          mountPath: /transcode/Movies
-
-  transcode-tv:
-    enabled: true
-    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.transcodeTV) }}
-    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.transcodeTV) | nindent 4 }}
-    targetSelector:
-      tdarr-server:
-        tdarr-server:
-          mountPath: /transcode/TV
-
-  media-movies:
-    enabled: true
-    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.mediaMovies) }}
-    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.mediaMovies) | nindent 4 }}
-    targetSelector:
-      tdarr-server:
-        tdarr-server:
-          mountPath: /media/Movies
-
-  media-tv:
-    enabled: true
-    {{- include "tdarr-server.storage.ci.migration" (dict "storage" .Values.tdarrStorage.mediaTV) }}
-    {{- include "ix.v1.common.app.storageOptions" (dict "storage" .Values.tdarrStorage.mediaTV) | nindent 4 }}
-    targetSelector:
-      tdarr-server:
-        tdarr-server:
-          mountPath: /media/TV
+          mountPath: {{ .Values.tdarrStorage.media.mountPath }}
 
   {{- range $idx, $storage := .Values.tdarrStorage.additionalStorages }}
   {{ printf "tdarr-server-%v" (int $idx) }}:
