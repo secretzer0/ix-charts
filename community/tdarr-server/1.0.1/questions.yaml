@@ -535,7 +535,7 @@ questions:
                       label: Host Path
                       description: |
                         The host path to use for storage.
-                        Default: /mnt/transcode-pool
+                        Example: /mnt/Pool0/Transcode
                       schema:
                         type: hostpath
                         show_if: [["aclEnable", "=", false]]
@@ -628,7 +628,7 @@ questions:
                       label: Host Path
                       description: |
                         The host path to use for storage.
-                        Default: /mnt/media-pool
+                        Example: /mnt/Pool0/Media
                       schema:
                         type: hostpath
                         show_if: [["aclEnable", "=", false]]

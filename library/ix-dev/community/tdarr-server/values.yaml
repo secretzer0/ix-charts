@@ -52,11 +52,11 @@ tdarrStorage:
   transcode:
     type: hostPath
     hostPathConfig:
-      hostPath: /mnt/transcode-pool
+      hostPath: ''
     mountPath: /transcode
   media:
     type: hostPath
     hostPathConfig:
-      hostPath: /mnt/media-pool
+      hostPath: ''
     mountPath: /media
   additionalStorages: []
