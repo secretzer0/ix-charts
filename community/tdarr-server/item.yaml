@@ -1,0 +1,5 @@
+icon_url: https://media.sys.truenas.net/apps/tdarr/icons/icon.png
+categories:
+  - media
+  - encode
+  - transcode

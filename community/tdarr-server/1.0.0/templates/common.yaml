@@ -1,0 +1,12 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{/* Merge the templates with Values */}}
+{{- $_ := mustMergeOverwrite .Values (include "tdarr-server.workload" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "tdarr-server.configuration" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "tdarr-server.persistence" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "tdarr-server.service" $ | fromYaml) -}}
+
+{{/* Create the configmap for portal manually*/}}
+{{- include "tdarr-server.portal" $ -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}
