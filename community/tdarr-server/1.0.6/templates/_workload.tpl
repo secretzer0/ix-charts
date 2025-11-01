@@ -6,8 +6,6 @@ workload:
     type: Deployment
     podSpec:
       hostNetwork: false
-      securityContext:
-        fsGroup: {{ .Values.tdarrID.group }}
       containers:
         tdarr-server:
           enabled: true
@@ -25,7 +23,6 @@ workload:
                 - SETUID
                 - SETGID
           fixedEnv:
-            TZ: {{ .Values.TZ }}
             PUID: {{ .Values.tdarrID.user }}
             PGID: {{ .Values.tdarrID.group }}
             UMASK_SET: "002"
