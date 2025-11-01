@@ -132,27 +132,27 @@ tdarrStorage:
     hostPathConfig:
       hostPath: /mnt/Pool0/Transcode/TV
 
-  # Plugin Storage - Hardcoded (update these paths to match your system)
+  # Plugin Storage - Optional mounts for custom plugins/templates
   pluginsLocal:
     enabled: true
     type: hostPath
     mountPath: /app/server/Tdarr/Plugins/Local
     hostPathConfig:
-      hostPath: /mnt/appdata/tdarr/tdarr_plugins
+      hostPath: /mnt/Pool0/Transcode/plugins
 
   pluginsFlow:
     enabled: true
     type: hostPath
     mountPath: /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins
     hostPathConfig:
-      hostPath: /mnt/appdata/tdarr/tdarr_plugins_flow/FlowPlugins
+      hostPath: /mnt/Pool0/Transcode/flow_plugins
 
   pluginsFlowTemplates:
     enabled: true
     type: hostPath
     mountPath: /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates
     hostPathConfig:
-      hostPath: /mnt/appdata/tdarr/tdarr_plugins_flow/FlowTemplates
+      hostPath: /mnt/Pool0/Transcode/flow_templates
 
   # Additional Storage - Empty by default
   additionalStorages: []

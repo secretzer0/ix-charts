@@ -1,8 +1,8 @@
 apiVersion: v2
 name: tdarr-server
-version: 1.0.0
+version: 1.0.1
 appVersion: 2.45.01
-description: Tdarr Server - Primary node optimized for local filesystem access
+description: Tdarr Server for Distributed Transcoding
 type: application
 deprecated: false
 home: https://home.tdarr.io/

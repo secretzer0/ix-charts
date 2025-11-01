@@ -1,17 +1,19 @@
 name: tdarr-server
 train: community
-version: 1.0.0
+version: 1.0.1
 app_version: 2.45.01
 title: Tdarr Server
-description: Tdarr Server - Primary node optimized for local filesystem access
-home: https://tdarr.io/
+description: Tdarr Server for Distributed Transcoding
+home: https://home.tdarr.io/
 sources:
   - https://github.com/HaveAGitGat/Tdarr
   - https://github.com/truenas/charts
-icon: https://tdarr.io/images/logo.png
+icon: https://media.sys.truenas.net/apps/tdarr/icons/icon.png
 screenshots: []
 maintainers:
-  - name: TrueNAS SCALE Community
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
 keywords:
   - tdarr
   - transcoding

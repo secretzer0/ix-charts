@@ -283,8 +283,8 @@ questions:
                         required: true
 
         - variable: temp
-          label: Temp/Cache Storage
-          description: Storage for temporary transcode cache
+          label: Temp/Cache Storage (Container: /temp)
+          description: Mounts to /temp - Temporary transcode cache shared by all nodes
           schema:
             type: dict
             attrs:
@@ -333,8 +333,8 @@ questions:
                         required: true
 
         - variable: mediaMovies
-          label: Movies Library
-          description: Mount point for Movies media library
+          label: Movies Library (Container: /media/Movies)
+          description: Mounts to /media/Movies - Remote nodes must mount at /media/Movies
           schema:
             type: dict
             attrs:
@@ -387,8 +387,8 @@ questions:
                         required: true
 
         - variable: mediaTV
-          label: TV Shows Library
-          description: Mount point for TV Shows media library
+          label: TV Shows Library (Container: /media/TV)
+          description: Mounts to /media/TV - Remote nodes must mount at /media/TV
           schema:
             type: dict
             attrs:
@@ -441,8 +441,8 @@ questions:
                         required: true
 
         - variable: transcodeMovies
-          label: Movies Transcode Storage
-          description: Storage for transcoded Movies output
+          label: Movies Transcode Storage (Container: /transcode/Movies)
+          description: Mounts to /transcode/Movies - Remote nodes must mount at /transcode/Movies
           schema:
             type: dict
             attrs:
@@ -495,8 +495,8 @@ questions:
                         required: true
 
         - variable: transcodeTV
-          label: TV Shows Transcode Storage
-          description: Storage for transcoded TV Shows output
+          label: TV Shows Transcode Storage (Container: /transcode/TV)
+          description: Mounts to /transcode/TV - Remote nodes must mount at /transcode/TV
           schema:
             type: dict
             attrs:
@@ -549,8 +549,8 @@ questions:
                         required: true
 
         - variable: pluginsLocal
-          label: Local Plugins Storage
-          description: Storage for custom Tdarr plugins
+          label: Local Plugins (Container: /app/server/Tdarr/Plugins/Local)
+          description: Mounts to /app/server/Tdarr/Plugins/Local - Custom plugins shared by all nodes
           schema:
             type: dict
             attrs:
@@ -603,8 +603,8 @@ questions:
                         required: true
 
         - variable: pluginsFlow
-          label: Flow Plugins Storage
-          description: Storage for Tdarr Flow plugins
+          label: Flow Plugins (Container: /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins)
+          description: Mounts to /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins - Flow plugins shared by all nodes
           schema:
             type: dict
             attrs:
@@ -657,8 +657,8 @@ questions:
                         required: true
 
         - variable: pluginsFlowTemplates
-          label: Flow Templates Storage
-          description: Storage for Tdarr Flow templates
+          label: Flow Templates (Container: /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates)
+          description: Mounts to /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates - Flow templates shared by all nodes
           schema:
             type: dict
             attrs:
