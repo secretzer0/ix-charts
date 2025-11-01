@@ -35,7 +35,7 @@ questions:
           description: Enable an internal worker node alongside the server
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: nodeName
           label: Internal Node Name
           description: Name for the internal worker node
@@ -282,56 +282,6 @@ questions:
                         type: hostpath
                         required: true
 
-        - variable: temp
-          label: "Temp/Cache Storage (mounts at /temp)"
-          description: Temporary transcode cache shared by all nodes
-          schema:
-            type: dict
-            attrs:
-              - variable: type
-                label: Type
-                description: Type of storage
-                schema:
-                  type: string
-                  default: hostPath
-                  required: true
-                  immutable: true
-                  enum:
-                    - value: hostPath
-                      description: Host Path
-                    - value: ixVolume
-                      description: iX Volume
-              - variable: ixVolumeConfig
-                label: iX Volume Configuration
-                description: Configure iX Volume
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "ixVolume"]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: datasetName
-                      label: Dataset Name
-                      schema:
-                        type: string
-                        default: temp
-                        required: true
-                        immutable: true
-                        hidden: true
-              - variable: hostPathConfig
-                label: Host Path Configuration
-                description: Configure Host Path
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "hostPath"]]
-                  attrs:
-                    - variable: hostPath
-                      label: Host Path
-                      description: Path on the host system
-                      schema:
-                        type: hostpath
-                        required: true
-
         - variable: mediaMovies
           label: "Movies Library (mounts at /media/Movies)"
           description: Remote nodes must mount at /media/Movies
@@ -369,6 +319,7 @@ questions:
                       description: Path to Movies directory (e.g., /mnt/Pool0/Media/Movies)
                       schema:
                         type: hostpath
+                        default: /mnt/Pool0/Media/Movies
                         required: true
               - variable: ixVolumeConfig
                 label: iX Volume Configuration
@@ -423,6 +374,7 @@ questions:
                       description: Path to TV Shows directory (e.g., /mnt/Pool0/Media/TV)
                       schema:
                         type: hostpath
+                        default: /mnt/Pool0/Media/TV
                         required: true
               - variable: ixVolumeConfig
                 label: iX Volume Configuration
@@ -477,6 +429,7 @@ questions:
                       description: Path to Movies transcode directory (e.g., /mnt/Pool0/Transcode/Movies)
                       schema:
                         type: hostpath
+                        default: /mnt/Pool0/Transcode/Movies
                         required: true
               - variable: ixVolumeConfig
                 label: iX Volume Configuration
@@ -531,6 +484,7 @@ questions:
                       description: Path to TV Shows transcode directory (e.g., /mnt/Pool0/Transcode/TV)
                       schema:
                         type: hostpath
+                        default: /mnt/Pool0/Transcode/TV
                         required: true
               - variable: ixVolumeConfig
                 label: iX Volume Configuration
@@ -546,6 +500,57 @@ questions:
                       schema:
                         type: string
                         default: transcode-tv
+                        required: true
+
+        - variable: temp
+          label: "Temp/Cache Storage (mounts at /temp)"
+          description: Temporary transcode cache shared by all nodes
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  required: true
+                  immutable: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: temp
+                        required: true
+                        immutable: true
+                        hidden: true
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to temp/cache directory (e.g., /mnt/Pool0/Transcode/cache)
+                      schema:
+                        type: hostpath
+                        default: /mnt/Pool0/Transcode/cache
                         required: true
 
         - variable: pluginsLocal
