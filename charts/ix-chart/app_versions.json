@@ -7,9 +7,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/interfaceConfiguration",
-            "normalize/ixVolume",
-            "definitions/gpuConfiguration",
             "definitions/nodeIP",
+            "definitions/gpuConfiguration",
+            "normalize/ixVolume",
             "definitions/interface"
         ],
         "human_version": "2403.0.0",
