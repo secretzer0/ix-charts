@@ -94,6 +94,97 @@ Charts integrate with TrueNAS SCALE UI through:
 4. Test upgrades from at least one previous version
 5. Update both `README.md` (technical) and `app-readme.md` (user-facing)
 
+### Step-by-Step: Updating Application Container Versions
+
+When updating an application to a new container version, follow these exact steps:
+
+**Example: Updating Jellyfin from 10.10.7 to 10.11.1**
+
+1. **Update the source chart in `/library/ix-dev/[train]/[app-name]/`:**
+
+   a. Edit `Chart.yaml`:
+   ```yaml
+   # Increment the chart version (patch bump for container updates)
+   version: 1.3.14 -> 1.3.15
+   # Update the appVersion to match new container version
+   appVersion: 10.10.7 -> 10.11.1
+   ```
+
+   b. Edit `values.yaml`:
+   ```yaml
+   image:
+     repository: jellyfin/jellyfin
+     pullPolicy: IfNotPresent
+     tag: 10.10.7 -> 10.11.1  # Update container tag
+   ```
+
+2. **Build the production chart:**
+   ```bash
+   ./create_app.sh [train] [app-name]
+   # Example: ./create_app.sh community jellyfin
+   ```
+
+   This creates a new versioned directory in `/[train]/[app-name]/[new-version]/`
+
+3. **Validate the chart:**
+   ```bash
+   helm lint [train]/[app-name]/[new-version] --values [train]/[app-name]/[new-version]/ix_values.yaml
+   ```
+
+   Note: INFO messages about missing ixVolumes are expected and safe to ignore
+
+4. **Verify the update:**
+   ```bash
+   # Compare old and new versions
+   grep -E "(version:|appVersion:|tag:)" [train]/[app-name]/[old-version]/Chart.yaml [train]/[app-name]/[old-version]/ix_values.yaml
+   grep -E "(version:|appVersion:|tag:)" [train]/[app-name]/[new-version]/Chart.yaml [train]/[app-name]/[new-version]/ix_values.yaml
+   ```
+
+5. **Commit and push:**
+   ```bash
+   # Stage all changes (source and built chart)
+   git add library/ix-dev/[train]/[app-name]/ [train]/[app-name]/[new-version]/
+
+   # Commit with descriptive message
+   git commit -m "Update [app-name] to [new-version]
+
+   - [App]: [old-ver] -> [new-ver] (chart [old-chart] -> [new-chart])
+
+   Co-Authored-By: Claude <noreply@anthropic.com>"
+
+   # Pull latest changes (in case GitHub Actions created catalog updates)
+   git pull --rebase
+
+   # Push to remote
+   git push
+   ```
+
+6. **Handle catalog updates:**
+   - After pushing, GitHub Actions will automatically update `app_versions.json` and `catalog.json`
+   - If you see "rejected" errors on push, run `git pull` to fetch the automated catalog update
+   - Then push again
+
+7. **Verify catalog registration:**
+   ```bash
+   # Check that catalog shows new version as latest
+   jq '.[train].[app-name].latest_version, .[train].[app-name].latest_app_version' catalog.json
+   ```
+
+**Quick Reference for Common Apps:**
+
+- **Community train apps:** jellyfin, sabnzbd, sonarr, radarr, etc.
+  - Location: `/library/ix-dev/community/[app-name]/`
+  - Build: `./create_app.sh community [app-name]`
+
+- **Charts train apps:** plex, nextcloud, etc.
+  - Location: `/library/ix-dev/charts/[app-name]/`
+  - Build: `./create_app.sh charts [app-name]`
+
+**Version Bumping Rules:**
+- Patch version bump (x.y.Z): Container version updates, bug fixes
+- Minor version bump (x.Y.0): Feature additions, non-breaking changes
+- Major version bump (X.0.0): Breaking changes, major app version jumps
+
 ### questions.yaml Schema Patterns
 - Use `show_if` for conditional field display
 - Leverage `$ref` for system-provided values
