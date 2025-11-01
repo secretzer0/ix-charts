@@ -1,20 +1,20 @@
 {
-    "1.0.3": {
+    "1.0.4": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.3",
-        "last_update": "2025-11-01 21:41:20",
+        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.4",
+        "last_update": "2025-11-01 22:00:32",
         "required_features": [
             "definitions/gpuConfiguration",
             "normalize/ixVolume"
         ],
-        "human_version": "2.45.01_1.0.3",
-        "version": "1.0.3",
+        "human_version": "2.45.01_1.0.4",
+        "version": "1.0.4",
         "chart_metadata": {
             "apiVersion": "v2",
             "name": "tdarr-server",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "appVersion": "2.45.01",
             "description": "Tdarr Server for Distributed Transcoding",
             "type": "application",
