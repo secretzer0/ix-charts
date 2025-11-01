@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/charts/photoprism/2.0.13",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
             "normalize/acl",
-            "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration",
+            "definitions/certificate"
         ],
         "human_version": "250228_2.0.13",
         "version": "2.0.13",
@@ -1826,8 +1826,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/photoprism/1.1.3",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "231128_1.1.3",
         "version": "1.1.3",

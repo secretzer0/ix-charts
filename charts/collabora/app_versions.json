@@ -6,11 +6,11 @@
         "location": "/__w/ix-charts/ix-charts/charts/collabora/2.0.37",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/certificate",
-            "definitions/timezone",
             "normalize/acl",
+            "normalize/ixVolume",
             "definitions/nodeIP",
-            "normalize/ixVolume"
+            "definitions/certificate",
+            "definitions/timezone"
         ],
         "human_version": "24.04.12.4.1_2.0.37",
         "version": "2.0.37",
@@ -876,8 +876,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/collabora/1.2.30",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/nodeIP",
             "definitions/certificate",
+            "definitions/nodeIP",
             "definitions/timezone"
         ],
         "human_version": "23.05.8.2.1_1.2.30",
