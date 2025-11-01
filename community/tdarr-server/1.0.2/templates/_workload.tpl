@@ -35,17 +35,17 @@ workload:
               enabled: true
               type: http
               path: /api/v2/status
-              port: {{ .Values.tdarrNetwork.webPort }}
+              port: {{ .Values.tdarrConfig.webUIPort }}
             readiness:
               enabled: true
               type: http
               path: /api/v2/status
-              port: {{ .Values.tdarrNetwork.webPort }}
+              port: {{ .Values.tdarrConfig.webUIPort }}
             startup:
               enabled: true
               type: http
               path: /api/v2/status
-              port: {{ .Values.tdarrNetwork.webPort }}
+              port: {{ .Values.tdarrConfig.webUIPort }}
 
 {{ with .Values.tdarrGPU }}
 scaleGPU:

@@ -293,7 +293,7 @@ questions:
                 description: Type of storage
                 schema:
                   type: string
-                  default: ixVolume
+                  default: hostPath
                   required: true
                   immutable: true
                   enum:
@@ -366,7 +366,7 @@ questions:
                   attrs:
                     - variable: hostPath
                       label: Host Path
-                      description: Path to Movies directory (e.g., /mnt/media/Movies)
+                      description: Path to Movies directory (e.g., /mnt/Pool0/Media/Movies)
                       schema:
                         type: hostpath
                         required: true
@@ -420,7 +420,7 @@ questions:
                   attrs:
                     - variable: hostPath
                       label: Host Path
-                      description: Path to TV Shows directory (e.g., /mnt/media/TV)
+                      description: Path to TV Shows directory (e.g., /mnt/Pool0/Media/TV)
                       schema:
                         type: hostpath
                         required: true
@@ -474,7 +474,7 @@ questions:
                   attrs:
                     - variable: hostPath
                       label: Host Path
-                      description: Path to Movies transcode directory (e.g., /mnt/transcode/Movies)
+                      description: Path to Movies transcode directory (e.g., /mnt/Pool0/Transcode/Movies)
                       schema:
                         type: hostpath
                         required: true
@@ -528,7 +528,7 @@ questions:
                   attrs:
                     - variable: hostPath
                       label: Host Path
-                      description: Path to TV Shows transcode directory (e.g., /mnt/transcode/TV)
+                      description: Path to TV Shows transcode directory (e.g., /mnt/Pool0/Transcode/TV)
                       schema:
                         type: hostpath
                         required: true
