@@ -1,0 +1,67 @@
+image:
+  repository: ghcr.io/haveagitgat/tdarr
+  pullPolicy: IfNotPresent
+  tag: 2.45.01
+
+tdarrConfig:
+  serverIP: 0.0.0.0
+  webUIPort: 8265
+  serverPort: 8266
+  internalNode: true
+  nodeName: "TestNode"
+  ffmpegVersion: 7
+  additionalEnvs: []
+
+tdarrID:
+  user: 568
+  group: 568
+
+tdarrNetwork:
+  webPort: 30265
+  serverPort: 30266
+
+tdarrStorage:
+  server:
+    type: ixVolume
+    mountPath: /app/server
+    ixVolumeConfig:
+      datasetName: server
+  configs:
+    type: ixVolume
+    mountPath: /app/configs
+    ixVolumeConfig:
+      datasetName: configs
+  logs:
+    type: ixVolume
+    mountPath: /app/logs
+    ixVolumeConfig:
+      datasetName: logs
+  temp:
+    type: ixVolume
+    mountPath: /temp
+    ixVolumeConfig:
+      datasetName: temp
+  mediaMovies:
+    enabled: false
+  mediaTV:
+    enabled: false
+  transcodeMovies:
+    enabled: false
+  transcodeTV:
+    enabled: false
+  pluginsLocal:
+    enabled: false
+  pluginsFlow:
+    enabled: false
+  pluginsFlowTemplates:
+    enabled: false
+  additionalStorages: []
+
+tdarrGPU: {}
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+TZ: America/New_York

@@ -1,5 +1,6 @@
-icon_url: https://media.sys.truenas.net/apps/tdarr/icons/icon.png
+icon_url: https://tdarr.io/images/logo.png
 categories:
+  - tdarr
+  - transcoding
   - media
-  - encode
-  - transcode
+  - video

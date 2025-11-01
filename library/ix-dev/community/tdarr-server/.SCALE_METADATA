@@ -1,0 +1,23 @@
+name: tdarr-server
+train: community
+version: 1.0.0
+app_version: 2.45.01
+title: Tdarr Server
+description: Tdarr Server - Primary node optimized for local filesystem access
+home: https://tdarr.io/
+sources:
+  - https://github.com/HaveAGitGat/Tdarr
+  - https://github.com/truenas/charts
+icon: https://tdarr.io/images/logo.png
+screenshots: []
+maintainers:
+  - name: TrueNAS SCALE Community
+keywords:
+  - tdarr
+  - transcoding
+  - media
+  - video
+lib_version: 1.2.9
+lib_version_hash: 0a1fb26f5e39b99e3df352325b57d71714c89965674bd5148c44c205daa2e27a
+categories:
+  - media
