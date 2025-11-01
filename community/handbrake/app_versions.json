@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/community/handbrake/1.0.3",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "definitions/timezone",
-            "definitions/gpuConfiguration",
-            "normalize/acl"
+            "normalize/ixVolume",
+            "normalize/acl",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "23.12.2_1.0.3",
         "version": "1.0.3",

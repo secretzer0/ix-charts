@@ -1,22 +1,22 @@
 {
-    "1.0.0": {
+    "1.0.1": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.0",
-        "last_update": "2025-11-01 20:27:53",
+        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.1",
+        "last_update": "2025-11-01 20:56:52",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/gpuConfiguration"
+            "definitions/gpuConfiguration",
+            "normalize/ixVolume"
         ],
-        "human_version": "2.45.01_1.0.0",
-        "version": "1.0.0",
+        "human_version": "2.45.01_1.0.1",
+        "version": "1.0.1",
         "chart_metadata": {
             "apiVersion": "v2",
             "name": "tdarr-server",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "appVersion": "2.45.01",
-            "description": "Tdarr Server - Primary node optimized for local filesystem access",
+            "description": "Tdarr Server for Distributed Transcoding",
             "type": "application",
             "deprecated": false,
             "home": "https://home.tdarr.io/",
@@ -526,8 +526,8 @@
                             },
                             {
                                 "variable": "temp",
-                                "label": "Temp/Cache Storage",
-                                "description": "Storage for temporary transcode cache",
+                                "label": "Temp/Cache Storage (mounts at /temp)",
+                                "description": "Temporary transcode cache shared by all nodes",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -614,8 +614,8 @@
                             },
                             {
                                 "variable": "mediaMovies",
-                                "label": "Movies Library",
-                                "description": "Mount point for Movies media library",
+                                "label": "Movies Library (mounts at /media/Movies)",
+                                "description": "Remote nodes must mount at /media/Movies",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -725,8 +725,8 @@
                             },
                             {
                                 "variable": "mediaTV",
-                                "label": "TV Shows Library",
-                                "description": "Mount point for TV Shows media library",
+                                "label": "TV Shows Library (mounts at /media/TV)",
+                                "description": "Remote nodes must mount at /media/TV",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -836,8 +836,8 @@
                             },
                             {
                                 "variable": "transcodeMovies",
-                                "label": "Movies Transcode Storage",
-                                "description": "Storage for transcoded Movies output",
+                                "label": "Movies Transcode (mounts at /transcode/Movies)",
+                                "description": "Remote nodes must mount at /transcode/Movies",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -947,8 +947,8 @@
                             },
                             {
                                 "variable": "transcodeTV",
-                                "label": "TV Shows Transcode Storage",
-                                "description": "Storage for transcoded TV Shows output",
+                                "label": "TV Transcode (mounts at /transcode/TV)",
+                                "description": "Remote nodes must mount at /transcode/TV",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -1058,8 +1058,8 @@
                             },
                             {
                                 "variable": "pluginsLocal",
-                                "label": "Local Plugins Storage",
-                                "description": "Storage for custom Tdarr plugins",
+                                "label": "Custom Plugins",
+                                "description": "Mounts at /app/server/Tdarr/Plugins/Local - Custom plugins shared by all nodes",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -1169,8 +1169,8 @@
                             },
                             {
                                 "variable": "pluginsFlow",
-                                "label": "Flow Plugins Storage",
-                                "description": "Storage for Tdarr Flow plugins",
+                                "label": "Flow Plugins",
+                                "description": "Mounts at /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins - Flow plugins shared by all nodes",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -1280,8 +1280,8 @@
                             },
                             {
                                 "variable": "pluginsFlowTemplates",
-                                "label": "Flow Templates Storage",
-                                "description": "Storage for Tdarr Flow templates",
+                                "label": "Flow Templates",
+                                "description": "Mounts at /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates - Flow templates shared by all nodes",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -1549,7 +1549,7 @@
                 }
             ]
         },
-        "app_readme": "<h1>Tdarr Server</h1>\n<p>Tdarr is a distributed transcoding application that automates media library transcoding and remuxing. This chart deploys the Tdarr Server (primary node) optimized for local filesystem access.</p>\n<h2>Use Case</h2>\n<p>This chart is designed for scenarios where:</p>\n<ul>\n<li>The Tdarr primary node has <strong>direct access to the local filesystem</strong> (no NFS overhead)</li>\n<li>Remote worker nodes connect to this server via NFS or network shares</li>\n<li>Media files are stored on the same system as the Tdarr server</li>\n<li>Transcoding output can be written directly to local storage without network copy operations</li>\n</ul>\n<h2>Key Features</h2>\n<ul>\n<li><strong>Tdarr Server</strong>: Always runs the server and web UI for managing transcoding jobs</li>\n<li><strong>Optional Internal Node</strong>: Can optionally run a worker node alongside the server</li>\n<li><strong>Predefined Media Mounts</strong>: Convenient configuration for Movies and TV libraries</li>\n<li><strong>Predefined Transcode Storage</strong>: Separate mount points for transcoded output</li>\n<li><strong>Plugin Support</strong>: Optional mounts for custom Tdarr plugins and Flow plugins</li>\n<li><strong>Flexible Additional Storage</strong>: Support for custom mount points beyond predefined ones</li>\n</ul>\n<h2>Deployment Architecture</h2>\n<h3>Recommended Setup</h3>\n<ol>\n<li><strong>Primary Node (this chart)</strong>: Deploy on the system with direct filesystem access</li>\n<li>Enable internal node if the server has GPU/CPU resources for transcoding</li>\n<li>Mount media libraries using local paths (e.g., <code>/mnt/media/Movies</code>)</li>\n<li>\n<p>Mount transcode cache to local fast storage</p>\n</li>\n<li>\n<p><strong>Worker Nodes</strong> (use standard <code>tdarr</code> chart or external nodes):</p>\n</li>\n<li>Connect to this server via the server port (default: 8266)</li>\n<li>Access media via NFS/SMB mounts</li>\n<li>Configure with <code>serverIP</code> pointing to this primary node</li>\n</ol>\n<h3>Storage Configuration</h3>\n<p><strong>Core Storage</strong> (always required):\n- <code>/app/server</code> - Server database and state\n- <code>/app/configs</code> - Application configuration\n- <code>/app/logs</code> - Application logs\n- <code>/temp</code> - Temporary transcode cache</p>\n<p><strong>Media Libraries</strong> (optional):\n- <code>/media/Movies</code> - Movies library mount\n- <code>/media/TV</code> - TV shows library mount</p>\n<p><strong>Transcode Storage</strong> (optional):\n- <code>/transcode/Movies</code> - Movies transcode output\n- <code>/transcode/TV</code> - TV shows transcode output</p>\n<p><strong>Plugin Storage</strong> (optional):\n- <code>/app/server/Tdarr/Plugins/Local</code> - Custom plugins\n- <code>/app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins</code> - Flow plugins\n- <code>/app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates</code> - Flow templates</p>\n<p><strong>Additional Storage</strong>: Configure any custom mount points as needed</p>\n<h2>Network Ports</h2>\n<ul>\n<li><strong>8265</strong> (default): Web UI - Access the Tdarr interface</li>\n<li><strong>8266</strong> (default): Server port - Worker nodes connect here</li>\n</ul>\n<h2>Performance Benefits</h2>\n<p>By running the primary node with direct filesystem access:</p>\n<ul>\n<li><strong>Faster file moves</strong>: Final transcoded files can be moved instantly on the same filesystem</li>\n<li><strong>Reduced network load</strong>: No NFS transfer overhead for server database operations</li>\n<li><strong>Lower latency</strong>: Direct I/O to storage instead of network round-trips</li>\n<li><strong>Better reliability</strong>: No dependency on network stability for server operations</li>\n</ul>\n<h2>Getting Started</h2>\n<ol>\n<li>Configure the network ports (defaults work for most setups)</li>\n<li>Enable and configure media library mounts (Movies, TV)</li>\n<li>Enable and configure transcode storage mounts</li>\n<li>Optionally enable internal node if you want the server to also transcode</li>\n<li>Configure GPU allocation if using internal node with hardware acceleration</li>\n<li>Deploy and access the web UI at <code>http://&lt;node-ip&gt;:8265</code></li>\n</ol>\n<h2>Connecting Worker Nodes</h2>\n<p>To connect external worker nodes to this server:</p>\n<ol>\n<li>Deploy worker nodes using the standard <code>tdarr</code> chart with internal node disabled, or use external Tdarr node installations</li>\n<li>Configure worker node with:</li>\n<li><code>serverIP</code>: IP address of this primary node</li>\n<li><code>serverPort</code>: 8266 (or your configured server port)</li>\n<li>Ensure worker nodes can access media via NFS/SMB mounts at the same paths as the server</li>\n</ol>\n<h2>Documentation</h2>\n<p>For more information about Tdarr:\n- Official Website: https://tdarr.io/\n- Documentation: https://docs.tdarr.io/\n- GitHub: https://github.com/HaveAGitGat/Tdarr</p>",
+        "app_readme": "<h1>Tdarr Server</h1>\n<p><a href=\"https://home.tdarr.io/\">Tdarr</a> Server for Distributed Transcoding</p>\n<ul>\n<li>Server runs with optional internal node</li>\n<li>Web UI on port 30265, server port 30266</li>\n<li>Remote nodes must mount media at same paths: /media/Movies, /media/TV, /transcode/Movies, /transcode/TV, /temp</li>\n<li>App runs as <code>root</code> user</li>\n</ul>",
         "detailed_readme": "<h1>Tdarr Server</h1>\n<p>Tdarr Server chart for TrueNAS SCALE - Primary node optimized for local filesystem access.</p>\n<h2>Technical Overview</h2>\n<p>This chart deploys Tdarr Server (primary node) using the <code>ghcr.io/haveagitgat/tdarr</code> container image. It is designed for deployments where the primary node has direct access to local storage, avoiding NFS overhead for server operations and final file placement.</p>\n<h2>Chart Details</h2>\n<ul>\n<li><strong>Application Version</strong>: 2.45.01</li>\n<li><strong>Chart Version</strong>: 1.0.0</li>\n<li><strong>Container Image</strong>: ghcr.io/haveagitgat/tdarr:2.45.01</li>\n<li><strong>Deployment Type</strong>: Kubernetes Deployment</li>\n<li><strong>Service Type</strong>: NodePort</li>\n<li><strong>Common Library</strong>: 1.2.9</li>\n</ul>\n<h2>Architecture</h2>\n<h3>Workload Configuration</h3>\n<ul>\n<li><strong>Type</strong>: Deployment (single replica)</li>\n<li><strong>Security Context</strong>:</li>\n<li>Runs as root (UID 0, GID 0) - required by Tdarr container</li>\n<li>Capabilities: CHOWN, FOWNER, SETUID, SETGID</li>\n<li>Container spawns sub-processes with configured PUID/PGID (default: 568)</li>\n<li><strong>Network</strong>: Container network (no host networking)</li>\n<li><strong>Health Probes</strong>: HTTP GET to <code>/api/v2/status</code> on web UI port</li>\n</ul>\n<h3>Storage Architecture</h3>\n<p>The chart implements a hybrid storage approach:</p>\n<ol>\n<li><strong>Core Volumes</strong> (required, default: ixVolume):</li>\n<li><code>server</code> \u2192 <code>/app/server</code> - Server database</li>\n<li><code>configs</code> \u2192 <code>/app/configs</code> - Configuration files</li>\n<li><code>logs</code> \u2192 <code>/app/logs</code> - Application logs</li>\n<li>\n<p><code>temp</code> \u2192 <code>/temp</code> - Transcode cache</p>\n</li>\n<li>\n<p><strong>Predefined Media Volumes</strong> (optional, default: hostPath):</p>\n</li>\n<li><code>mediaMovies</code> \u2192 <code>/media/Movies</code></li>\n<li>\n<p><code>mediaTV</code> \u2192 <code>/media/TV</code></p>\n</li>\n<li>\n<p><strong>Predefined Transcode Volumes</strong> (optional, default: hostPath):</p>\n</li>\n<li><code>transcodeMovies</code> \u2192 <code>/transcode/Movies</code></li>\n<li>\n<p><code>transcodeTV</code> \u2192 <code>/transcode/TV</code></p>\n</li>\n<li>\n<p><strong>Predefined Plugin Volumes</strong> (optional, default: hostPath):</p>\n</li>\n<li><code>pluginsLocal</code> \u2192 <code>/app/server/Tdarr/Plugins/Local</code></li>\n<li><code>pluginsFlow</code> \u2192 <code>/app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins</code></li>\n<li>\n<p><code>pluginsFlowTemplates</code> \u2192 <code>/app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates</code></p>\n</li>\n<li>\n<p><strong>Additional Storage</strong> (flexible array):</p>\n</li>\n<li>User-defined mount points with configurable paths</li>\n</ol>\n<p>All volumes support both ixVolume (TrueNAS datasets) and hostPath types.</p>\n<h3>Environment Variables</h3>\n<p>The chart configures the following environment variables:</p>\n<ul>\n<li><code>NODE_TLS_REJECT_UNAUTHORIZED=0</code> - Allow self-signed certificates</li>\n<li><code>TZ</code> - System timezone (from TrueNAS)</li>\n<li><code>PUID</code>, <code>PGID</code> - User/group IDs (default: 568)</li>\n<li><code>UMASK_SET=002</code> - File creation mask</li>\n<li><code>serverIP</code> - Server bind address (default: 0.0.0.0)</li>\n<li><code>serverPort</code> - Server communication port (default: 8266)</li>\n<li><code>webUIPort</code> - Web interface port (default: 8265)</li>\n<li><code>inContainer=true</code> - Indicates container environment</li>\n<li><code>ffmpegVersion</code> - FFmpeg version to use (6 or 7, default: 7)</li>\n<li><code>internalNode</code> - Enable/disable internal worker node (default: true)</li>\n<li><code>nodeName</code> - Name for internal node (if enabled)</li>\n</ul>\n<h3>Network Configuration</h3>\n<p><strong>Services:</strong>\n- <code>webui</code> (primary): NodePort on 8265 (default)\n- <code>server</code>: NodePort on 8266 (default)</p>\n<p><strong>Portal Integration:</strong>\n- TrueNAS portal button configured for web UI access\n- Protocol: HTTP\n- Path: <code>/</code></p>\n<h3>GPU Support</h3>\n<p>Optional GPU allocation using TrueNAS common library patterns:\n- Supports NVIDIA and Intel GPUs\n- Configured via <code>tdarrGPU</code> dictionary\n- Applied to the tdarr-server container when configured</p>\n<h3>Resource Limits</h3>\n<p><strong>Defaults:</strong>\n- CPU: 4000m (4 cores)\n- Memory: 8Gi</p>\n<p>Configurable via TrueNAS UI with validation.</p>\n<h2>Differences from Standard Tdarr Chart</h2>\n<p>This chart differs from the standard <code>tdarr</code> community chart:</p>\n<ol>\n<li><strong>Storage Focus</strong>: Predefined media/transcode volumes optimized for local filesystem access</li>\n<li><strong>Use Case</strong>: Designed for primary nodes with direct storage access, not NFS-based deployments</li>\n<li><strong>Configuration</strong>: Simplified setup for common media server layouts (Movies/TV structure)</li>\n<li><strong>Plugin Support</strong>: Built-in mount points for custom plugins and Flow plugins</li>\n<li><strong>Name</strong>: Distinct chart name (<code>tdarr-server</code>) to allow side-by-side deployment</li>\n</ol>\n<h2>Deployment Scenarios</h2>\n<h3>Scenario 1: Primary + Remote Workers</h3>\n<p><strong>Primary Node (this chart)</strong>:\n- Deploy on TrueNAS with direct access to media storage\n- Enable internal node if server has GPU/CPU for transcoding\n- Mount media and transcode directories using local paths</p>\n<p><strong>Worker Nodes</strong> (standard tdarr chart or external):\n- Connect via serverIP:serverPort\n- Access media via NFS/SMB\n- Handle distributed transcoding</p>\n<h3>Scenario 2: Server-Only</h3>\n<p><strong>Primary Node (this chart)</strong>:\n- Disable internal node\n- Pure server/orchestration role\n- All transcoding handled by external nodes</p>\n<h2>Upgrade Notes</h2>\n<h3>Version 1.0.0</h3>\n<p>Initial release:\n- Based on Tdarr 2.45.01\n- FFmpeg 7 default\n- Hybrid storage architecture\n- Full plugin mount support</p>\n<h2>Configuration Examples</h2>\n<h3>Basic Setup with Movies and TV</h3>\n<p><code>yaml\ntdarrStorage:\n  mediaMovies:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/media/Movies\n  mediaTV:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/media/TV\n  transcodeMovies:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/transcode/Movies\n  transcodeTV:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/transcode/TV</code></p>\n<h3>Server-Only Mode (No Internal Worker)</h3>\n<p><code>yaml\ntdarrConfig:\n  internalNode: false</code></p>\n<h3>With Custom Plugins</h3>\n<p><code>yaml\ntdarrStorage:\n  pluginsLocal:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/appdata/tdarr/plugins</code></p>\n<h2>Validation</h2>\n<p>The chart can be validated using:</p>\n<p>```bash</p>\n<h1>Build the chart</h1>\n<p>./create_app.sh community tdarr-server</p>\n<h1>Lint the chart</h1>\n<p>helm lint community/tdarr-server/1.0.0 --values community/tdarr-server/1.0.0/ix_values.yaml\n```</p>\n<h2>References</h2>\n<ul>\n<li>Tdarr: https://tdarr.io/</li>\n<li>Tdarr GitHub: https://github.com/HaveAGitGat/Tdarr</li>\n<li>TrueNAS SCALE: https://www.truenas.com/truenas-scale/</li>\n<li>ix-charts: https://github.com/truenas/charts</li>\n</ul>",
         "changelog": null
     }
