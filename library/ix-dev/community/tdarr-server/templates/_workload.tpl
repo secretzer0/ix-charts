@@ -6,6 +6,8 @@ workload:
     type: Deployment
     podSpec:
       hostNetwork: false
+      securityContext:
+        fsGroup: {{ .Values.tdarrID.group }}
       containers:
         tdarr-server:
           enabled: true
