@@ -1,20 +1,20 @@
 {
-    "1.0.1": {
+    "1.0.2": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.1",
-        "last_update": "2025-11-01 20:56:52",
+        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.2",
+        "last_update": "2025-11-01 21:25:16",
         "required_features": [
             "definitions/gpuConfiguration",
             "normalize/ixVolume"
         ],
-        "human_version": "2.45.01_1.0.1",
-        "version": "1.0.1",
+        "human_version": "2.45.01_1.0.2",
+        "version": "1.0.2",
         "chart_metadata": {
             "apiVersion": "v2",
             "name": "tdarr-server",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "appVersion": "2.45.01",
             "description": "Tdarr Server for Distributed Transcoding",
             "type": "application",
@@ -537,7 +537,7 @@
                                             "description": "Type of storage",
                                             "schema": {
                                                 "type": "string",
-                                                "default": "ixVolume",
+                                                "default": "hostPath",
                                                 "required": true,
                                                 "immutable": true,
                                                 "enum": [
@@ -677,7 +677,7 @@
                                                     {
                                                         "variable": "hostPath",
                                                         "label": "Host Path",
-                                                        "description": "Path to Movies directory (e.g., /mnt/media/Movies)",
+                                                        "description": "Path to Movies directory (e.g., /mnt/Pool0/Media/Movies)",
                                                         "schema": {
                                                             "type": "hostpath",
                                                             "required": true
@@ -788,7 +788,7 @@
                                                     {
                                                         "variable": "hostPath",
                                                         "label": "Host Path",
-                                                        "description": "Path to TV Shows directory (e.g., /mnt/media/TV)",
+                                                        "description": "Path to TV Shows directory (e.g., /mnt/Pool0/Media/TV)",
                                                         "schema": {
                                                             "type": "hostpath",
                                                             "required": true
@@ -899,7 +899,7 @@
                                                     {
                                                         "variable": "hostPath",
                                                         "label": "Host Path",
-                                                        "description": "Path to Movies transcode directory (e.g., /mnt/transcode/Movies)",
+                                                        "description": "Path to Movies transcode directory (e.g., /mnt/Pool0/Transcode/Movies)",
                                                         "schema": {
                                                             "type": "hostpath",
                                                             "required": true
@@ -1010,7 +1010,7 @@
                                                     {
                                                         "variable": "hostPath",
                                                         "label": "Host Path",
-                                                        "description": "Path to TV Shows transcode directory (e.g., /mnt/transcode/TV)",
+                                                        "description": "Path to TV Shows transcode directory (e.g., /mnt/Pool0/Transcode/TV)",
                                                         "schema": {
                                                             "type": "hostpath",
                                                             "required": true
