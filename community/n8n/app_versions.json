@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/community/n8n/1.2.116",
         "last_update": "2025-08-12 22:45:44",
         "required_features": [
-            "definitions/certificate",
-            "normalize/acl",
             "normalize/ixVolume",
-            "definitions/nodeIP"
+            "definitions/certificate",
+            "definitions/nodeIP",
+            "normalize/acl"
         ],
         "human_version": "1.84.3_1.2.116",
         "version": "1.2.116",
