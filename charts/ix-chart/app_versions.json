@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/charts/ix-chart/2403.0.0",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/nodeIP",
             "normalize/ixVolume",
             "definitions/interface",
+            "definitions/nodeIP",
             "definitions/gpuConfiguration",
             "normalize/interfaceConfiguration"
         ],

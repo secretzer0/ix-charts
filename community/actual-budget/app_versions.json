@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/actual-budget/1.2.24",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
             "normalize/ixVolume",
+            "normalize/acl",
             "definitions/certificate"
         ],
         "human_version": "25.3.1_1.2.24",
