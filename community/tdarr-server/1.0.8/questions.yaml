@@ -1,0 +1,810 @@
+groups:
+  - name: Configuration
+    description: Tdarr Server Configuration
+  - name: User and Group Configuration
+    description: Configure User and Group for Tdarr
+  - name: Network Configuration
+    description: Configure Network for Tdarr Server
+  - name: Storage Configuration
+    description: Configure Storage for Tdarr Server
+  - name: Media Libraries
+    description: Configure Media Library Mounts
+  - name: Transcode Storage
+    description: Configure Transcode Storage Mounts
+  - name: Plugin Storage
+    description: Configure Plugin Storage Mounts
+  - name: Resources Configuration
+    description: Configure Resources for Tdarr Server
+
+questions:
+  - variable: tdarrConfig
+    label: ""
+    group: Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: serverIP
+          label: Server IP
+          description: IP address for the server to bind to (0.0.0.0 for all interfaces)
+          schema:
+            type: string
+            default: 0.0.0.0
+            required: true
+        - variable: internalNode
+          label: Enable Internal Node
+          description: Enable an internal worker node alongside the server
+          schema:
+            type: boolean
+            default: false
+        - variable: nodeName
+          label: Internal Node Name
+          description: Name for the internal worker node
+          schema:
+            type: string
+            default: "InternalNode"
+            show_if: [["internalNode", "=", true]]
+            required: true
+        - variable: ffmpegVersion
+          label: FFmpeg Version
+          description: FFmpeg version to use (6 or 7)
+          schema:
+            type: int
+            default: 7
+            enum:
+              - value: 6
+                description: "FFmpeg 6"
+              - value: 7
+                description: "FFmpeg 7"
+        - variable: additionalEnvs
+          label: Additional Environment Variables
+          description: Configure additional environment variables
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: env
+                label: Environment Variable
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string
+                        required: true
+
+  - variable: tdarrID
+    label: ""
+    group: User and Group Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: user
+          label: User ID
+          description: The user ID that Tdarr will run as
+          schema:
+            type: int
+            default: 568
+            min: 1
+            max: 65535
+        - variable: group
+          label: Group ID
+          description: The group ID that Tdarr will run as
+          schema:
+            type: int
+            default: 568
+            min: 1
+            max: 65535
+
+  - variable: tdarrNetwork
+    label: ""
+    group: Network Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: webPort
+          label: Web UI Port
+          description: Port for the Tdarr web interface
+          schema:
+            type: int
+            default: 30265
+            min: 9000
+            max: 65535
+            required: true
+        - variable: serverPort
+          label: Server Port
+          description: Port for the Tdarr server (node communication)
+          schema:
+            type: int
+            default: 30266
+            min: 9000
+            max: 65535
+            required: true
+
+  - variable: tdarrStorage
+    label: ""
+    group: Storage Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: server
+          label: Server Storage
+          description: Storage for Tdarr server database
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: ixVolume
+                  required: true
+                  immutable: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: server
+                        required: true
+                        immutable: true
+                        hidden: true
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path on the host system
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: configs
+          label: Configs Storage
+          description: Storage for Tdarr configuration files
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: ixVolume
+                  required: true
+                  immutable: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: configs
+                        required: true
+                        immutable: true
+                        hidden: true
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path on the host system
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: logs
+          label: Logs Storage
+          description: Storage for Tdarr logs
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: ixVolume
+                  required: true
+                  immutable: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: logs
+                        required: true
+                        immutable: true
+                        hidden: true
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path on the host system
+                      schema:
+                        type: hostpath
+                        required: true
+
+        - variable: mediaMovies
+          label: "Movies Library (mounts at /media/Movies)"
+          description: Remote nodes must mount at /media/Movies
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Movies Library
+                description: Enable mounting Movies library
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to Movies directory (e.g., /mnt/Pool0/Media/Movies)
+                      schema:
+                        type: hostpath
+                        default: /mnt/Pool0/Media/Movies
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: media-movies
+                        required: true
+
+        - variable: mediaTV
+          label: "TV Shows Library (mounts at /media/TV)"
+          description: Remote nodes must mount at /media/TV
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable TV Shows Library
+                description: Enable mounting TV Shows library
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to TV Shows directory (e.g., /mnt/Pool0/Media/TV)
+                      schema:
+                        type: hostpath
+                        default: /mnt/Pool0/Media/TV
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: media-tv
+                        required: true
+
+        - variable: transcodeMovies
+          label: "Movies Transcode (mounts at /transcode/Movies)"
+          description: Remote nodes must mount at /transcode/Movies
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Movies Transcode Storage
+                description: Enable mounting Movies transcode storage
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to Movies transcode directory (e.g., /mnt/Pool0/Transcode/Movies)
+                      schema:
+                        type: hostpath
+                        default: /mnt/Pool0/Transcode/Movies
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: transcode-movies
+                        required: true
+
+        - variable: transcodeTV
+          label: "TV Transcode (mounts at /transcode/TV)"
+          description: Remote nodes must mount at /transcode/TV
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable TV Shows Transcode Storage
+                description: Enable mounting TV Shows transcode storage
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to TV Shows transcode directory (e.g., /mnt/Pool0/Transcode/TV)
+                      schema:
+                        type: hostpath
+                        default: /mnt/Pool0/Transcode/TV
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: transcode-tv
+                        required: true
+
+        - variable: temp
+          label: "Temp/Cache Storage (mounts at /temp)"
+          description: Temporary transcode cache shared by all nodes
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  required: true
+                  immutable: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: temp
+                        required: true
+                        immutable: true
+                        hidden: true
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to temp/cache directory (e.g., /mnt/Pool0/Transcode/cache)
+                      schema:
+                        type: hostpath
+                        default: /mnt/Pool0/Transcode/cache
+                        required: true
+
+        - variable: pluginsLocal
+          label: "Custom Plugins"
+          description: "Mounts at /app/server/Tdarr/Plugins/Local - Custom plugins shared by all nodes"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Local Plugins Storage
+                description: Enable mounting custom plugins directory
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to custom plugins directory
+                      schema:
+                        type: hostpath
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: plugins-local
+                        required: true
+
+        - variable: pluginsFlow
+          label: "Flow Plugins"
+          description: "Mounts at /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins - Flow plugins shared by all nodes"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Flow Plugins Storage
+                description: Enable mounting Flow plugins directory
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to Flow plugins directory
+                      schema:
+                        type: hostpath
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: plugins-flow
+                        required: true
+
+        - variable: pluginsFlowTemplates
+          label: "Flow Templates"
+          description: "Mounts at /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates - Flow templates shared by all nodes"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Flow Templates Storage
+                description: Enable mounting Flow templates directory
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: Type
+                description: Type of storage
+                schema:
+                  type: string
+                  default: hostPath
+                  show_if: [["enabled", "=", true]]
+                  required: true
+                  enum:
+                    - value: hostPath
+                      description: Host Path
+                    - value: ixVolume
+                      description: iX Volume
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                description: Configure Host Path
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: hostPath
+                      label: Host Path
+                      description: Path to Flow templates directory
+                      schema:
+                        type: hostpath
+                        required: true
+              - variable: ixVolumeConfig
+                label: iX Volume Configuration
+                description: Configure iX Volume
+                schema:
+                  type: dict
+                  show_if: [["enabled", "=", true], ["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        default: plugins-flow-templates
+                        required: true
+
+        - variable: additionalStorages
+          label: Additional Storage
+          description: Additional storage volumes for custom mounts
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: storageEntry
+                label: Storage Entry
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: type
+                      label: Type
+                      description: Type of storage
+                      schema:
+                        type: string
+                        default: hostPath
+                        required: true
+                        enum:
+                          - value: hostPath
+                            description: Host Path
+                          - value: ixVolume
+                            description: iX Volume
+                    - variable: mountPath
+                      label: Mount Path
+                      description: Path inside the container
+                      schema:
+                        type: path
+                        required: true
+                    - variable: hostPathConfig
+                      label: Host Path Configuration
+                      description: Configure Host Path
+                      schema:
+                        type: dict
+                        show_if: [["type", "=", "hostPath"]]
+                        attrs:
+                          - variable: hostPath
+                            label: Host Path
+                            description: Path on the host system
+                            schema:
+                              type: hostpath
+                              required: true
+                    - variable: ixVolumeConfig
+                      label: iX Volume Configuration
+                      description: Configure iX Volume
+                      schema:
+                        type: dict
+                        show_if: [["type", "=", "ixVolume"]]
+                        $ref:
+                          - "normalize/ixVolume"
+                        attrs:
+                          - variable: datasetName
+                            label: Dataset Name
+                            schema:
+                              type: string
+                              required: true
+
+  - variable: resources
+    label: ""
+    group: Resources Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: Limits
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: CPU
+                description: CPU limit (e.g., 4000m or 4)
+                schema:
+                  type: string
+                  default: "4000m"
+                  required: true
+              - variable: memory
+                label: Memory
+                description: Memory limit (e.g., 8Gi or 8192Mi)
+                schema:
+                  type: string
+                  default: "8Gi"
+                  required: true
+
+  - variable: tdarrGPU
+    label: GPU Configuration
+    description: Allocate GPU resources (optional, typically for internal node)
+    group: Resources Configuration
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
+      attrs: []
