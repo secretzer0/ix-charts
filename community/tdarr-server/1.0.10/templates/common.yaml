@@ -1,0 +1,21 @@
+{{ include "ix.v1.common.loader.init" . }}
+
+{{- $configName := "tdarr.configuration" -}}
+{{- $config := fromYaml (include $configName .) -}}
+{{- $_ := mustMergeOverwrite .Values $config -}}
+
+{{- $persistenceName := "tdarr.persistence" -}}
+{{- $persistence := fromYaml (include $persistenceName .) -}}
+{{- $_ := mustMergeOverwrite .Values $persistence -}}
+
+{{- $serviceName := "tdarr.service" -}}
+{{- $service := fromYaml (include $serviceName .) -}}
+{{- $_ := mustMergeOverwrite .Values $service -}}
+
+{{- $workloadName := "tdarr.workload" -}}
+{{- $workload := fromYaml (include $workloadName .) -}}
+{{- $_ := mustMergeOverwrite .Values $workload -}}
+
+{{ include "ix.v1.common.loader.apply" . }}
+
+{{ include "tdarr.portal" . }}
