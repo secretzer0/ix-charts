@@ -6,10 +6,10 @@
         "location": "/__w/ix-charts/ix-charts/community/omada-controller/1.2.11",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
+            "definitions/timezone",
             "normalize/acl",
             "definitions/certificate",
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "normalize/ixVolume"
         ],
         "human_version": "5.15.8.2_1.2.11",
         "version": "1.2.11",
