@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/filebrowser/1.2.13",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/certificate"
+            "definitions/certificate",
+            "normalize/ixVolume"
         ],
         "human_version": "2.32.0_1.2.13",
         "version": "1.2.13",

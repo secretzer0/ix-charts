@@ -1,4 +1,1566 @@
 {
+    "1.0.9": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.9",
+        "last_update": "2025-11-02 16:54:41",
+        "required_features": [
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
+        ],
+        "human_version": "2.51.03_1.0.9",
+        "version": "1.0.9",
+        "chart_metadata": {
+            "apiVersion": "v2",
+            "name": "tdarr-server",
+            "version": "1.0.9",
+            "appVersion": "2.51.03",
+            "description": "Tdarr Server for Distributed Transcoding",
+            "type": "application",
+            "deprecated": false,
+            "home": "https://home.tdarr.io/",
+            "icon": "https://media.sys.truenas.net/apps/tdarr/icons/icon.png",
+            "keywords": [
+                "tdarr",
+                "transcoding",
+                "media",
+                "video"
+            ],
+            "sources": [
+                "https://github.com/HaveAGitGat/Tdarr",
+                "https://github.com/truenas/charts"
+            ],
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "dependencies": [
+                {
+                    "name": "common",
+                    "version": "1.2.9",
+                    "repository": "file://../../../common"
+                }
+            ],
+            "annotations": {
+                "title": "Tdarr Server"
+            }
+        },
+        "app_metadata": null,
+        "schema": {
+            "groups": [
+                {
+                    "name": "Configuration",
+                    "description": "Tdarr Server Configuration"
+                },
+                {
+                    "name": "User and Group Configuration",
+                    "description": "Configure User and Group for Tdarr"
+                },
+                {
+                    "name": "Network Configuration",
+                    "description": "Configure Network for Tdarr Server"
+                },
+                {
+                    "name": "Storage Configuration",
+                    "description": "Configure Storage for Tdarr Server"
+                },
+                {
+                    "name": "Media Libraries",
+                    "description": "Configure Media Library Mounts"
+                },
+                {
+                    "name": "Transcode Storage",
+                    "description": "Configure Transcode Storage Mounts"
+                },
+                {
+                    "name": "Plugin Storage",
+                    "description": "Configure Plugin Storage Mounts"
+                },
+                {
+                    "name": "Resources Configuration",
+                    "description": "Configure Resources for Tdarr Server"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "tdarrConfig",
+                    "label": "",
+                    "group": "Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "serverIP",
+                                "label": "Server IP",
+                                "description": "IP address for the server to bind to (0.0.0.0 for all interfaces)",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "0.0.0.0",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "internalNode",
+                                "label": "Enable Internal Node",
+                                "description": "Enable an internal worker node alongside the server",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": false
+                                }
+                            },
+                            {
+                                "variable": "nodeName",
+                                "label": "Internal Node Name",
+                                "description": "Name for the internal worker node",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "InternalNode",
+                                    "show_if": [
+                                        [
+                                            "internalNode",
+                                            "=",
+                                            true
+                                        ]
+                                    ],
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "ffmpegVersion",
+                                "label": "FFmpeg Version",
+                                "description": "FFmpeg version to use (6 or 7)",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 7,
+                                    "enum": [
+                                        {
+                                            "value": 6,
+                                            "description": "FFmpeg 6"
+                                        },
+                                        {
+                                            "value": 7,
+                                            "description": "FFmpeg 7"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "additionalEnvs",
+                                "label": "Additional Environment Variables",
+                                "description": "Configure additional environment variables",
+                                "schema": {
+                                    "type": "list",
+                                    "default": [],
+                                    "items": [
+                                        {
+                                            "variable": "env",
+                                            "label": "Environment Variable",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "name",
+                                                        "label": "Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "value",
+                                                        "label": "Value",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "tdarrID",
+                    "label": "",
+                    "group": "User and Group Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "user",
+                                "label": "User ID",
+                                "description": "The user ID that Tdarr will run as",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 568,
+                                    "min": 1,
+                                    "max": 65535
+                                }
+                            },
+                            {
+                                "variable": "group",
+                                "label": "Group ID",
+                                "description": "The group ID that Tdarr will run as",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 568,
+                                    "min": 1,
+                                    "max": 65535
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "tdarrNetwork",
+                    "label": "",
+                    "group": "Network Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "webPort",
+                                "label": "Web UI Port",
+                                "description": "Port for the Tdarr web interface",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 30265,
+                                    "min": 9000,
+                                    "max": 65535,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "serverPort",
+                                "label": "Server Port",
+                                "description": "Port for the Tdarr server (node communication)",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 30266,
+                                    "min": 9000,
+                                    "max": 65535,
+                                    "required": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "tdarrStorage",
+                    "label": "",
+                    "group": "Storage Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "server",
+                                "label": "Server Storage",
+                                "description": "Storage for Tdarr server database",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "ixVolume",
+                                                "required": true,
+                                                "immutable": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "server",
+                                                            "required": true,
+                                                            "immutable": true,
+                                                            "hidden": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path on the host system",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "configs",
+                                "label": "Configs Storage",
+                                "description": "Storage for Tdarr configuration files",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "ixVolume",
+                                                "required": true,
+                                                "immutable": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "configs",
+                                                            "required": true,
+                                                            "immutable": true,
+                                                            "hidden": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path on the host system",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "logs",
+                                "label": "Logs Storage",
+                                "description": "Storage for Tdarr logs",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "ixVolume",
+                                                "required": true,
+                                                "immutable": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "logs",
+                                                            "required": true,
+                                                            "immutable": true,
+                                                            "hidden": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path on the host system",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "mediaMovies",
+                                "label": "Movies Library (mounts at /media/Movies)",
+                                "description": "Remote nodes must mount at /media/Movies",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable Movies Library",
+                                            "description": "Enable mounting Movies library",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to Movies directory (e.g., /mnt/Pool0/Media/Movies)",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Media/Movies",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "media-movies",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "mediaTV",
+                                "label": "TV Shows Library (mounts at /media/TV)",
+                                "description": "Remote nodes must mount at /media/TV",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable TV Shows Library",
+                                            "description": "Enable mounting TV Shows library",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to TV Shows directory (e.g., /mnt/Pool0/Media/TV)",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Media/TV",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "media-tv",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "transcodeMovies",
+                                "label": "Movies Transcode (mounts at /transcode/Movies)",
+                                "description": "Remote nodes must mount at /transcode/Movies",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable Movies Transcode Storage",
+                                            "description": "Enable mounting Movies transcode storage",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to Movies transcode directory (e.g., /mnt/Pool0/Transcode/Movies)",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Transcode/Movies",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "transcode-movies",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "transcodeTV",
+                                "label": "TV Transcode (mounts at /transcode/TV)",
+                                "description": "Remote nodes must mount at /transcode/TV",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable TV Shows Transcode Storage",
+                                            "description": "Enable mounting TV Shows transcode storage",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to TV Shows transcode directory (e.g., /mnt/Pool0/Transcode/TV)",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Transcode/TV",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "transcode-tv",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "temp",
+                                "label": "Temp/Cache Storage (mounts at /temp)",
+                                "description": "Temporary transcode cache shared by all nodes",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "required": true,
+                                                "immutable": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "temp",
+                                                            "required": true,
+                                                            "immutable": true,
+                                                            "hidden": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to temp/cache directory (e.g., /mnt/Pool0/Transcode/cache)",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Transcode/cache",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "pluginsLocal",
+                                "label": "Custom Plugins",
+                                "description": "Mounts at /app/server/Tdarr/Plugins/Local - Custom plugins shared by all nodes",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable Local Plugins Storage",
+                                            "description": "Enable mounting custom plugins directory",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to custom plugins directory",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Transcode/plugins/Local",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "plugins-local",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "pluginsFlow",
+                                "label": "Flow Plugins",
+                                "description": "Mounts at /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins - Flow plugins shared by all nodes",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable Flow Plugins Storage",
+                                            "description": "Enable mounting Flow plugins directory",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": false
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to Flow plugins directory",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Transcode/plugins/LocalFlowPlugins",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "plugins-flow",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "pluginsFlowTemplates",
+                                "label": "Flow Templates",
+                                "description": "Mounts at /app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates - Flow templates shared by all nodes",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "enabled",
+                                            "label": "Enable Flow Templates Storage",
+                                            "description": "Enable mounting Flow templates directory",
+                                            "schema": {
+                                                "type": "boolean",
+                                                "default": false
+                                            }
+                                        },
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "description": "Type of storage",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "hostPath",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ]
+                                                ],
+                                                "required": true,
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "iX Volume"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "description": "Configure Host Path",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "Path to Flow templates directory",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "default": "/mnt/Pool0/Transcode/plugins/LocalFlowTemplates",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "iX Volume Configuration",
+                                            "description": "Configure iX Volume",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "enabled",
+                                                        "=",
+                                                        true
+                                                    ],
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "plugins-flow-templates",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "additionalStorages",
+                                "label": "Additional Storage",
+                                "description": "Additional storage volumes for custom mounts",
+                                "schema": {
+                                    "type": "list",
+                                    "default": [],
+                                    "items": [
+                                        {
+                                            "variable": "storageEntry",
+                                            "label": "Storage Entry",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "type",
+                                                        "label": "Type",
+                                                        "description": "Type of storage",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "default": "hostPath",
+                                                            "required": true,
+                                                            "enum": [
+                                                                {
+                                                                    "value": "hostPath",
+                                                                    "description": "Host Path"
+                                                                },
+                                                                {
+                                                                    "value": "ixVolume",
+                                                                    "description": "iX Volume"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "mountPath",
+                                                        "label": "Mount Path",
+                                                        "description": "Path inside the container",
+                                                        "schema": {
+                                                            "type": "path",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "hostPathConfig",
+                                                        "label": "Host Path Configuration",
+                                                        "description": "Configure Host Path",
+                                                        "schema": {
+                                                            "type": "dict",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "hostPath"
+                                                                ]
+                                                            ],
+                                                            "attrs": [
+                                                                {
+                                                                    "variable": "hostPath",
+                                                                    "label": "Host Path",
+                                                                    "description": "Path on the host system",
+                                                                    "schema": {
+                                                                        "type": "hostpath",
+                                                                        "required": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "ixVolumeConfig",
+                                                        "label": "iX Volume Configuration",
+                                                        "description": "Configure iX Volume",
+                                                        "schema": {
+                                                            "type": "dict",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "ixVolume"
+                                                                ]
+                                                            ],
+                                                            "$ref": [
+                                                                "normalize/ixVolume"
+                                                            ],
+                                                            "attrs": [
+                                                                {
+                                                                    "variable": "datasetName",
+                                                                    "label": "Dataset Name",
+                                                                    "schema": {
+                                                                        "type": "string",
+                                                                        "required": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "resources",
+                    "label": "",
+                    "group": "Resources Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "limits",
+                                "label": "Limits",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "cpu",
+                                            "label": "CPU",
+                                            "description": "CPU limit (e.g., 4000m or 4)",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "4000m",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "memory",
+                                            "label": "Memory",
+                                            "description": "Memory limit (e.g., 8Gi or 8192Mi)",
+                                            "schema": {
+                                                "type": "string",
+                                                "default": "8Gi",
+                                                "required": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "tdarrGPU",
+                    "label": "GPU Configuration",
+                    "description": "Allocate GPU resources (optional, typically for internal node)",
+                    "group": "Resources Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "$ref": [
+                            "definitions/gpuConfiguration"
+                        ],
+                        "attrs": []
+                    }
+                }
+            ]
+        },
+        "app_readme": "<h1>Tdarr Server</h1>\n<p><a href=\"https://home.tdarr.io/\">Tdarr</a> Server for Distributed Transcoding</p>\n<ul>\n<li>Server runs with optional internal node</li>\n<li>Web UI on port 30265, server port 30266</li>\n<li>Remote nodes must mount media at same paths: /media/Movies, /media/TV, /transcode/Movies, /transcode/TV, /temp</li>\n<li>App runs as <code>root</code> user</li>\n</ul>",
+        "detailed_readme": "<h1>Tdarr Server</h1>\n<p>Tdarr Server chart for TrueNAS SCALE - Primary node optimized for local filesystem access.</p>\n<h2>Technical Overview</h2>\n<p>This chart deploys Tdarr Server (primary node) using the <code>ghcr.io/haveagitgat/tdarr</code> container image. It is designed for deployments where the primary node has direct access to local storage, avoiding NFS overhead for server operations and final file placement.</p>\n<h2>Chart Details</h2>\n<ul>\n<li><strong>Application Version</strong>: 2.45.01</li>\n<li><strong>Chart Version</strong>: 1.0.0</li>\n<li><strong>Container Image</strong>: ghcr.io/haveagitgat/tdarr:2.45.01</li>\n<li><strong>Deployment Type</strong>: Kubernetes Deployment</li>\n<li><strong>Service Type</strong>: NodePort</li>\n<li><strong>Common Library</strong>: 1.2.9</li>\n</ul>\n<h2>Architecture</h2>\n<h3>Workload Configuration</h3>\n<ul>\n<li><strong>Type</strong>: Deployment (single replica)</li>\n<li><strong>Security Context</strong>:</li>\n<li>Runs as root (UID 0, GID 0) - required by Tdarr container</li>\n<li>Capabilities: CHOWN, FOWNER, SETUID, SETGID</li>\n<li>Container spawns sub-processes with configured PUID/PGID (default: 568)</li>\n<li><strong>Network</strong>: Container network (no host networking)</li>\n<li><strong>Health Probes</strong>: HTTP GET to <code>/api/v2/status</code> on web UI port</li>\n</ul>\n<h3>Storage Architecture</h3>\n<p>The chart implements a hybrid storage approach:</p>\n<ol>\n<li><strong>Core Volumes</strong> (required, default: ixVolume):</li>\n<li><code>server</code> \u2192 <code>/app/server</code> - Server database</li>\n<li><code>configs</code> \u2192 <code>/app/configs</code> - Configuration files</li>\n<li><code>logs</code> \u2192 <code>/app/logs</code> - Application logs</li>\n<li>\n<p><code>temp</code> \u2192 <code>/temp</code> - Transcode cache</p>\n</li>\n<li>\n<p><strong>Predefined Media Volumes</strong> (optional, default: hostPath):</p>\n</li>\n<li><code>mediaMovies</code> \u2192 <code>/media/Movies</code></li>\n<li>\n<p><code>mediaTV</code> \u2192 <code>/media/TV</code></p>\n</li>\n<li>\n<p><strong>Predefined Transcode Volumes</strong> (optional, default: hostPath):</p>\n</li>\n<li><code>transcodeMovies</code> \u2192 <code>/transcode/Movies</code></li>\n<li>\n<p><code>transcodeTV</code> \u2192 <code>/transcode/TV</code></p>\n</li>\n<li>\n<p><strong>Predefined Plugin Volumes</strong> (optional, default: hostPath):</p>\n</li>\n<li><code>pluginsLocal</code> \u2192 <code>/app/server/Tdarr/Plugins/Local</code></li>\n<li><code>pluginsFlow</code> \u2192 <code>/app/server/Tdarr/Plugins/FlowPlugins/LocalFlowPlugins</code></li>\n<li>\n<p><code>pluginsFlowTemplates</code> \u2192 <code>/app/server/Tdarr/Plugins/FlowPlugins/LocalFlowTemplates</code></p>\n</li>\n<li>\n<p><strong>Additional Storage</strong> (flexible array):</p>\n</li>\n<li>User-defined mount points with configurable paths</li>\n</ol>\n<p>All volumes support both ixVolume (TrueNAS datasets) and hostPath types.</p>\n<h3>Environment Variables</h3>\n<p>The chart configures the following environment variables:</p>\n<ul>\n<li><code>NODE_TLS_REJECT_UNAUTHORIZED=0</code> - Allow self-signed certificates</li>\n<li><code>TZ</code> - System timezone (from TrueNAS)</li>\n<li><code>PUID</code>, <code>PGID</code> - User/group IDs (default: 568)</li>\n<li><code>UMASK_SET=002</code> - File creation mask</li>\n<li><code>serverIP</code> - Server bind address (default: 0.0.0.0)</li>\n<li><code>serverPort</code> - Server communication port (default: 8266)</li>\n<li><code>webUIPort</code> - Web interface port (default: 8265)</li>\n<li><code>inContainer=true</code> - Indicates container environment</li>\n<li><code>ffmpegVersion</code> - FFmpeg version to use (6 or 7, default: 7)</li>\n<li><code>internalNode</code> - Enable/disable internal worker node (default: true)</li>\n<li><code>nodeName</code> - Name for internal node (if enabled)</li>\n</ul>\n<h3>Network Configuration</h3>\n<p><strong>Services:</strong>\n- <code>webui</code> (primary): NodePort on 8265 (default)\n- <code>server</code>: NodePort on 8266 (default)</p>\n<p><strong>Portal Integration:</strong>\n- TrueNAS portal button configured for web UI access\n- Protocol: HTTP\n- Path: <code>/</code></p>\n<h3>GPU Support</h3>\n<p>Optional GPU allocation using TrueNAS common library patterns:\n- Supports NVIDIA and Intel GPUs\n- Configured via <code>tdarrGPU</code> dictionary\n- Applied to the tdarr-server container when configured</p>\n<h3>Resource Limits</h3>\n<p><strong>Defaults:</strong>\n- CPU: 4000m (4 cores)\n- Memory: 8Gi</p>\n<p>Configurable via TrueNAS UI with validation.</p>\n<h2>Differences from Standard Tdarr Chart</h2>\n<p>This chart differs from the standard <code>tdarr</code> community chart:</p>\n<ol>\n<li><strong>Storage Focus</strong>: Predefined media/transcode volumes optimized for local filesystem access</li>\n<li><strong>Use Case</strong>: Designed for primary nodes with direct storage access, not NFS-based deployments</li>\n<li><strong>Configuration</strong>: Simplified setup for common media server layouts (Movies/TV structure)</li>\n<li><strong>Plugin Support</strong>: Built-in mount points for custom plugins and Flow plugins</li>\n<li><strong>Name</strong>: Distinct chart name (<code>tdarr-server</code>) to allow side-by-side deployment</li>\n</ol>\n<h2>Deployment Scenarios</h2>\n<h3>Scenario 1: Primary + Remote Workers</h3>\n<p><strong>Primary Node (this chart)</strong>:\n- Deploy on TrueNAS with direct access to media storage\n- Enable internal node if server has GPU/CPU for transcoding\n- Mount media and transcode directories using local paths</p>\n<p><strong>Worker Nodes</strong> (standard tdarr chart or external):\n- Connect via serverIP:serverPort\n- Access media via NFS/SMB\n- Handle distributed transcoding</p>\n<h3>Scenario 2: Server-Only</h3>\n<p><strong>Primary Node (this chart)</strong>:\n- Disable internal node\n- Pure server/orchestration role\n- All transcoding handled by external nodes</p>\n<h2>Upgrade Notes</h2>\n<h3>Version 1.0.0</h3>\n<p>Initial release:\n- Based on Tdarr 2.45.01\n- FFmpeg 7 default\n- Hybrid storage architecture\n- Full plugin mount support</p>\n<h2>Configuration Examples</h2>\n<h3>Basic Setup with Movies and TV</h3>\n<p><code>yaml\ntdarrStorage:\n  mediaMovies:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/media/Movies\n  mediaTV:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/media/TV\n  transcodeMovies:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/transcode/Movies\n  transcodeTV:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/transcode/TV</code></p>\n<h3>Server-Only Mode (No Internal Worker)</h3>\n<p><code>yaml\ntdarrConfig:\n  internalNode: false</code></p>\n<h3>With Custom Plugins</h3>\n<p><code>yaml\ntdarrStorage:\n  pluginsLocal:\n    enabled: true\n    type: hostPath\n    hostPathConfig:\n      hostPath: /mnt/appdata/tdarr/plugins</code></p>\n<h2>Validation</h2>\n<p>The chart can be validated using:</p>\n<p>```bash</p>\n<h1>Build the chart</h1>\n<p>./create_app.sh community tdarr-server</p>\n<h1>Lint the chart</h1>\n<p>helm lint community/tdarr-server/1.0.0 --values community/tdarr-server/1.0.0/ix_values.yaml\n```</p>\n<h2>References</h2>\n<ul>\n<li>Tdarr: https://tdarr.io/</li>\n<li>Tdarr GitHub: https://github.com/HaveAGitGat/Tdarr</li>\n<li>TrueNAS SCALE: https://www.truenas.com/truenas-scale/</li>\n<li>ix-charts: https://github.com/truenas/charts</li>\n</ul>",
+        "changelog": null
+    },
     "1.0.8": {
         "healthy": true,
         "supported": true,
