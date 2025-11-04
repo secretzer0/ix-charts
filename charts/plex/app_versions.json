@@ -7,9 +7,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/gpuConfiguration",
+            "normalize/ixVolume",
             "definitions/timezone",
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/acl"
         ],
         "human_version": "1.41.4.9463_2.0.19",
         "version": "2.0.19",
@@ -2230,9 +2230,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/gpuConfiguration",
-            "definitions/timezone",
             "validations/lockedHostPath",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "1.32.8.7639_1.7.60",
         "version": "1.7.60",
