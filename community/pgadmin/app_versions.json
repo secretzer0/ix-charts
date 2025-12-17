@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/pgadmin/1.2.17",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/certificate",
             "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/certificate"
         ],
         "human_version": "9.1_1.2.17",
         "version": "1.2.17",
