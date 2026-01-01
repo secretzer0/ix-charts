@@ -7,10 +7,10 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/nodeIP",
-            "definitions/gpuConfiguration",
-            "definitions/interface",
             "normalize/interfaceConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration",
+            "definitions/interface"
         ],
         "human_version": "2403.0.0",
         "version": "2403.0.0",
