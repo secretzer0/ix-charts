@@ -1,0 +1,263 @@
+groups:
+  - name: zap2xml Configuration
+    description: Configure zap2xml
+  - name: User and Group Configuration
+    description: Configure User and Group for zap2xml
+  - name: Storage Configuration
+    description: Configure Storage for zap2xml
+  - name: Resources Configuration
+    description: Configure Resources for zap2xml
+
+questions:
+  - variable: TZ
+    group: zap2xml Configuration
+    label: Timezone
+    schema:
+      type: string
+      default: Etc/UTC
+      required: true
+      $ref:
+        - definitions/timezone
+
+  - variable: zap2xmlConfig
+    label: ""
+    group: zap2xml Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: outputFile
+          label: Output File Path
+          description: Path where the XMLTV file will be written inside the container.
+          schema:
+            type: string
+            default: /xmltv/xmltv.xml
+            required: true
+        - variable: lineupId
+          label: Lineup ID
+          description: The Zap2it lineup ID for your TV provider (e.g., USA-OTA78735).
+          schema:
+            type: string
+            default: USA-OTA78735
+            required: true
+        - variable: timespan
+          label: Timespan (hours)
+          description: Number of hours of guide data to fetch.
+          schema:
+            type: int
+            default: 168
+            min: 1
+            max: 336
+            required: true
+        - variable: postalCode
+          label: Postal Code
+          description: Your postal/ZIP code for location-based listings.
+          schema:
+            type: string
+            default: "78735"
+            required: true
+        - variable: sleepTime
+          label: Sleep Time (seconds)
+          description: Time in seconds between guide data updates.
+          schema:
+            type: int
+            default: 21600
+            min: 3600
+            required: true
+        - variable: additionalEnvs
+          label: Additional Environment Variables
+          description: Additional environment variables to pass to the container.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: env
+                label: Environment Variable
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string
+                        required: true
+
+  - variable: zap2xmlRunAs
+    label: ""
+    group: User and Group Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: user
+          label: User ID
+          description: The user ID that zap2xml will run as.
+          schema:
+            type: int
+            min: 2
+            default: 568
+            required: true
+        - variable: group
+          label: Group ID
+          description: The group ID that zap2xml will run as.
+          schema:
+            type: int
+            min: 2
+            default: 568
+            required: true
+
+  - variable: zap2xmlStorage
+    label: ""
+    group: Storage Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: xmltv
+          label: XMLTV Output Storage
+          description: Storage location for the XMLTV output file.
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  required: true
+                  immutable: true
+                  default: ixVolume
+                  enum:
+                    - value: hostPath
+                      description: Host Path (Path that already exists on the system)
+                    - value: ixVolume
+                      description: ixVolume (Dataset created automatically by the system)
+              - variable: ixVolumeConfig
+                label: ixVolume Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "ixVolume"]]
+                  $ref:
+                    - "normalize/ixVolume"
+                  attrs:
+                    - variable: aclEnable
+                      label: Enable ACL
+                      description: Enable ACL for the storage.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: datasetName
+                      label: Dataset Name
+                      schema:
+                        type: string
+                        required: true
+                        immutable: true
+                        hidden: true
+                        default: xmltv
+              - variable: hostPathConfig
+                label: Host Path Configuration
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "hostPath"]]
+                  attrs:
+                    - variable: aclEnable
+                      label: Enable ACL
+                      description: Enable ACL for the storage.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: hostPath
+                      label: Host Path
+                      description: The host path to use for storage.
+                      schema:
+                        type: hostpath
+                        show_if: [["aclEnable", "=", false]]
+                        required: true
+        - variable: additionalStorages
+          label: Additional Storage
+          description: Additional storage locations.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: storageEntry
+                label: Storage Entry
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: type
+                      label: Type
+                      schema:
+                        type: string
+                        required: true
+                        default: hostPath
+                        enum:
+                          - value: hostPath
+                            description: Host Path (Path that already exists on the system)
+                    - variable: mountPath
+                      label: Mount Path
+                      description: The path inside the container to mount the storage.
+                      schema:
+                        type: path
+                        required: true
+                    - variable: hostPathConfig
+                      label: Host Path Configuration
+                      schema:
+                        type: dict
+                        show_if: [["type", "=", "hostPath"]]
+                        attrs:
+                          - variable: aclEnable
+                            label: Enable ACL
+                            description: Enable ACL for the storage.
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: hostPath
+                            label: Host Path
+                            description: The host path to use for storage.
+                            schema:
+                              type: hostpath
+                              show_if: [["aclEnable", "=", false]]
+                              required: true
+
+  - variable: resources
+    group: Resources Configuration
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: Limits
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: CPU
+                description: CPU limit for the container.
+                schema:
+                  type: string
+                  max_length: 6
+                  valid_chars: '^(0\.[1-9]|[1-9][0-9]*)(\.[0-9]|m?)$'
+                  valid_chars_error: |
+                    Valid CPU limit formats are:
+                    - Plain integer (e.g., 1)
+                    - Float (e.g., 0.5)
+                    - Millicpu (e.g., 500m)
+                  default: "500m"
+                  required: true
+              - variable: memory
+                label: Memory
+                description: Memory limit for the container.
+                schema:
+                  type: string
+                  max_length: 12
+                  valid_chars: '^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$'
+                  valid_chars_error: |
+                    Valid memory limit formats are:
+                    - Suffixed with E/P/T/G/M/K (e.g., 1G)
+                    - Suffixed with Ei/Pi/Ti/Gi/Mi/Ki (e.g., 1Gi)
+                    - Plain integer in bytes (e.g., 1073741824)
+                    - Exponential (e.g., 134e6)
+                  default: "256Mi"
+                  required: true

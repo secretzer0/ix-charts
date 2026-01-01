@@ -1,0 +1,9 @@
+image:
+  tag: v2.2.0
+
+zap2xmlConfig:
+  outputFile: /xmltv/xmltv.xml
+  lineupId: USA-OTA78735
+  timespan: 168
+  postalCode: "78735"
+  sleepTime: 21600

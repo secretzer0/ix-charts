@@ -1,0 +1,29 @@
+name: zap2xml
+description: zap2xml fetches TV guide data from Zap2it and outputs XMLTV files for use
+  with DVR software like Jellyfin, Plex, or Channels.
+annotations:
+  title: zap2xml
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: v2.2.0
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://github.com/jef/zap2xml
+icon: https://media.sys.truenas.net/apps/ix-chart/icons/icon.webp
+sources:
+  - https://github.com/jef/zap2xml
+  - https://github.com/secretzer0/ix-charts/tree/master/community/zap2xml
+keywords:
+  - tv
+  - guide
+  - xmltv
+  - epg
+  - media
