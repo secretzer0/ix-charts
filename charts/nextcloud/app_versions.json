@@ -7,9 +7,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume",
+            "definitions/certificate",
             "normalize/acl",
-            "definitions/nodeIP",
-            "definitions/certificate"
+            "definitions/nodeIP"
         ],
         "human_version": "31.0.0_2.0.23",
         "version": "2.0.23",
@@ -2290,9 +2290,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume",
+            "definitions/certificate",
             "normalize/acl",
-            "definitions/nodeIP",
-            "definitions/certificate"
+            "definitions/nodeIP"
         ],
         "human_version": "29.0.6_2.0.15",
         "version": "2.0.15",
@@ -4573,8 +4573,8 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume",
-            "definitions/nodeIP",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/nodeIP"
         ],
         "human_version": "29.0.0_1.6.61",
         "version": "1.6.61",
@@ -5397,8 +5397,8 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume",
-            "definitions/nodeIP",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/nodeIP"
         ],
         "human_version": "28.0.4_1.6.59",
         "version": "1.6.59",
@@ -6221,8 +6221,8 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume",
-            "definitions/nodeIP",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/nodeIP"
         ],
         "human_version": "27.1.4_1.6.53",
         "version": "1.6.53",
@@ -7045,8 +7045,8 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/ixVolume",
-            "definitions/nodeIP",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/nodeIP"
         ],
         "human_version": "26.0.2_1.6.29",
         "version": "1.6.29",

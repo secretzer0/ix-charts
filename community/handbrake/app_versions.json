@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/handbrake/1.0.3",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
             "normalize/ixVolume",
+            "normalize/acl",
             "definitions/timezone",
             "definitions/gpuConfiguration"
         ],
