@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/palworld/1.0.6",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "palworld_1.0.6",
         "version": "1.0.6",

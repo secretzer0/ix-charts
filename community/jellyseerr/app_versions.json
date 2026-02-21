@@ -4,7 +4,7 @@
         "supported": true,
         "healthy_error": null,
         "location": "/__w/ix-charts/ix-charts/community/jellyseerr/1.0.31",
-        "last_update": "2026-02-21 00:11:00",
+        "last_update": "2026-02-21 01:25:25",
         "required_features": [
             "normalize/ixVolume",
             "definitions/timezone"
@@ -36,12 +36,12 @@
                     "version": "1.2.9"
                 }
             ],
-            "home": "https://github.com/Fallenbagel/jellyseerr",
+            "home": "https://github.com/seerr-team/seerr",
             "icon": "https://media.sys.truenas.net/apps/jellyseerr/icons/icon.svg",
             "sources": [
-                "https://github.com/Fallenbagel/jellyseerr",
+                "https://github.com/seerr-team/seerr",
                 "https://github.com/secretzer0/ix-charts/tree/master/community/jellyseerr",
-                "https://hub.docker.com/r/fallenbagel/jellyseerr"
+                "https://ghcr.io/seerr-team/seerr"
             ],
             "keywords": [
                 "media"
@@ -50,10 +50,10 @@
         "app_metadata": {
             "runAsContext": [
                 {
-                    "userName": "jellyseerr",
-                    "groupName": "jellyseerr",
-                    "gid": 568,
-                    "uid": 568,
+                    "userName": "seerr",
+                    "groupName": "seerr",
+                    "gid": 1000,
+                    "uid": 1000,
                     "description": "Jellyseerr can run as any non-root user."
                 }
             ],
@@ -181,7 +181,7 @@
                                 "schema": {
                                     "type": "int",
                                     "min": 2,
-                                    "default": 568,
+                                    "default": 1000,
                                     "required": true
                                 }
                             },
@@ -192,7 +192,7 @@
                                 "schema": {
                                     "type": "int",
                                     "min": 2,
-                                    "default": 568,
+                                    "default": 1000,
                                     "required": true
                                 }
                             }
