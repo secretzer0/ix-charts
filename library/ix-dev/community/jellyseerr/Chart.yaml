@@ -16,11 +16,11 @@ dependencies:
   - name: common
     repository: file://../../../common
     version: 1.2.9
-home: https://github.com/Fallenbagel/jellyseerr
+home: https://github.com/seerr-team/seerr
 icon: https://media.sys.truenas.net/apps/jellyseerr/icons/icon.svg
 sources:
-  - https://github.com/Fallenbagel/jellyseerr
+  - https://github.com/seerr-team/seerr
   - https://github.com/secretzer0/ix-charts/tree/master/community/jellyseerr
-  - https://hub.docker.com/r/fallenbagel/jellyseerr
+  - https://ghcr.io/seerr-team/seerr
 keywords:
   - media

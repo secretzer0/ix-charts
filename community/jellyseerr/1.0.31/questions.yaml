@@ -72,7 +72,7 @@ questions:
           schema:
             type: int
             min: 2
-            default: 568
+            default: 1000
             required: true
         - variable: group
           label: Group ID
@@ -80,7 +80,7 @@ questions:
           schema:
             type: int
             min: 2
-            default: 568
+            default: 1000
             required: true
 
   - variable: jellyseerrNetwork

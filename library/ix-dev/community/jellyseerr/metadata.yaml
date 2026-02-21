@@ -1,8 +1,8 @@
 runAsContext:
-  - userName: jellyseerr
-    groupName: jellyseerr
-    gid: 568
-    uid: 568
+  - userName: seerr
+    groupName: seerr
+    gid: 1000
+    uid: 1000
     description: Jellyseerr can run as any non-root user.
 capabilities: []
 hostMounts: []
