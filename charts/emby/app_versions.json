@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/emby/2.0.13",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
             "normalize/acl",
+            "definitions/gpuConfiguration",
             "normalize/ixVolume"
         ],
         "human_version": "4.8.10.0_2.0.13",
@@ -1063,8 +1063,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/emby/1.0.30",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "4.7.14.0_1.0.30",
         "version": "1.0.30",

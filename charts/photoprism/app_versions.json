@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/photoprism/2.0.13",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
             "normalize/acl",
+            "definitions/gpuConfiguration",
             "normalize/ixVolume",
             "definitions/certificate"
         ],
