@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/deluge/1.2.6",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "2.1.1_1.2.6",
         "version": "1.2.6",

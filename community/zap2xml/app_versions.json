@@ -1,4 +1,498 @@
 {
+    "1.0.1": {
+        "healthy": true,
+        "supported": true,
+        "healthy_error": null,
+        "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.1",
+        "last_update": "2026-02-22 16:52:20",
+        "required_features": [
+            "definitions/timezone",
+            "normalize/ixVolume"
+        ],
+        "human_version": "v2.2.2_1.0.1",
+        "version": "1.0.1",
+        "chart_metadata": {
+            "name": "zap2xml",
+            "description": "zap2xml fetches TV guide data from Zap2it and outputs XMLTV files for use with DVR software like Jellyfin, Plex, or Channels.",
+            "annotations": {
+                "title": "zap2xml"
+            },
+            "type": "application",
+            "version": "1.0.1",
+            "apiVersion": "v2",
+            "appVersion": "v2.2.2",
+            "kubeVersion": ">=1.16.0-0",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "dependencies": [
+                {
+                    "name": "common",
+                    "repository": "file://../../../common",
+                    "version": "1.2.9"
+                }
+            ],
+            "home": "https://github.com/jesmannstl/zap2xml",
+            "icon": "https://media.sys.truenas.net/apps/ix-chart/icons/icon.webp",
+            "sources": [
+                "https://github.com/jesmannstl/zap2xml",
+                "https://github.com/secretzer0/ix-charts/tree/master/community/zap2xml"
+            ],
+            "keywords": [
+                "tv",
+                "guide",
+                "xmltv",
+                "epg",
+                "media"
+            ]
+        },
+        "app_metadata": {
+            "runAsContext": [
+                {
+                    "userName": "zap2xml",
+                    "groupName": "zap2xml",
+                    "gid": 568,
+                    "uid": 568,
+                    "description": "zap2xml runs as any non-root user."
+                }
+            ],
+            "capabilities": [],
+            "hostMounts": []
+        },
+        "schema": {
+            "groups": [
+                {
+                    "name": "zap2xml Configuration",
+                    "description": "Configure zap2xml"
+                },
+                {
+                    "name": "User and Group Configuration",
+                    "description": "Configure User and Group for zap2xml"
+                },
+                {
+                    "name": "Storage Configuration",
+                    "description": "Configure Storage for zap2xml"
+                },
+                {
+                    "name": "Resources Configuration",
+                    "description": "Configure Resources for zap2xml"
+                }
+            ],
+            "questions": [
+                {
+                    "variable": "TZ",
+                    "group": "zap2xml Configuration",
+                    "label": "Timezone",
+                    "schema": {
+                        "type": "string",
+                        "default": "America/Los_Angeles",
+                        "required": true,
+                        "$ref": [
+                            "definitions/timezone"
+                        ],
+                        "enum": [
+                            {
+                                "value": "Asia/Damascus",
+                                "description": "'Asia/Damascus' timezone"
+                            },
+                            {
+                                "value": "Asia/Saigon",
+                                "description": "'Asia/Saigon' timezone"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "zap2xmlConfig",
+                    "label": "",
+                    "group": "zap2xml Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "outputFile",
+                                "label": "Output File Path",
+                                "description": "Path where the XMLTV file will be written inside the container.",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "/xmltv/xmltv.xml",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "lineupId",
+                                "label": "Lineup ID",
+                                "description": "The Zap2it lineup ID for your TV provider (e.g., USA-OTA78735).",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "USA-OTA78735",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "timespan",
+                                "label": "Timespan (hours)",
+                                "description": "Number of hours of guide data to fetch.",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 168,
+                                    "min": 1,
+                                    "max": 336,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "postalCode",
+                                "label": "Postal Code",
+                                "description": "Your postal/ZIP code for location-based listings.",
+                                "schema": {
+                                    "type": "string",
+                                    "default": "78735",
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "sleepTime",
+                                "label": "Sleep Time (seconds)",
+                                "description": "Time in seconds between guide data updates.",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 21600,
+                                    "min": 3600,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "additionalEnvs",
+                                "label": "Additional Environment Variables",
+                                "description": "Additional environment variables to pass to the container.",
+                                "schema": {
+                                    "type": "list",
+                                    "default": [],
+                                    "items": [
+                                        {
+                                            "variable": "env",
+                                            "label": "Environment Variable",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "name",
+                                                        "label": "Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "value",
+                                                        "label": "Value",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "zap2xmlRunAs",
+                    "label": "",
+                    "group": "User and Group Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "user",
+                                "label": "User ID",
+                                "description": "The user ID that zap2xml will run as.",
+                                "schema": {
+                                    "type": "int",
+                                    "min": 2,
+                                    "default": 568,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "group",
+                                "label": "Group ID",
+                                "description": "The group ID that zap2xml will run as.",
+                                "schema": {
+                                    "type": "int",
+                                    "min": 2,
+                                    "default": 568,
+                                    "required": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "zap2xmlStorage",
+                    "label": "",
+                    "group": "Storage Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "xmltv",
+                                "label": "XMLTV Output Storage",
+                                "description": "Storage location for the XMLTV output file.",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "type",
+                                            "label": "Type",
+                                            "schema": {
+                                                "type": "string",
+                                                "required": true,
+                                                "immutable": true,
+                                                "default": "ixVolume",
+                                                "enum": [
+                                                    {
+                                                        "value": "hostPath",
+                                                        "description": "Host Path (Path that already exists on the system)"
+                                                    },
+                                                    {
+                                                        "value": "ixVolume",
+                                                        "description": "ixVolume (Dataset created automatically by the system)"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "ixVolumeConfig",
+                                            "label": "ixVolume Configuration",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "ixVolume"
+                                                    ]
+                                                ],
+                                                "$ref": [
+                                                    "normalize/ixVolume"
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "aclEnable",
+                                                        "label": "Enable ACL",
+                                                        "description": "Enable ACL for the storage.",
+                                                        "schema": {
+                                                            "type": "boolean",
+                                                            "default": false
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "datasetName",
+                                                        "label": "Dataset Name",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true,
+                                                            "immutable": true,
+                                                            "hidden": true,
+                                                            "default": "xmltv"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "variable": "hostPathConfig",
+                                            "label": "Host Path Configuration",
+                                            "schema": {
+                                                "type": "dict",
+                                                "show_if": [
+                                                    [
+                                                        "type",
+                                                        "=",
+                                                        "hostPath"
+                                                    ]
+                                                ],
+                                                "attrs": [
+                                                    {
+                                                        "variable": "aclEnable",
+                                                        "label": "Enable ACL",
+                                                        "description": "Enable ACL for the storage.",
+                                                        "schema": {
+                                                            "type": "boolean",
+                                                            "default": false
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "hostPath",
+                                                        "label": "Host Path",
+                                                        "description": "The host path to use for storage.",
+                                                        "schema": {
+                                                            "type": "hostpath",
+                                                            "show_if": [
+                                                                [
+                                                                    "aclEnable",
+                                                                    "=",
+                                                                    false
+                                                                ]
+                                                            ],
+                                                            "required": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "variable": "additionalStorages",
+                                "label": "Additional Storage",
+                                "description": "Additional storage locations.",
+                                "schema": {
+                                    "type": "list",
+                                    "default": [],
+                                    "items": [
+                                        {
+                                            "variable": "storageEntry",
+                                            "label": "Storage Entry",
+                                            "schema": {
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "type",
+                                                        "label": "Type",
+                                                        "schema": {
+                                                            "type": "string",
+                                                            "required": true,
+                                                            "default": "hostPath",
+                                                            "enum": [
+                                                                {
+                                                                    "value": "hostPath",
+                                                                    "description": "Host Path (Path that already exists on the system)"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "mountPath",
+                                                        "label": "Mount Path",
+                                                        "description": "The path inside the container to mount the storage.",
+                                                        "schema": {
+                                                            "type": "path",
+                                                            "required": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "variable": "hostPathConfig",
+                                                        "label": "Host Path Configuration",
+                                                        "schema": {
+                                                            "type": "dict",
+                                                            "show_if": [
+                                                                [
+                                                                    "type",
+                                                                    "=",
+                                                                    "hostPath"
+                                                                ]
+                                                            ],
+                                                            "attrs": [
+                                                                {
+                                                                    "variable": "aclEnable",
+                                                                    "label": "Enable ACL",
+                                                                    "description": "Enable ACL for the storage.",
+                                                                    "schema": {
+                                                                        "type": "boolean",
+                                                                        "default": false
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "hostPath",
+                                                                    "label": "Host Path",
+                                                                    "description": "The host path to use for storage.",
+                                                                    "schema": {
+                                                                        "type": "hostpath",
+                                                                        "show_if": [
+                                                                            [
+                                                                                "aclEnable",
+                                                                                "=",
+                                                                                false
+                                                                            ]
+                                                                        ],
+                                                                        "required": true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "resources",
+                    "group": "Resources Configuration",
+                    "label": "",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "limits",
+                                "label": "Limits",
+                                "schema": {
+                                    "type": "dict",
+                                    "attrs": [
+                                        {
+                                            "variable": "cpu",
+                                            "label": "CPU",
+                                            "description": "CPU limit for the container.",
+                                            "schema": {
+                                                "type": "string",
+                                                "max_length": 6,
+                                                "valid_chars": "^(0\\.[1-9]|[1-9][0-9]*)(\\.[0-9]|m?)$",
+                                                "valid_chars_error": "Valid CPU limit formats are:\n- Plain integer (e.g., 1)\n- Float (e.g., 0.5)\n- Millicpu (e.g., 500m)\n",
+                                                "default": "500m",
+                                                "required": true
+                                            }
+                                        },
+                                        {
+                                            "variable": "memory",
+                                            "label": "Memory",
+                                            "description": "Memory limit for the container.",
+                                            "schema": {
+                                                "type": "string",
+                                                "max_length": 12,
+                                                "valid_chars": "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$",
+                                                "valid_chars_error": "Valid memory limit formats are:\n- Suffixed with E/P/T/G/M/K (e.g., 1G)\n- Suffixed with Ei/Pi/Ti/Gi/Mi/Ki (e.g., 1Gi)\n- Plain integer in bytes (e.g., 1073741824)\n- Exponential (e.g., 134e6)\n",
+                                                "default": "256Mi",
+                                                "required": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "app_readme": "<h1>zap2xml</h1>\n<p>zap2xml fetches TV guide data from Zap2it and outputs XMLTV files for use with DVR software.</p>\n<h2>Features</h2>\n<ul>\n<li>Automatically fetches TV guide data on a configurable schedule</li>\n<li>Outputs standard XMLTV format compatible with most DVR software</li>\n<li>Supports US OTA and cable lineups via Zap2it</li>\n</ul>\n<h2>Getting Started</h2>\n<ol>\n<li>Configure your Lineup ID and Postal Code</li>\n<li>Set the output file path and update interval</li>\n<li>Point your DVR software to the XMLTV file location</li>\n</ol>\n<h2>Finding Your Lineup ID</h2>\n<p>Visit <a href=\"https://tvlistings.zap2it.com/\">Zap2it</a> and search for your location to find your lineup ID.</p>",
+        "detailed_readme": "<h1>zap2xml</h1>\n<p>zap2xml fetches TV guide data from Zap2it and outputs XMLTV files for use with DVR software like Jellyfin, Plex, or Channels.</p>\n<h2>Configuration</h2>\n<p>| Parameter | Description | Default |\n|-----------|-------------|---------|\n| <code>zap2xmlConfig.outputFile</code> | Path to output XMLTV file | <code>/xmltv/xmltv.xml</code> |\n| <code>zap2xmlConfig.lineupId</code> | Zap2it lineup ID | <code>USA-OTA78735</code> |\n| <code>zap2xmlConfig.timespan</code> | Hours of guide data to fetch | <code>168</code> |\n| <code>zap2xmlConfig.postalCode</code> | Postal/ZIP code | <code>78735</code> |\n| <code>zap2xmlConfig.sleepTime</code> | Seconds between updates | <code>21600</code> |</p>\n<h2>Storage</h2>\n<p>The chart creates an ixVolume for the XMLTV output by default. You can configure additional storage mounts as needed.</p>\n<h2>Usage</h2>\n<p>Point your DVR software (Jellyfin, Plex, Channels, etc.) to the XMLTV file location to import guide data.</p>",
+        "changelog": null
+    },
     "1.0.0": {
         "healthy": true,
         "supported": true,
@@ -6,8 +500,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.0",
         "last_update": "2026-01-01 22:17:56",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.0_1.0.0",
         "version": "1.0.0",
