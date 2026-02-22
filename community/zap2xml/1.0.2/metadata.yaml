@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: zap2xml
+    groupName: zap2xml
+    gid: 568
+    uid: 568
+    description: zap2xml runs as any non-root user.
+capabilities: []
+hostMounts: []
