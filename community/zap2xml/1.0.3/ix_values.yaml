@@ -1,0 +1,28 @@
+image:
+  repository: ghcr.io/jesmannstl/zap2xml
+  pullPolicy: IfNotPresent
+  tag: main
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+
+zap2xmlConfig:
+  outputFile: /xmltv/xmltv.xml
+  lineupId: USA-OTA78735
+  timespan: 168
+  postalCode: "78735"
+  cronSchedule: "0 */6 * * *"
+  additionalEnvs: []
+
+zap2xmlRunAs:
+  user: 568
+  group: 568
+
+zap2xmlStorage:
+  xmltv:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: xmltv
+  additionalStorages: []
