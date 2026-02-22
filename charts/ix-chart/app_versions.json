@@ -6,11 +6,11 @@
         "location": "/__w/ix-charts/ix-charts/charts/ix-chart/2403.0.0",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
             "normalize/ixVolume",
             "definitions/nodeIP",
+            "definitions/interface",
             "normalize/interfaceConfiguration",
-            "definitions/interface"
+            "definitions/gpuConfiguration"
         ],
         "human_version": "2403.0.0",
         "version": "2403.0.0",

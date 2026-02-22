@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/diskoverdata/2.0.3",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
             "normalize/ixVolume",
+            "definitions/timezone",
             "normalize/acl"
         ],
         "human_version": "2.0.1_2.0.3",
@@ -1837,8 +1837,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/diskoverdata/1.0.15",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/timezone",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/timezone"
         ],
         "human_version": "2.0.1_1.0.15",
         "version": "1.0.15",
