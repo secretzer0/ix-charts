@@ -1,0 +1,7 @@
+zap2xml has been installed successfully.
+
+The XMLTV guide data will be written to the configured output path.
+By default, this is /xmltv/xmltv.xml inside the container.
+
+The service will automatically fetch new guide data based on the
+configured sleep time interval.
