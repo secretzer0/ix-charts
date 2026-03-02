@@ -7,9 +7,9 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "normalize/acl",
-            "definitions/gpuConfiguration",
+            "definitions/certificate",
             "normalize/ixVolume",
-            "definitions/certificate"
+            "definitions/gpuConfiguration"
         ],
         "human_version": "250228_2.0.13",
         "version": "2.0.13",
