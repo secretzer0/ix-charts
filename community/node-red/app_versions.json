@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/node-red/1.2.19",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "definitions/timezone",
+            "normalize/ixVolume",
             "normalize/acl"
         ],
         "human_version": "3.1.15_1.2.19",

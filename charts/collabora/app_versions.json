@@ -877,8 +877,8 @@
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
             "definitions/timezone",
-            "definitions/certificate",
-            "definitions/nodeIP"
+            "definitions/nodeIP",
+            "definitions/certificate"
         ],
         "human_version": "23.05.8.2.1_1.2.30",
         "version": "1.2.30",
