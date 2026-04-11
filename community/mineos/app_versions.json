@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/mineos/1.0.20",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/certificate",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/certificate"
         ],
         "human_version": "latest_1.0.20",
         "version": "1.0.20",
