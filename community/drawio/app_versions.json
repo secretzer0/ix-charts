@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/drawio/1.2.61",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "26.1.0_1.2.61",
         "version": "1.2.61",

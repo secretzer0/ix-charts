@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.11",
         "last_update": "2025-11-02 18:59:56",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "2.51.03_1.0.11",
         "version": "1.0.11",
@@ -1568,8 +1568,8 @@
         "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.10",
         "last_update": "2025-11-02 18:05:37",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "2.51.03_1.0.10",
         "version": "1.0.10",
@@ -3218,8 +3218,8 @@
         "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.9",
         "last_update": "2025-11-02 16:54:41",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "2.51.03_1.0.9",
         "version": "1.0.9",
@@ -4780,8 +4780,8 @@
         "location": "/__w/ix-charts/ix-charts/community/tdarr-server/1.0.8",
         "last_update": "2025-11-02 01:25:42",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "2.51.03_1.0.8",
         "version": "1.0.8",
