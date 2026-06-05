@@ -6,9 +6,9 @@
         "location": "/__w/ix-charts/ix-charts/community/fscrawler/1.2.5",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "definitions/timezone",
-            "normalize/acl"
+            "normalize/acl",
+            "normalize/ixVolume"
         ],
         "human_version": "2.9_1.2.5",
         "version": "1.2.5",
