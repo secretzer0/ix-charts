@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/paperless-ngx/1.2.61",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/ixVolume",
             "definitions/timezone",
+            "normalize/ixVolume",
             "normalize/acl"
         ],
         "human_version": "2.14.7_1.2.61",
