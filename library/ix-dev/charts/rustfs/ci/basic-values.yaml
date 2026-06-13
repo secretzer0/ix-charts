@@ -1,0 +1,8 @@
+rustfsConfig:
+  accessKey: rustfsadmin
+  secretKey: rustfsadmin
+rustfsStorage:
+  data:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: data

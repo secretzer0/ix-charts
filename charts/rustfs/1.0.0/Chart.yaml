@@ -1,0 +1,28 @@
+name: rustfs
+description: RustFS is a high-performance, S3-compatible distributed object storage system written in Rust.
+annotations:
+  title: RustFS
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: 1.0.0-beta.8
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.2.9
+home: https://rustfs.com/
+icon: https://rustfs.com/logo.svg
+sources:
+  - https://github.com/rustfs/rustfs
+  - https://docs.rustfs.com
+  - https://hub.docker.com/r/rustfs/rustfs
+keywords:
+  - storage
+  - object-storage
+  - S3
+  - rust

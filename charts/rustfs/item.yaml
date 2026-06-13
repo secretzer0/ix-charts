@@ -1,0 +1,6 @@
+icon_url: https://rustfs.com/logo.svg
+categories:
+  - storage
+  - object-storage
+  - S3
+  - rust
