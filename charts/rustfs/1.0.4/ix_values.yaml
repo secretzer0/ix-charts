@@ -1,0 +1,36 @@
+image:
+  repository: rustfs/rustfs
+  pullPolicy: IfNotPresent
+  tag: 1.0.0-beta.8
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+rustfsConfig:
+  accessKey: ""
+  secretKey: ""
+  consoleEnable: true
+  serverDomains: ""
+  additionalEnvs: []
+
+rustfsNetwork:
+  apiPort: 30100
+  consolePort: 30101
+  hostNetwork: false
+
+rustfsRunAs:
+  user: 10001
+  group: 10001
+
+rustfsStorage:
+  data:
+    type: hostPath
+    hostPathConfig:
+      hostPath: /mnt/Pool0/RustFS
+  logs:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: logs
+  additionalStorages: []
