@@ -9,8 +9,8 @@
             "definitions/nodeIP",
             "normalize/ixVolume",
             "definitions/certificate",
-            "normalize/acl",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/acl"
         ],
         "human_version": "24.04.12.4.1_2.0.37",
         "version": "2.0.37",

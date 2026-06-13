@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/storj/2.0.1",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "v1.68.2_2.0.1",
         "version": "2.0.1",

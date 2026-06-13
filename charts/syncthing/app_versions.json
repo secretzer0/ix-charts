@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/syncthing/2.0.16",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "normalize/acl",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "normalize/acl"
         ],
         "human_version": "1.29.2_2.0.16",
         "version": "2.0.16",
@@ -1173,8 +1173,8 @@
         "location": "/__w/ix-charts/ix-charts/charts/syncthing/1.0.42",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "validations/lockedHostPath",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "validations/lockedHostPath"
         ],
         "human_version": "1.27.3_1.0.42",
         "version": "1.0.42",
