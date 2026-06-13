@@ -9,8 +9,8 @@
             "definitions/gpuConfiguration",
             "normalize/interfaceConfiguration",
             "definitions/nodeIP",
-            "normalize/ixVolume",
-            "definitions/interface"
+            "definitions/interface",
+            "normalize/ixVolume"
         ],
         "human_version": "2403.0.0",
         "version": "2403.0.0",
