@@ -1,27 +1,26 @@
 {
-    "1.2.17": {
+    "1.0.0": {
         "healthy": true,
         "supported": false,
         "healthy_error": null,
-        "location": "/__w/ix-charts/ix-charts/community/pgadmin/1.2.17",
-        "last_update": "2025-08-12 16:55:15",
+        "location": "/__w/ix-charts/ix-charts/charts/rustfs/1.0.0",
+        "last_update": "2026-06-13 14:46:41",
         "required_features": [
-            "normalize/ixVolume",
             "normalize/acl",
-            "definitions/certificate"
+            "normalize/ixVolume"
         ],
-        "human_version": "9.1_1.2.17",
-        "version": "1.2.17",
+        "human_version": "1.0.0-beta.8_1.0.0",
+        "version": "1.0.0",
         "chart_metadata": {
-            "name": "pgadmin",
-            "description": "pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL",
+            "name": "rustfs",
+            "description": "RustFS is a high-performance, S3-compatible distributed object storage system written in Rust.",
             "annotations": {
-                "title": "pgAdmin"
+                "title": "RustFS"
             },
             "type": "application",
-            "version": "1.2.17",
+            "version": "1.0.0",
             "apiVersion": "v2",
-            "appVersion": "9.1",
+            "appVersion": "1.0.0-beta.8",
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
                 {
@@ -37,53 +36,42 @@
                     "version": "1.2.9"
                 }
             ],
-            "home": "https://www.pgadmin.org/",
-            "icon": "https://media.sys.truenas.net/apps/pgadmin/icons/icon.png",
+            "home": "https://rustfs.com/",
+            "icon": "https://rustfs.com/logo.svg",
             "sources": [
-                "https://hub.docker.com/r/dpage/pgadmin4",
-                "https://github.com/truenas/charts/tree/master/library/ix-dev/community/pgadmin",
-                "https://www.pgadmin.org/"
+                "https://github.com/rustfs/rustfs",
+                "https://docs.rustfs.com",
+                "https://hub.docker.com/r/rustfs/rustfs"
             ],
             "keywords": [
-                "database",
-                "management"
+                "storage",
+                "object-storage",
+                "S3",
+                "rust"
             ]
         },
-        "app_metadata": {
-            "runAsContext": [
-                {
-                    "userName": "pgadmin",
-                    "groupName": "pgadmin",
-                    "gid": 5050,
-                    "uid": 5050,
-                    "description": "pgAdmin runs as a non-root user."
-                }
-            ],
-            "capabilities": [
-                {
-                    "name": "NET_BIND_SERVICE",
-                    "description": "pgAdmin requires this ability to bind to privileged ports."
-                }
-            ],
-            "hostMounts": []
-        },
+        "app_metadata": null,
         "schema": {
             "groups": [
                 {
-                    "name": "pgAdmin Configuration",
-                    "description": "Configure pgAdmin"
+                    "name": "RustFS Configuration",
+                    "description": "Configure RustFS access credentials and behavior"
+                },
+                {
+                    "name": "User and Group Configuration",
+                    "description": "Configure User and Group for RustFS"
                 },
                 {
                     "name": "Network Configuration",
-                    "description": "Configure Network for pgAdmin"
+                    "description": "Configure Network for RustFS"
                 },
                 {
                     "name": "Storage Configuration",
-                    "description": "Configure Storage for pgAdmin"
+                    "description": "Configure Storage for RustFS"
                 },
                 {
                     "name": "Resources Configuration",
-                    "description": "Configure Resources for pgAdmin"
+                    "description": "Configure Resources for RustFS"
                 }
             ],
             "portals": {
@@ -102,37 +90,58 @@
             },
             "questions": [
                 {
-                    "variable": "pgadminConfig",
+                    "variable": "rustfsConfig",
                     "label": "",
-                    "group": "pgAdmin Configuration",
+                    "group": "RustFS Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "adminEmail",
-                                "label": "Admin Email",
-                                "description": "The email address for the pgAdmin admin user.",
+                                "variable": "accessKey",
+                                "label": "Access Key",
+                                "description": "S3 access key (acts as the admin username).</br>\nMinimum 5 characters.\n",
                                 "schema": {
                                     "type": "string",
+                                    "private": true,
                                     "required": true,
-                                    "default": ""
+                                    "min_length": 5,
+                                    "max_length": 64
                                 }
                             },
                             {
-                                "variable": "adminPassword",
-                                "label": "Admin Password",
-                                "description": "The password for the pgAdmin admin user.",
+                                "variable": "secretKey",
+                                "label": "Secret Key",
+                                "description": "S3 secret key (acts as the admin password).</br>\nMinimum 8 characters.\n",
                                 "schema": {
                                     "type": "string",
-                                    "required": true,
                                     "private": true,
+                                    "required": true,
+                                    "min_length": 8,
+                                    "max_length": 64
+                                }
+                            },
+                            {
+                                "variable": "consoleEnable",
+                                "label": "Enable Web Console",
+                                "description": "Enable the RustFS web management console.",
+                                "schema": {
+                                    "type": "boolean",
+                                    "default": true
+                                }
+                            },
+                            {
+                                "variable": "serverDomains",
+                                "label": "Server Domains (Optional)",
+                                "description": "Comma-separated list of domains the server should respond to.</br>\nLeave blank unless using virtual-hosted bucket addressing.\n",
+                                "schema": {
+                                    "type": "string",
                                     "default": ""
                                 }
                             },
                             {
                                 "variable": "additionalEnvs",
                                 "label": "Additional Environment Variables",
-                                "description": "Configure additional environment variables for pgAdmin.",
+                                "description": "Configure additional environment variables for RustFS.</br>\nUse for TLS (RUSTFS_TLS_PATH), observability (RUSTFS_OBS_ENDPOINT), CORS, etc.\n",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -169,19 +178,63 @@
                     }
                 },
                 {
-                    "variable": "pgadminNetwork",
+                    "variable": "rustfsRunAs",
+                    "label": "",
+                    "group": "User and Group Configuration",
+                    "schema": {
+                        "type": "dict",
+                        "attrs": [
+                            {
+                                "variable": "user",
+                                "label": "User ID",
+                                "description": "The user id that RustFS will run as.</br>\nUpstream container uses UID 10001; changing this requires the container to support it.\n",
+                                "schema": {
+                                    "type": "int",
+                                    "min": 2,
+                                    "default": 10001,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "group",
+                                "label": "Group ID",
+                                "description": "The group id that RustFS will run as.</br>\nUpstream container uses GID 10001.\n",
+                                "schema": {
+                                    "type": "int",
+                                    "min": 2,
+                                    "default": 10001,
+                                    "required": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "variable": "rustfsNetwork",
                     "label": "",
                     "group": "Network Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "webPort",
-                                "label": "Web Port",
-                                "description": "The port for the pgAdmin Web UI.",
+                                "variable": "apiPort",
+                                "label": "S3 API Port",
+                                "description": "The NodePort for the S3-compatible API.",
                                 "schema": {
                                     "type": "int",
-                                    "default": 30056,
+                                    "default": 30100,
+                                    "min": 9000,
+                                    "max": 65535,
+                                    "required": true
+                                }
+                            },
+                            {
+                                "variable": "consolePort",
+                                "label": "Console Port",
+                                "description": "The NodePort for the web management console.",
+                                "schema": {
+                                    "type": "int",
+                                    "default": 30101,
                                     "min": 9000,
                                     "max": 65535,
                                     "required": true
@@ -195,52 +248,33 @@
                                     "type": "boolean",
                                     "default": false
                                 }
-                            },
-                            {
-                                "variable": "certificateID",
-                                "label": "Certificate",
-                                "description": "The certificate to use for pgAdmin",
-                                "schema": {
-                                    "type": "int",
-                                    "null": true,
-                                    "$ref": [
-                                        "definitions/certificate"
-                                    ],
-                                    "enum": [
-                                        {
-                                            "value": null,
-                                            "description": "No Certificate"
-                                        }
-                                    ],
-                                    "default": null
-                                }
                             }
                         ]
                     }
                 },
                 {
-                    "variable": "pgadminStorage",
+                    "variable": "rustfsStorage",
                     "label": "",
                     "group": "Storage Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "config",
-                                "label": "pgAdmin Config Storage",
-                                "description": "The path to store pgAdmin Configuration.",
+                                "variable": "data",
+                                "label": "RustFS Data Storage",
+                                "description": "Primary data volume for RustFS. Mounted to /data inside the container.</br>\nDefault uses host path /mnt/Pool0/RustFS/volume1.\n",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
                                         {
                                             "variable": "type",
                                             "label": "Type",
-                                            "description": "ixVolume: Is dataset created automatically by the system.</br>\nHost Path: Is a path that already exists on the system.\n",
+                                            "description": "ixVolume: Dataset created automatically by the system.</br>\nHost Path: A path that already exists on the system.\n",
                                             "schema": {
                                                 "type": "string",
                                                 "required": true,
                                                 "immutable": true,
-                                                "default": "ixVolume",
+                                                "default": "hostPath",
                                                 "enum": [
                                                     {
                                                         "value": "hostPath",
@@ -288,7 +322,7 @@
                                                             "required": true,
                                                             "immutable": true,
                                                             "hidden": true,
-                                                            "default": "config"
+                                                            "default": "data"
                                                         }
                                                     },
                                                     {
@@ -403,7 +437,7 @@
                                                     {
                                                         "variable": "aclEnable",
                                                         "label": "Enable ACL",
-                                                        "description": "Enable ACL for the dataset.",
+                                                        "description": "Enable ACL for the host path.",
                                                         "schema": {
                                                             "type": "boolean",
                                                             "default": false
@@ -537,7 +571,8 @@
                                                                     false
                                                                 ]
                                                             ],
-                                                            "required": true
+                                                            "required": true,
+                                                            "default": "/mnt/Pool0/RustFS/volume1"
                                                         }
                                                     }
                                                 ]
@@ -548,8 +583,8 @@
                             },
                             {
                                 "variable": "additionalStorages",
-                                "label": "Additional Storage",
-                                "description": "Additional storage for pgAdmin.",
+                                "label": "Additional Storage Mounts",
+                                "description": "Extra paths mounted inside the container (logs, backups, manual locations).</br>\nThese are NOT additional RustFS data drives -- this chart runs in Single-Node Single-Disk (SNSD) mode.\n",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -563,7 +598,7 @@
                                                     {
                                                         "variable": "type",
                                                         "label": "Type",
-                                                        "description": "ixVolume: Is dataset created automatically by the system.</br>\nHost Path: Is a path that already exists on the system.</br>\nSMB Share: Is a SMB share that is mounted to a persistent volume claim.\n",
+                                                        "description": "ixVolume: Dataset created automatically by the system.</br>\nHost Path: A path that already exists on the system.</br>\nSMB Share: A SMB share mounted via persistent volume claim.\n",
                                                         "schema": {
                                                             "type": "string",
                                                             "required": true,
@@ -619,7 +654,7 @@
                                                                 {
                                                                     "variable": "aclEnable",
                                                                     "label": "Enable ACL",
-                                                                    "description": "Enable ACL for the dataset.",
+                                                                    "description": "Enable ACL for the host path.",
                                                                     "schema": {
                                                                         "type": "boolean",
                                                                         "default": false
@@ -909,7 +944,6 @@
                                                                 {
                                                                     "variable": "server",
                                                                     "label": "Server",
-                                                                    "description": "The server for the SMB share.",
                                                                     "schema": {
                                                                         "type": "string",
                                                                         "required": true
@@ -918,7 +952,6 @@
                                                                 {
                                                                     "variable": "share",
                                                                     "label": "Share",
-                                                                    "description": "The share name for the SMB share.",
                                                                     "schema": {
                                                                         "type": "string",
                                                                         "required": true
@@ -927,7 +960,6 @@
                                                                 {
                                                                     "variable": "domain",
                                                                     "label": "Domain (Optional)",
-                                                                    "description": "The domain for the SMB share.",
                                                                     "schema": {
                                                                         "type": "string"
                                                                     }
@@ -935,7 +967,6 @@
                                                                 {
                                                                     "variable": "username",
                                                                     "label": "Username",
-                                                                    "description": "The username for the SMB share.",
                                                                     "schema": {
                                                                         "type": "string",
                                                                         "required": true
@@ -944,7 +975,6 @@
                                                                 {
                                                                     "variable": "password",
                                                                     "label": "Password",
-                                                                    "description": "The password for the SMB share.",
                                                                     "schema": {
                                                                         "type": "string",
                                                                         "required": true,
@@ -954,7 +984,6 @@
                                                                 {
                                                                     "variable": "size",
                                                                     "label": "Size (in Gi)",
-                                                                    "description": "The size of the volume quota.",
                                                                     "schema": {
                                                                         "type": "int",
                                                                         "required": true,
@@ -990,7 +1019,7 @@
                                         {
                                             "variable": "cpu",
                                             "label": "CPU",
-                                            "description": "CPU limit for pgAdmin.",
+                                            "description": "CPU limit for RustFS.",
                                             "schema": {
                                                 "type": "string",
                                                 "max_length": 6,
@@ -1003,7 +1032,7 @@
                                         {
                                             "variable": "memory",
                                             "label": "Memory",
-                                            "description": "Memory limit for pgAdmin.",
+                                            "description": "Memory limit for RustFS.",
                                             "schema": {
                                                 "type": "string",
                                                 "max_length": 12,
@@ -1021,8 +1050,8 @@
                 }
             ]
         },
-        "app_readme": "<h1>pgAdmin</h1>\n<p><a href=\"https://github.com/pgadmin-org/pgadmin4\">pgAdmin</a> is the most popular and feature rich Open Source administration and development platform for PostgreSQL</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>pgAdmin</code> directories.\nAfterward, the <code>pgAdmin</code> container will run as a <strong>non</strong>-root user (<code>5050</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
-        "detailed_readme": "<h1>pgAdmin</h1>\n<p><a href=\"https://github.com/pgadmin-org/pgadmin4\">pgAdmin</a> is the most popular and feature rich Open Source administration and development platform for PostgreSQL</p>\n<blockquote>\n<p>When application is installed, a container will be launched with <strong>root</strong> privileges.\nThis is required in order to apply the correct permissions to the <code>pgAdmin</code> directories.\nAfterward, the <code>pgAdmin</code> container will run as a <strong>non</strong>-root user (<code>5050</code>).\nAll mounted storage(s) will be <code>chown</code>ed only if the parent directory does not match the configured user.</p>\n</blockquote>",
+        "app_readme": "<h1>RustFS</h1>\n<p><a href=\"https://rustfs.com\">RustFS</a> is a high-performance, S3-compatible distributed object storage system written in Rust.</p>\n<blockquote>\n<p>When the application is installed, a permissions init container will be launched with <strong>root</strong> privileges\nto chown mounted paths to UID/GID 10001 (RustFS upstream non-root user). The main container then runs\nas a non-root user.</p>\n</blockquote>\n<h2>Deployment Mode</h2>\n<p>This chart runs RustFS in <strong>Single-Node Single-Disk (SNSD)</strong> mode. One data volume is mounted to <code>/data</code>.\nSNSD provides no erasure coding -- redundancy must come from the underlying storage (e.g. ZFS raidz/mirror).</p>\n<p>For multi-drive or distributed deployments, deploy RustFS outside this chart.</p>\n<h2>Default Storage Path</h2>\n<p>The default data path is <code>/mnt/Pool0/RustFS/volume1</code>. Create the parent dataset before deploying, or\nswitch the data storage type to <code>ixVolume</code> to have TrueNAS create the dataset automatically.</p>",
+        "detailed_readme": "<h1>RustFS Chart</h1>\n<p>S3-compatible object storage server (https://github.com/rustfs/rustfs) packaged for TrueNAS SCALE.</p>\n<h2>Configuration</h2>\n<p>| Parameter | Default | Notes |\n|---|---|---|\n| <code>image.tag</code> | <code>1.0.0-beta.8</code> | Pinned upstream tag |\n| <code>rustfsConfig.accessKey</code> | (required) | S3 access key, min 5 chars |\n| <code>rustfsConfig.secretKey</code> | (required) | S3 secret key, min 8 chars |\n| <code>rustfsConfig.consoleEnable</code> | <code>true</code> | Web console enabled |\n| <code>rustfsNetwork.apiPort</code> | <code>30100</code> | S3 API NodePort |\n| <code>rustfsNetwork.consolePort</code> | <code>30101</code> | Console NodePort |\n| <code>rustfsRunAs.user/group</code> | <code>10001</code> | Upstream container user |\n| <code>rustfsStorage.data.hostPathConfig.hostPath</code> | <code>/mnt/Pool0/RustFS/volume1</code> | Default data path |\n| <code>resources.limits.cpu</code> | <code>4000m</code> | CPU ceiling |\n| <code>resources.limits.memory</code> | <code>8Gi</code> | Memory ceiling |</p>\n<h2>Mode</h2>\n<p>Single-Node Single-Disk (SNSD). No erasure coding. Underlying ZFS provides redundancy.</p>\n<h2>Additional Storage</h2>\n<p><code>rustfsStorage.additionalStorages</code> mounts extra paths inside the container (logs, backups, etc.).\nThese are not RustFS data drives.</p>\n<h2>TLS</h2>\n<p>Not surfaced in the form. To enable, set <code>RUSTFS_TLS_PATH</code> via <code>additionalEnvs</code> and mount certs via\n<code>additionalStorages</code> at the matching container path.</p>",
         "changelog": null
     }
 }

@@ -8,9 +8,9 @@
         "required_features": [
             "definitions/nodeIP",
             "normalize/ixVolume",
-            "definitions/timezone",
+            "definitions/certificate",
             "normalize/acl",
-            "definitions/certificate"
+            "definitions/timezone"
         ],
         "human_version": "24.04.12.4.1_2.0.37",
         "version": "2.0.37",
