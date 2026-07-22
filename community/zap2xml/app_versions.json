@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.7",
         "last_update": "2026-03-02 23:41:11",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.3_1.0.7",
         "version": "1.0.7",
@@ -500,8 +500,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.6",
         "last_update": "2026-03-02 23:33:20",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.3_1.0.6",
         "version": "1.0.6",
@@ -994,8 +994,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.5",
         "last_update": "2026-02-22 17:39:46",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.2_1.0.5",
         "version": "1.0.5",
@@ -1488,8 +1488,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.4",
         "last_update": "2026-02-22 17:27:28",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.2_1.0.4",
         "version": "1.0.4",
@@ -1982,8 +1982,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.3",
         "last_update": "2026-02-22 17:19:09",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.2_1.0.3",
         "version": "1.0.3",
@@ -2475,8 +2475,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.2",
         "last_update": "2026-02-22 17:11:38",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.2_1.0.2",
         "version": "1.0.2",
@@ -2968,8 +2968,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.1",
         "last_update": "2026-02-22 16:52:20",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.2_1.0.1",
         "version": "1.0.1",
@@ -3462,8 +3462,8 @@
         "location": "/__w/ix-charts/ix-charts/community/zap2xml/1.0.0",
         "last_update": "2026-01-01 22:17:56",
         "required_features": [
-            "normalize/ixVolume",
-            "definitions/timezone"
+            "definitions/timezone",
+            "normalize/ixVolume"
         ],
         "human_version": "v2.2.0_1.0.0",
         "version": "1.0.0",
