@@ -1,0 +1,10 @@
+{{- include "ix.v1.common.loader.init" . -}}
+
+{{- $_ := mustMergeOverwrite .Values (include "rustfs.workload" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "rustfs.service" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "rustfs.persistence" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "rustfs.configuration" $ | fromYaml) -}}
+
+{{- include "rustfs.portal" $ -}}
+
+{{- include "ix.v1.common.loader.apply" . -}}
