@@ -6,8 +6,8 @@
         "location": "/__w/ix-charts/ix-charts/test/jellyfin/1.0.16",
         "last_update": "2025-08-12 16:55:15",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "normalize/ixVolume"
+            "normalize/ixVolume",
+            "definitions/gpuConfiguration"
         ],
         "human_version": "10.8.13_1.0.16",
         "version": "1.0.16",
