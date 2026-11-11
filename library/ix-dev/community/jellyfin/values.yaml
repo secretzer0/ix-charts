@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/secretzer0/jellyfin
+  repository: jellyfin/jellyfin
   pullPolicy: IfNotPresent
-  tag: master-12.0.0-99bae668
+  tag: "12.4"
 
 resources:
   limits:

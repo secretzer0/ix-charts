@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DatabaseConfigurationOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DatabaseType>Jellyfin-SQLite</DatabaseType>
+  <LockingBehavior>NoLock</LockingBehavior>
+  <CustomProviderOptions>
+    <PluginName>Jellyfin-SQLite</PluginName>
+    <PluginAssembly>Jellyfin.Database.Providers.Sqlite</PluginAssembly>
+    <ConnectionString></ConnectionString>
+    <Options>
+      <CustomDatabaseOption><Key>pooling</Key><Value>true</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>command-timeout</Key><Value>120</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>cacheSize</Key><Value>-262144</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>journalsizelimit</Key><Value>268435456</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>tempstoremode</Key><Value>2</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>syncmode</Key><Value>1</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>lockingmode</Key><Value>NORMAL</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>#PRAGMA:journal_mode</Key><Value>WAL</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>#PRAGMA:wal_autocheckpoint</Key><Value>10000</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>#PRAGMA:busy_timeout</Key><Value>15000</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>#PRAGMA:mmap_size</Key><Value>268435456</Value></CustomDatabaseOption>
+      <CustomDatabaseOption><Key>#PRAGMA:foreign_keys</Key><Value>ON</Value></CustomDatabaseOption>
+    </Options>
+  </CustomProviderOptions>
+</DatabaseConfigurationOptions>

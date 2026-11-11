@@ -1,0 +1,25 @@
+image:
+  repository: ghcr.io/seerr-team/seerr
+  pullPolicy: IfNotPresent
+  tag: v3.5.1
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+jellyseerrConfig:
+  additionalEnvs: []
+
+jellyseerrNetwork:
+  webPort: 30042
+  hostNetwork: false
+
+jellyseerrRunAs:
+  user: 1000
+  group: 1000
+
+jellyseerrStorage:
+  config:
+    type: ixVolume
+    datasetName: config

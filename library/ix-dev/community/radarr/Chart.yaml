@@ -3,9 +3,9 @@ description: Radarr is a movie collection manager for Usenet and BitTorrent user
 annotations:
   title: Radarr
 type: application
-version: 1.2.38
+version: 1.2.39
 apiVersion: v2
-appVersion: 6.4.3.10645
+appVersion: 7.0.2.10888
 kubeVersion: '>=1.16.0-0'
 maintainers:
   - name: truenas

@@ -4,9 +4,9 @@ description: Jellyseerr is a free and open source software application for manag
 annotations:
   title: Jellyseerr
 type: application
-version: 1.0.34
+version: 1.0.35
 apiVersion: v2
-appVersion: 3.4.1
+appVersion: 3.5.1
 kubeVersion: '>=1.16.0-0'
 maintainers:
   - name: truenas
